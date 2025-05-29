@@ -6,12 +6,24 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 
-Route::get('/test_component', function(){
+Route::get('/test_component', function () {
     return Inertia::render('test/TestComponent');
 });
 
 Route::get('/', function () {
-return Inertia::render('westernUniversityNew/Home');
+    $banners = Banner::where('position_code', 'HOME_SLIDE_TOP')->orderBy('order_index')->where('status', 'active')->get();
+    $middleSlide = Banner::where('position_code', 'HOME_MIDDLE_SLIDE')->orderBy('order_index')->where('status', 'active')->get();
+    $slideBottom = Banner::where('position_code', 'HOM_SLIDE_BOTTOM')->orderBy('order_index')->where('status', 'active')->get();
+    $WelcomeToWestern = Page::where('code', 'WELCOME_TO_WESTERN')->with('images')->first();
+    $Statistics = Page::where('code', 'STATISTICS')->with(['children.images'])->get();
+    // return $banners;
+    return Inertia::render('westernUniversityNew/Home', [
+        'banners' => $banners,
+        'middleSlide' => $middleSlide,
+        'slideBottom' => $slideBottom,
+        'WelcomeToWestern' => $WelcomeToWestern,
+        'Statistics' => $Statistics,
+    ]);
 });
 
 Route::get('/contact', function () {
@@ -19,7 +31,18 @@ Route::get('/contact', function () {
 });
 
 Route::get('/history_and_values', function () {
-        return Inertia::render('westernUniversityNew/About/HistoryAndValues');
+    $hestoryTitle= Page::where('code', 'HISTORY_AND_VALUES')->orderBy('order_index')->where('status', 'active')->first();
+    $ourHestory= Page::where('code', 'OUR_HISTORY')->with('images')->orderBy('order_index')->where('status', 'active')->first();
+    $vision= Page::where('code', 'OUR_VISION')->with('images')->orderBy('order_index')->where('status', 'active')->first();
+    $mission= Page::where('code', 'OUR_MISSION')->with('images')->orderBy('order_index')->where('status', 'active')->first();
+     //use get() result is it catch data to array [], use first() 
+//  return $mission;
+    return Inertia::render('westernUniversityNew/About/HistoryAndValues',[
+        'hestoryTitle' => $hestoryTitle,
+        'ourHestory' => $ourHestory,
+        'vision' => $vision,
+        'mission' => $mission,
+    ]);
 });
 
 Route::get('/campuses', function () {

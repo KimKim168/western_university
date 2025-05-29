@@ -1,27 +1,34 @@
-import React from 'react'
+import { usePage } from '@inertiajs/react';
+import React from 'react';
 
 const MyHeroHistory = () => {
+  const { ourHestory } = usePage().props;
+
   return (
-    <div className="flex items-center justify-center">
-      <div className="max-w-screen-xl w-full mx-auto grid md:flex gap-10 md:gap-12 px-6 mt-12">
-        <div>
-          <h1 className="max-w-[17ch] text-4xl md:text-5xl lg:text-[2.75rem] xl:text-5xl font-bold !leading-[1.2]">
-          Our Hestory
+    <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-xl mx-auto grid lg:grid-cols-2  gap-16">
+        {/* Text Section */}
+        <div className="text-gray-800">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6">
+            {ourHestory?.title}
           </h1>
-          <div className="my-10 border-[1.5px] border-black w-15 "/>
-          <p className="mt-6 max-w-[70ch] text-base text-gray-600">
-          Western International School (WIS) first opened its doors on September 1, 2003, and has experienced exponential growth every year. In 2003, we recruited 262 students from kindergarten to grade 11 with only 1 campus. For the Academic Year 2019-2020, nearly 7,561 students enrolled from Nursery to Grade 12 and we have 16 Campuses in Phnom Penh Takhmao and Sihanouk Branch.
-          </p>
-          
+          <div className="h-1 w-20 bg-black mb-8" />
+          <div
+            className="prose prose-gray max-w-[70ch] text-base"
+            dangerouslySetInnerHTML={{ __html: ourHestory?.long_description }}
+          />
         </div>
-        <div className="w-full md:flex-1 overflow-hidden " >
-            <img src="/assets/demo-images/Homepage/03_welcome_to_western_1.jpg" className="rounded-sm w-full h-[65%] object-cover aspect-square"/>
-            <p className='mt-4 text-red-600 text-lg font-bold font-noto-san-extra-light'>Western International School (WIS)</p>
-            <p className='text-gray-600 mt-5 text-base'>we recruited 262 students from kindergarten to grade 11 with only 1 campus. For the Academic Year 2019-2020</p>
+        {/* Image Section */}
+        <div className="w-full overflow-hidden aspect-[4/3] rounded-lg transform transition duration-500 hover:scale-105">
+          <img
+            src={`/assets/images/pages/${ourHestory?.images?.[0]?.image || 'default.jpg'}`}
+            alt={ourHestory?.title || 'History image'}
+            className="w-full h-full object-cover "
+          />
         </div>
       </div>
-    </div>
-  )
-}
+    </section>
+  );
+};
 
 export default MyHeroHistory;

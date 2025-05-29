@@ -1,9 +1,9 @@
 'use client';
 import { usePage } from '@inertiajs/react';
 import { useState } from 'react';
-const MyHeroBottomHistory = () => {
-  const { vision } = usePage().props;
-  console.log(vision)
+const MyMission = () => {
+  const { mission } = usePage().props;
+  console.log(mission)
   //  const images = [
   //   "/assets/demo-images/Homepage/03_welcome_to_western_1.jpg",
   //   "/assets/demo-images/Homepage/03_welcome_to_western_3.jpg",
@@ -13,15 +13,15 @@ const MyHeroBottomHistory = () => {
   
     const handleClose = () => setCurrentIndex(null);
     const showPrev = () =>
-      setCurrentIndex((prev) => (prev === 0 ? vision?.images?.length - 1 : prev - 1));
+      setCurrentIndex((prev) => (prev === 0 ? mission?.images?.length - 1 : prev - 1));
     const showNext = () =>
-      setCurrentIndex((prev) => (prev === vision?.images?.length - 1 ? 0 : prev + 1));
+      setCurrentIndex((prev) => (prev === mission?.images?.length - 1 ? 0 : prev + 1));
   
   return (
      <>
      <div className="max-w-screen-xl mx-auto px-6 xl:px-0">
       <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {vision?.images?.map((img, index) => (
+        {mission?.images?.map((img, index) => (
           <div
             key={index}
             className="w-full aspect-video overflow-hidden rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
@@ -56,7 +56,7 @@ const MyHeroBottomHistory = () => {
           {/* Main image */}
           <div className="relative z-40 max-w-4xl w-full px-4">
             <img
-             src={`/assets/images/pages/${vision?.images[currentIndex]?.image}`}
+             src={`/assets/images/pages/${mission?.images[currentIndex]?.image}`}
               alt={`Popup ${currentIndex}`}
               className="w-full h-auto rounded-xl shadow-xl border-4 border-white"
             />
@@ -72,7 +72,7 @@ const MyHeroBottomHistory = () => {
 
           {/* Thumbnails */}
           <div className="mt-6 flex gap-4 overflow-x-auto px-6 pb-4 z-50">
-            {vision?.images?.map((thumb, index) => (
+            {mission?.images?.map((thumb, index) => (
               <img
                 key={index}
                 src={`/assets/images/pages/${thumb.image}`}
@@ -90,13 +90,13 @@ const MyHeroBottomHistory = () => {
       )}
     </div>
     <div className="mb-12 flex items-center justify-center">
-      <div className="max-w-screen-xl w-full mx-auto flex gap-12 px-6 xl:px-0 py-12">
+      <div className="max-w-screen-xl w-full mx-auto flex gap-12 px-6 py-12">
         <div>
           <h1 className="max-w-[17ch] text-4xl md:text-5xl lg:text-[2.75rem] xl:text-5xl font-bold !leading-[1.2]">
-          {vision?.title}
+          {mission?.title}
           </h1>
           <div className="my-10 border-[1.5px] border-black w-15 "/>
-          <p className="mt-6 max-w-[70ch] text-base text-gray-600 prose whitespace-pre-line" dangerouslySetInnerHTML={{__html:vision?.short_description}}/>
+          <p className="mt-6 max-w-[70ch] text-base text-gray-600 prose whitespace-pre-line" dangerouslySetInnerHTML={{__html:mission?.long_description}}/>
         </div>
       </div>
     </div>
@@ -104,4 +104,4 @@ const MyHeroBottomHistory = () => {
   )
 }
 
-export default MyHeroBottomHistory;
+export default MyMission;

@@ -93,11 +93,11 @@ const MyTableData = () => {
                                     <ArrowUpDown size={16} /> {t('Type')}
                                 </span>
                             </TableHead>
-                            <TableHead onClick={() => handleSort('position_code')}>
+                            {/* <TableHead onClick={() => handleSort('position_code')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Position Code')}
                                 </span>
-                            </TableHead>
+                            </TableHead> */}
                             <TableHead onClick={() => handleSort('created_at')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Created at')}
@@ -211,7 +211,7 @@ const MyTableData = () => {
                                 </TableCell>
                                 <TableCell>{item.parent?.title || '---'}</TableCell>
                                 <TableCell>{item.type || '---'}</TableCell>
-                                <TableCell>{item.position_code || '---'}</TableCell>
+                                {/* <TableCell>{item.position_code || '---'}</TableCell> */}
                                 <TableCell>
                                     {item.created_at
                                         ? new Date(item.created_at).toLocaleDateString('en-UK', {

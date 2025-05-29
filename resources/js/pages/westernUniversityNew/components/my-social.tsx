@@ -1,69 +1,20 @@
-import {
-  IconBrandX,
-  IconBrandYoutube,
-  IconBrandFacebook,
-  IconBrandSnapchat,
-  IconBrandTelegram,
-} from "@tabler/icons-react";
 import { FloatingDock } from "./ui/floating-dock";
+import { usePage } from "@inertiajs/react";
 
 export function MySocial() {
-  const links = [
-    {
-      title: "Facebook",
-      icon: (
-        <IconBrandFacebook className="h-full w-full text-blue-950 dark:text-neutral-300" />
-      ),
-      href: "https://www.facebook.com/",
-    },
+  const { links } = usePage().props;
 
-    {
-      title: "Telegram",
-      icon: (
-        <IconBrandTelegram className="h-full w-full text-blue-950 dark:text-neutral-300" />
-      ),
-      href: "https://telegram.org/",
-    },
-    {
-      title: "Snapchat",
-      icon: (
-        <IconBrandSnapchat className="h-full w-full text-blue-950 dark:text-neutral-300" />
-      ),
-      href: "https://www.snapchat.com",
-    },
-    // {
-    //   title: "Aceternity UI",
-    //   icon: (
-    //     <img
-    //       src="https://assets.aceternity.com/logo-dark.png"
-    //       width={20}
-    //       height={20}
-    //       alt="Aceternity Logo"
-    //     />
-    //   ),
-    //   href: "#",
-    // },
-    {
-      title: "Youtube",
-      icon: (
-        <IconBrandYoutube className="h-full w-full text-blue-950 dark:text-neutral-300" />
-      ),
-      href: "https://www.youtube.com",
-    },
+  const social_links = links?.map((item) => ({
+    title: item.title,
+    image: item.image, // e.g., "1748313444_facebook.webp"
+    href: item.link,
+  }));
 
-    // {
-    //   title: "Twitter",
-    //   icon: (
-    //     <IconBrandX className="h-full w-full text-blue-950 dark:text-neutral-300" />
-    //   ),
-    //   href: "#",
-    // },
-  ];
   return (
-    <div className="flex items-center ">
+    <div className="flex items-center">
       <FloatingDock
-        mobileClassName="translate-y-20" // only for demo, remove for production
-        items={links}
+        desktopClassName="translate-y-2"
+        items={social_links}
       />
     </div>
   );

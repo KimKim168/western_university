@@ -1,20 +1,19 @@
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { Mail, MapPin, Phone} from 'lucide-react';
 import { MySocial } from './my-social';
 
 const Footer03Page = () => {
+    const { application_info } = usePage().props;
     return (
         <div className="flex flex-col border-t border-gray-200">
             <div className="bg-muted grow" />
             <footer>
                 <div className="mx-auto max-w-screen-xl">
                     <div className="grid grid-cols-1 gap-x-8 gap-y-10 px-6 py-12 xl:grid-cols-3 xl:px-0">
-                        <Link href={'http://western.kimsoreya.site/'} className="col-span-full w-32 text-center xl:col-span-1">
+                        <Link href='/' className="col-span-full w-32 text-center xl:col-span-1">
                             {/* Logo */}
-                            <img src="/assets/demo-images/Homepage/01_Logo_WIS.png" />
+                            <img src={`assets/images/application_info/${application_info?.image}`} />
                         </Link>
 
                         <div>
@@ -27,20 +26,20 @@ const Footer03Page = () => {
                                 <li className="flex items-center gap-2">
                                     <Phone className="mr-2 inline-block h-5 w-5 text-blue-900" fill="#1c398e" />
                                     <Link href="#" className="text-muted-foreground hover:text-foreground">
-                                        016 699 192
+                                       {application_info?.phone}
                                     </Link>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <MapPin className="mr-2 inline-block h-5 w-5 text-blue-900" />
-                                    <Link href="#" className="text-muted-foreground hover:text-foreground">
-                                        #20, St. 598C,Phnom Penh Thmey,Sen Sok, Cambodia
-                                    </Link>
+                                    <a href={application_info?.google_map} className="text-muted-foreground hover:text-foreground">
+                                       {application_info?.address}
+                                    </a>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <Mail className="mr-2 inline-block h-5 w-5 text-blue-900" />
-                                    <Link href="#" className=" text-red-800 hover:text-foreground">
-                                        info@western.edu.kh
-                                    </Link>
+                                    <p className=" text-red-800 hover:text-foreground">
+                                        {application_info?.email}
+                                    </p>
                                 </li>
                             </ul>
                         </div>
@@ -51,10 +50,10 @@ const Footer03Page = () => {
                             <div className="relative mt-2 mb-4 h-[1px] w-full bg-gray-200">
                                 <div className="absolute top-0 left-0 h-full bg-red-700" style={{ width: '20%' }} />
                             </div>
-                            <p className="text-muted-foreground hover:text-foreground mt-4">
+                            {/* <p className="text-muted-foreground hover:text-foreground mt-4">
                                 Enter your email address to get the latest University news, special events and student activities delivered right to
                                 your inbox.
-                            </p>
+                            </p> */}
                             <div className="mt-4 flex items-center gap-5">
                                 <MySocial/>
                             </div>
@@ -68,11 +67,7 @@ const Footer03Page = () => {
             <div className="flex flex-col-reverse items-center justify-between bg-blue-950 px-6 py-2 sm:flex-row lg:px-16">
                 {/* Copyright */}
                 <span className="text-white">
-                    &copy; {new Date().getFullYear()}{' '}
-                    <Link href="/" target="_blank">
-                    Western International School
-                    </Link>
-                    . All Rights Reserved.
+                   {application_info?.copyright}
                 </span>
             </div>
         </div>

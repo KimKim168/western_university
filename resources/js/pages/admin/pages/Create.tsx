@@ -75,7 +75,8 @@ export default function Create() {
             order_index: editData?.order_index?.toString() || '',
             status: editData?.status || 'active',
             parent_id: editData?.parent_id?.toString() || '',
-            position_code: editData?.position_code?.toString() || pagePositions[0]?.code || '',
+            // position_code: editData?.position_code?.toString() || pagePositions[0]?.code || '', //Defualt Select index[0]
+            position_code: editData?.position_code?.toString() || ''
         },
     });
 

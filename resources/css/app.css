@@ -18,6 +18,10 @@
     }
 }
 
+.custom-h1 {
+    color: red !important;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;

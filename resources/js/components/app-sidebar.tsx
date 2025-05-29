@@ -154,7 +154,6 @@ export function AppSidebar() {
             icon: AppWindowIcon,
             url: '/admin/pages',
         },
-
         // {
         //     title: t('Posts'),
         //     permission: 'post view',
@@ -285,6 +284,12 @@ export function AppSidebar() {
                 },
             ],
         },
+        //  {
+        //     title: t('Banners'),
+        //     permission: 'banner view',
+        //     url: '/admin/banners',
+        //     icon: GalleryThumbnailsIcon,
+        // },
         {
             title: t('Users'),
             permission: 'user view',
