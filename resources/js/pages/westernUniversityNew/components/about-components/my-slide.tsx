@@ -43,7 +43,7 @@ const MySlide = ({ className, images = [] }: { className?: string; images?: any 
                                         }`}
                                         // width={1050}
                                         // height={300}
-                                        src={image.image}
+                                        src={`/assets/images/pages/${image.image}`}
                                         alt={image.name}
                                     />
                                 </Link>

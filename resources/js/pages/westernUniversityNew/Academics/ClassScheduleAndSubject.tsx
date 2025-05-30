@@ -3,11 +3,13 @@ import MyNewLayout from '../layout/MyLayout'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Slash } from 'lucide-react';
 import MyClassSchedule from '../components/academic-components/my-class-schedule';
+import { usePage } from '@inertiajs/react';
 const ClassScheduleAndSubject = () => {
+    const { schedulesAndSubjects } = usePage().props;
   return (
     <MyNewLayout>
     <div className="relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20">
-           <p className="font-noto-san-extra-light text-3xl md:text-6xl">Class Schedules And Subjects</p>
+           <p className="font-noto-san-extra-light text-3xl md:text-6xl">{schedulesAndSubjects?.title}</p>
            <div className="mt-10">
                <Breadcrumb>
                    <BreadcrumbList>
@@ -29,14 +31,14 @@ const ClassScheduleAndSubject = () => {
                        </BreadcrumbSeparator>
                        <BreadcrumbItem>
                            <BreadcrumbLink href="#/history_and_values" className="text-gray-400">
-                           Class Schedules And Subjects
+                          {schedulesAndSubjects?.title}
                            </BreadcrumbLink>
                        </BreadcrumbItem>
                    </BreadcrumbList>
                </Breadcrumb>
            </div>
    </div>
-   <MyClassSchedule/>
+   <MyClassSchedule  schedulesAndSubjects = {schedulesAndSubjects}/>
 </MyNewLayout>
   )
 }

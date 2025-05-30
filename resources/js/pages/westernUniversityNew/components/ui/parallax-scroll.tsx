@@ -3,55 +3,53 @@
 import { cn } from "@/lib/utils";
 
 type ImageItem = {
-  src: string;
+  image: string;
   title: string;
-  description: string;
-  phone: string;
-  email: string;
+  long_description: string;
+  images: { image: string }[];
+  type?: string;
+  link?: string;
+  content?: string;
 };
 
-export const ParallaxScroll = ({
-  images,
-  className,
-}: {
+type ParallaxScrollProps = {
   images: ImageItem[];
   className?: string;
-}) => {
-  const third = Math.ceil(images.length / 3);
-  const firstPart = images.slice(0, third);
-  const secondPart = images.slice(third, 2 * third);
-  const thirdPart = images.slice(2 * third);
+};
 
-  const renderImageCard = (el: ImageItem, idx: number, keyPrefix: string) => (
-    <div key={`${keyPrefix}-${idx}`}>
-      <div className="rounded-lg overflow-hidden shadow-md">
-        <img
-          src={el.src}
-          className="h-80 w-full object-cover object-center"
-          alt={el.title}
-        />
-        <div className="bg-white p-4 text-sm text-gray-700">
-          <h3 className="text-lg font-semibold mb-2">{el.title}</h3>
-          <p>{el.description}</p>
-          <p>{el.phone}</p>
-          <p>{el.email}</p>
-        </div>
+export const ParallaxScroll = ({ images, className }: ParallaxScrollProps) => {
+  const renderImageCard = (item: ImageItem, idx: number) => {
+    const imgSrc = `/assets/images/pages/${item.images[0]?.image}`;
+    const href = item.type ? item.link : item.content;
+
+    return (
+      <div key={idx} className="w-full group">
+        <a href={href} className="block h-full">
+          <div className="flex flex-col h-full rounded-2xl overflow-hidden bg-white shadow-md transform transition duration-300 ease-in-out group-hover:scale-[1.02] group-hover:shadow-xl">
+            <div className="overflow-hidden">
+              <img
+                src={imgSrc}
+                alt={item.title}
+                className="h-64 w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div className="flex flex-col flex-1 p-5 text-gray-800">
+              <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+              <p
+                className="prose prose-base whitespace-pre-line text-base text-gray-600 line-clamp-[10]"
+                dangerouslySetInnerHTML={{ __html: item.long_description }}
+              />
+            </div>
+          </div>
+        </a>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div className={cn("w-full", className)}>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start max-w-screen-xl mx-auto gap-10 py-12 px-6 mb-20">
-        <div className="grid gap-10">
-          {firstPart.map((el, idx) => renderImageCard(el, idx, "grid-1"))}
-        </div>
-        <div className="grid gap-10">
-          {secondPart.map((el, idx) => renderImageCard(el, idx, "grid-2"))}
-        </div>
-        <div className="grid gap-10">
-          {thirdPart.map((el, idx) => renderImageCard(el, idx, "grid-3"))}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 max-w-screen-2xl mx-auto px-6 xl:px-16 pt-12 pb-20">
+        {images.map((item, idx) => renderImageCard(item, idx))}
       </div>
     </div>
   );

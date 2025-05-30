@@ -25,13 +25,13 @@ export const MenuItem = ({
 }) => {
   return (
     <div onMouseEnter={() => setActive(item)} className="relative">
-      <motion.a
+      <motion.div
         transition={{ duration: 0.3 }}
         className={`text-base px-2 py-11 cursor-pointer font-noto-san-extra-light font-bold hover:text-red-800 text-black dark:text-white hover:opacity-90 flex gap-0.5 items-center`}
       >
         {item}
         <ChevronUp className="h-3 w-3 stroke-3 text-black dark:text-gray-300 transition-transform duration-300 rotate-180" />
-      </motion.a>
+      </motion.div>
 
       {active === item && (
         <motion.div

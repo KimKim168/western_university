@@ -31,26 +31,49 @@ Route::get('/contact', function () {
 });
 
 Route::get('/history_and_values', function () {
-    $hestoryTitle= Page::where('code', 'HISTORY_AND_VALUES')->orderBy('order_index')->where('status', 'active')->first();
-    $ourHestory= Page::where('code', 'OUR_HISTORY')->with('images')->orderBy('order_index')->where('status', 'active')->first();
-    $vision= Page::where('code', 'OUR_VISION')->with('images')->orderBy('order_index')->where('status', 'active')->first();
-    $mission= Page::where('code', 'OUR_MISSION')->with('images')->orderBy('order_index')->where('status', 'active')->first();
-     //use get() result is it catch data to array [], use first() 
-//  return $mission;
-    return Inertia::render('westernUniversityNew/About/HistoryAndValues',[
+    $hestoryTitle = Page::where('code', 'HISTORY_AND_VALUES')->orderBy('order_index')->where('status', 'active')->first();
+    $ourHestory = Page::where('code', 'OUR_HISTORY')->with('images')->orderBy('order_index')->where('status', 'active')->first();
+    $vision = Page::where('code', 'OUR_VISION')->with('images')->orderBy('order_index')->where('status', 'active')->first();
+    $mission = Page::where('code', 'OUR_MISSION')->with('images')->orderBy('order_index')->where('status', 'active')->first();
+    $valuesWiscare = Page::where('code', 'VALUES_WISCARE')->with([
+            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+        ])
+        ->where('status', 'active')->first();
+    //use get() result is it catch data to array [], use first() 
+    // return $valuesWiscare;
+    return Inertia::render('westernUniversityNew/About/HistoryAndValues', [
         'hestoryTitle' => $hestoryTitle,
         'ourHestory' => $ourHestory,
         'vision' => $vision,
         'mission' => $mission,
+        'valuesWiscare' => $valuesWiscare,
     ]);
 });
 
 Route::get('/campuses', function () {
-    return Inertia::render('westernUniversityNew/About/Campuses');
+    $campuses = Page::where('code', 'CAMPUSES')
+        ->with([
+            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+        ]) 
+        ->where('status', 'active')
+        ->first();
+    // return $campuses;
+    return Inertia::render('westernUniversityNew/About/Campuses',[
+        'campuses' =>$campuses,
+    ]);
 });
 
 Route::get('/school_facilities', function () {
-    return Inertia::render('westernUniversityNew/About/SchoolFacilities');
+    $schoolFacilities = Page::where('code', 'SCHOOL_FACILITIES')
+        ->with([
+            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+        ]) 
+        ->where('status', 'active')
+        ->first();
+    // return $schoolFacilities;
+    return Inertia::render('westernUniversityNew/About/SchoolFacilities', [
+        'schoolFacilities' => $schoolFacilities,
+    ]);
 });
 
 Route::get('/student_council', function () {
@@ -66,15 +89,32 @@ Route::get('/school_calendar', function () {
 });
 
 Route::get('/programs', function () {
-    return Inertia::render('westernUniversityNew/Academics/Programs');
+    $programs = Page::where('code', 'PROGRAMS')
+        ->with([
+            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+        ]) 
+        ->where('status', 'active')
+        ->first();
+    // return $programs;
+    return Inertia::render('westernUniversityNew/Academics/Programs',[
+        'programs' => $programs,
+    ]);
 });
 
 Route::get('/class_schedules_and_subjects', function () {
-    return Inertia::render('westernUniversityNew/Academics/ClassScheduleAndSubject');
+    $schedulesAndSubjects = Page::where('code', 'CLASS_SCHEDULES_AND_SUBJECTS')->where('status', 'active')->first();
+    // return $schedulesAndSubjects;
+    return Inertia::render('westernUniversityNew/Academics/ClassScheduleAndSubject',[
+        'schedulesAndSubjects' => $schedulesAndSubjects,
+    ]);
 });
 
 Route::get('/admissions', function () {
-    return Inertia::render('westernUniversityNew/Admission/Index');
+    $admissions = Page::where('code', 'ADMISSIONS')->where('status', 'active')->first();
+    // return $admissions;
+    return Inertia::render('westernUniversityNew/Admission/Index',[
+        'admissions' => $admissions,
+    ]);
 });
 
 Route::get('/news', function () {

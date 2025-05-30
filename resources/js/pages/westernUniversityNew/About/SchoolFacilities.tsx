@@ -2,13 +2,15 @@ import { Slash } from 'lucide-react';
 import MyNewLayout from '../layout/MyLayout'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import MySchoolFacility from '../components/about-components/my-school-facility';
+import { usePage } from '@inertiajs/react';
 
 
 const SchoolFacilities = () => {
+    const { schoolFacilities } = usePage().props;
   return (
    <MyNewLayout>
          <div className="relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20">
-                <p className="font-noto-san-extra-light text-3xl md:text-6xl">School Facilities</p>
+                <p className="font-noto-san-extra-light text-3xl md:text-6xl">{schoolFacilities?.title}</p>
                 <div className="mt-10">
                     <Breadcrumb>
                         <BreadcrumbList>
@@ -30,14 +32,14 @@ const SchoolFacilities = () => {
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="#/history_and_values" className="text-gray-400">
-                                    School Facilities
+                                    {schoolFacilities?.title}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                         </BreadcrumbList>
                     </Breadcrumb>
                 </div>
             </div>
-            <MySchoolFacility/>
+            <MySchoolFacility schoolFacilitiesChildren={schoolFacilities?.children} />
    </MyNewLayout>
   )
 }

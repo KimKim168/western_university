@@ -5,6 +5,7 @@ import MyHeroBottomHistory from '../components/about-components/my-hero-bottom-h
 import MyHeroHistory from '../components/about-components/my-hero-history';
 import MyNewLayout from '../layout/MyLayout';
 import MyMission from '../components/about-components/my-mission';
+import MyValuesWiscare from './my_values_wiscare';
 
 const HistoryAndValues = () => {
     const { hestoryTitle } = usePage().props;
@@ -48,6 +49,9 @@ const HistoryAndValues = () => {
             {/* Start mission */}
             <MyMission/>
             {/* End mission */}
+            {/* Start values wiscare */}
+            <MyValuesWiscare/>
+            {/* End values wiscare */}
         </MyNewLayout>
     );
 };
