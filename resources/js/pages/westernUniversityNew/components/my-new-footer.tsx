@@ -3,7 +3,7 @@ import { Link, usePage } from '@inertiajs/react';
 import { Mail, MapPin, Phone} from 'lucide-react';
 import { MySocial } from './my-social';
 
-const Footer03Page = () => {
+const MyNewFooter = () => {
     const { application_info } = usePage().props;
     return (
         <div className="flex flex-col border-t border-gray-200">
@@ -13,7 +13,7 @@ const Footer03Page = () => {
                     <div className="grid grid-cols-1 gap-x-8 gap-y-10 px-6 py-12 xl:grid-cols-3 xl:px-0">
                         <Link href='/' className="col-span-full w-32 text-center xl:col-span-1">
                             {/* Logo */}
-                            <img src={`assets/images/application_info/${application_info?.image}`} />
+                            <img src={`/assets/images/application_info/${application_info?.image}`} />
                         </Link>
 
                         <div>
@@ -74,4 +74,4 @@ const Footer03Page = () => {
     );
 };
 
-export default Footer03Page;
+export default MyNewFooter;

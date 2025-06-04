@@ -9,17 +9,17 @@ const MyTopSection = () => {
         {/* Left Section */}
         <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-4 lg:gap-6">
           <div className="flex items-center space-x-2">
-            <img src="assets/demo-images/icons8-call-80.png" className="w-5" />
+            <img src="/assets/demo-images/icons8-call-80.png" className="w-5" />
             <span>{application_info?.phone}</span>
           </div>
           <div className="flex items-center space-x-2 max-w-xs sm:max-w-md lg:max-w-full">
-            <img src="assets/demo-images/icons8-location-80.png" className="w-5" />
+            <img src="/assets/demo-images/icons8-location-80.png" className="w-5" />
             <span>
              {application_info?.address}
             </span>
           </div>
            <div className="flex items-center space-x-2">
-            <img src="assets/demo-images/icons8-mail-80.png" className="w-5" />
+            <img src="/assets/demo-images/icons8-mail-80.png" className="w-5" />
             <span>{application_info?.email}</span>
           </div>
         </div>
@@ -28,7 +28,7 @@ const MyTopSection = () => {
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:gap-6">
          
           <div className="flex items-center space-x-2">
-            <img src="assets/demo-images/icons8-login-80.png" className="w-5" />
+            <img src="/assets/demo-images/icons8-login-80.png" className="w-5" />
             <a href="/login" className="hover:text-white">Login/Register</a>
           </div>
         </div>

@@ -226,7 +226,7 @@ Route::get('/outreach_programs', function () {
     ]);
 });
 
-Route::get('/programs/detail/{id}', function ($id) {
+Route::get('/detail/{id}', function ($id) {
     return Inertia::render('westernUniversityNew/Academics/Detail', [
         'id' => $id,
     ]);

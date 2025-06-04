@@ -13,10 +13,10 @@ const MyEvent = () => {
                         <div className="relative">
                             <img className="aspect-[9/10] w-full object-cover" src="/assets/demo-images/banner3.jpg" alt="Event Image" />
                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-blue-950/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                {/* <a href="#" className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
+                                {/* <a href={`/detail/${1}`} className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
                                     Book Now
                                 </a> */}
-                                <a href="#" className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
+                                <a href={`/detail/${1}`} className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
                                     Learn More
                                 </a>
                             </div>
@@ -43,10 +43,10 @@ const MyEvent = () => {
                         <div className="relative">
                             <img className="aspect-[9/10] w-full object-cover" src="/assets/demo-images/courses3.jpg" alt="Event Image" />
                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-blue-950/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                {/* <a href="#" className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
+                                {/* <a href={`/detail/${1}`} className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
                                     Book Now
                                 </a> */}
-                                <a href="#" className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
+                                <a href={`/detail/${1}`} className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
                                     Learn More
                                 </a>
                             </div>
@@ -75,10 +75,10 @@ const MyEvent = () => {
                         <div className="relative">
                             <img className="aspect-[9/10] w-full object-cover" src="/assets/demo-images/banner3.jpg" alt="Event Image" />
                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-blue-950/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                {/* <a href="#" className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
+                                {/* <a href={`/detail/${1}`} className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
                                     Book Now
                                 </a> */}
-                                <a href="#" className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
+                                <a href={`/detail/${1}`} className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
                                     Learn More
                                 </a>
                             </div>
@@ -105,10 +105,10 @@ const MyEvent = () => {
                         <div className="relative">
                             <img className="aspect-[9/10] w-full object-cover" src="/assets/demo-images/courses2.jpg" alt="Event Image" />
                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-blue-950/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                {/* <a href="#" className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
+                                {/* <a href={`/detail/${1}`} className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
                                     Book Now
                                 </a> */}
-                                <a href="#" className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
+                                <a href={`/detail/${1}`} className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
                                     Learn More
                                 </a>
                             </div>
@@ -135,10 +135,10 @@ const MyEvent = () => {
                         <div className="relative">
                             <img className="aspect-[9/10] w-full object-cover" src="/assets/demo-images/banner3.jpg" alt="Event Image" />
                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-blue-950/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                {/* <a href="#" className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
+                                {/* <a href={`/detail/${1}`} className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
                                     Book Now
                                 </a> */}
-                                <a href="#" className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
+                                <a href={`/detail/${1}`} className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
                                     Learn More
                                 </a>
                             </div>
@@ -165,10 +165,10 @@ const MyEvent = () => {
                         <div className="relative">
                             <img className="aspect-[9/10] w-full object-cover" src="/assets/demo-images/courses3.jpg" alt="Event Image" />
                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-blue-950/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                {/* <a href="#" className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
+                                {/* <a href={`/detail/${1}`} className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
                                     Book Now
                                 </a> */}
-                                <a href="#" className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
+                                <a href={`/detail/${1}`} className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
                                     Learn More
                                 </a>
                             </div>
@@ -197,10 +197,10 @@ const MyEvent = () => {
                         <div className="relative">
                             <img className="aspect-[9/10] w-full object-cover" src="/assets/demo-images/banner3.jpg" alt="Event Image" />
                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-blue-950/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                {/* <a href="#" className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
+                                {/* <a href={`/detail/${1}`} className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
                                     Book Now
                                 </a> */}
-                                <a href="#" className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
+                                <a href={`/detail/${1}`} className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
                                     Learn More
                                 </a>
                             </div>
@@ -227,10 +227,10 @@ const MyEvent = () => {
                         <div className="relative">
                             <img className="aspect-[9/10] w-full object-cover" src="/assets/demo-images/courses2.jpg" alt="Event Image" />
                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-blue-950/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                {/* <a href="#" className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
+                                {/* <a href={`/detail/${1}`} className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
                                     Book Now
                                 </a> */}
-                                <a href="#" className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
+                                <a href={`/detail/${1}`} className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
                                     Learn More
                                 </a>
                             </div>
