@@ -55,16 +55,14 @@ const teamMembers = [
 
 ];
 
-const MyOutreachProgram = () => {
+const MyOutreachProgram = ({outreachPrograms}:{outreachPrograms:any}) => {
   return (
     <div className="flex flex-col justify-center py-8 sm:py-12 px-6 lg:px-8 max-w-screen-xl mx-auto gap-16">
-      <div className="text-center max-w-5xl mx-auto">
-        <h2 className="mt-3 tex-sta text-4xl sm:text-5xl font-bold tracking-tight">
-        Outreach Programs
+      <div >
+        <h2 className="mt-3 text-center text-4xl sm:text-5xl font-bold tracking-tight">
+        {outreachPrograms?.title}
         </h2>
-        <p className="mt-6 text-start text-base sm:text-lg">
-        Western International School management and students participate in Outreach Programs and help provide schools with necessary materials such as books, bags, water filters, and others that will be helpful for the children's studies. Our students feel the joy of sharing their love through this outreach and we hope that these programs will help them understand the importance of sharing and reaching out to those who are in need.
-        </p>
+       <p className="mt-6 text-start prose max-w-none whitespace-pre-line" dangerouslySetInnerHTML={{ __html: outreachPrograms?.long_description }} />
       </div>
 
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">

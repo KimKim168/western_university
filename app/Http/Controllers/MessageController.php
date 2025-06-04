@@ -71,12 +71,15 @@ class MessageController extends Controller implements HasMiddleware
 
             DB::commit();
 
-            $result = TelegramHelper::sendMessage($message);
-            if ($result['success']) {
-                return back()->with('success', 'Message placed successfully!');
-            } else {
-                return back()->with('error', $result['message']);
-            }
+return back()->with('success', 'Message placed successfully!');
+
+
+            // $result = TelegramHelper::sendMessage($message);
+            // if ($result['success']) {
+            //     return back()->with('success', 'Message placed successfully!');
+            // } else {
+            //     return back()->with('error', $result['message']);
+            // }
         } catch (\Exception $e) {
             DB::rollback();
 

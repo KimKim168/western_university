@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Link } from '@inertiajs/react';
-import { AlignLeftIcon, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '../ui/button';
 import { HoveredLink, Menu, MenuItem } from '../ui/navbar-menu';
@@ -16,20 +16,21 @@ export function MyNavMenu({ className }: { className?: string }) {
                     <div className="hidden xl:block">
                         <div className='flex items-center gap-2'>
                         <Menu setActive={setActive}>
-                            <Link href={`/`} >
-                                <p className='text-base px-6 py-0.5 font-noto-san-extra-light font-black cursor-pointer text-black hover:opacity-[0.9] dark:text-white flex gap-0.5 items-center hover:text-red-800'>Home</p>
+                             <Link href={`/`}>
+                                <MenuItem setActive={setActive} active={active} item="Home"  subRoutes={["/"]} >
+                                </MenuItem> 
                             </Link>
                             <Link href={`#`}>
-                                <MenuItem setActive={setActive} active={active} item="About" >
+                                <MenuItem setActive={setActive} active={active} item="About"  subRoutes={["/history_and_values", "/school_facilities", "/campuses"]} >
                                     <div className="flex flex-col space-y-4 text-sm">
-                                        <HoveredLink href="/history_and_values" to={'/history_and_values'}>History and Values</HoveredLink>
+                                        <HoveredLink href="/history_and_values" >History and Values</HoveredLink>
                                         <HoveredLink href="/school_facilities">School Facilities</HoveredLink>
                                         <HoveredLink href="/campuses">Campuses</HoveredLink>
                                     </div>
                                 </MenuItem> 
                             </Link>
-                            <Link href={`/#`}>
-                                <MenuItem setActive={setActive} active={active} item="Academics">
+                            <Link href={`#`}>
+                                <MenuItem setActive={setActive} active={active} item="Academics" subRoutes={["/curriculum", "/programs", "/class_schedules_and_subjects", "/school_calendar"]}>
                                     <div className="flex flex-col space-y-4 text-sm">
                                         <HoveredLink href="/curriculum">Curriculum</HoveredLink>
                                         <HoveredLink href="/programs">Programs</HoveredLink>
@@ -39,16 +40,13 @@ export function MyNavMenu({ className }: { className?: string }) {
                                 </MenuItem>
                             </Link>
 
-                            <Link href={`/Admissions`}>
-                                <MenuItem setActive={setActive} active={active} item="Admissions">
-                                    <div className="flex flex-col space-y-4 text-sm">
-                                        <HoveredLink href="/admissions">Admissions</HoveredLink>
-                                    </div>
-                                </MenuItem>
+                              <Link href={`/admissions`}>
+                                <MenuItem setActive={setActive} active={active} item="Admissions"  subRoutes={["/admissions"]} >
+                                </MenuItem> 
                             </Link>
 
-                            <Link href={`/#`}>
-                                <MenuItem setActive={setActive} active={active} item="School Life">
+                            <Link href={`#`}>
+                                <MenuItem setActive={setActive} active={active} item="School Life" subRoutes={["/activities_and_events", "/extracurricular_activities", "/outreach_programs", "/student_council", "/news"]}>
                                     <div className="flex flex-col space-y-4 text-sm">
                                         <HoveredLink href="/activities_and_events">Activities And Events</HoveredLink>
                                         <HoveredLink href="/extracurricular_activities">Extracurricular Activities</HoveredLink>
@@ -58,10 +56,10 @@ export function MyNavMenu({ className }: { className?: string }) {
                                     </div>
                                 </MenuItem>
                             </Link>
-                            <Link href={`/contact`} className='text-base px-6 py-0.5 font-noto-san-extra-light font-black cursor-pointer text-black hover:opacity-[0.9] dark:text-white flex gap-0.5 items-center hover:text-red-800'>
-                                Contact
+                             <Link href={`/contact`}>
+                                <MenuItem setActive={setActive} active={active} item="Contact"  subRoutes={["/contact"]} >
+                                </MenuItem> 
                             </Link>
-                            
                         </Menu>
                         <div>
                          <Sheet>

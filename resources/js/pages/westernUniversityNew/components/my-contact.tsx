@@ -6,10 +6,18 @@ import { Textarea } from '@/components/ui/textarea';
 import { Separator } from "@/components/ui/separator";
 import { CalendarClockIcon, Mail, MapPin, Phone } from 'lucide-react';
 import { MySocial } from './my-social';
+import { usePage } from '@inertiajs/react';
+import { MyCareersCardHoverEffectDemo } from './my-careers';
+// import ContactFormSubmit from './contact-form-submit';
 
-const MyContact = () => (
+
+const MyContact = () => {
+const { application_info } = usePage().props;
+
+  return(
+   
     <div className="flex items-center justify-center my-12 ">
-    <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-16 overflow-hidden">
       <div className="grid grid-cols-2 gap-12 lg:grid-cols-12">
         {/* Left - Form & Intro */}
         <div className="col-span-2 lg:col-span-9">
@@ -77,6 +85,7 @@ const MyContact = () => (
               </form>
             </CardContent>
           </Card>
+          {/* <ContactFormSubmit/> */}
         </div>
 
         {/* Right - Contact Info */}
@@ -86,14 +95,6 @@ const MyContact = () => (
             <h3 className="text-xl font-bold tracking-tight">Socials</h3>
             <Separator className="mb-4 mt-2" />
             <div className="flex gap-3">
-              {/* {["facebook", "telegram", "youtube"].map((platform) => (
-                <img
-                  key={platform}
-                  src={`/assets/demo-images/${platform}.png`}
-                  alt={platform}
-                  className="h-10 w-10 rounded-full"
-                />
-              ))} */}
               <MySocial/>
             </div>
           </div>
@@ -103,11 +104,9 @@ const MyContact = () => (
             <h3 className="text-xl font-bold tracking-tight">Phone</h3>
             <Separator className="mb-4 mt-2" />
             <div className="flex items-center gap-2 text-gray-600 text-base">
-              <Phone className="w-5 text-blue-900" fill="#1c398e" /> 016 699 192
+              <Phone className="w-5 text-blue-900" fill="#1c398e" /> {application_info?.phone}
             </div>
-            <div className="mt-3 flex items-center gap-2 text-gray-600 text-base">
-              <Phone className="w-5 text-blue-900" fill="#1c398e" /> 078 672 072
-            </div>
+            
           </div>
 
           {/* Email */}
@@ -115,7 +114,7 @@ const MyContact = () => (
             <h3 className="text-xl font-bold tracking-tight">Email</h3>
             <Separator className="mb-4 mt-2" />
             <div className="flex items-center gap-2 text-red-800 text-base">
-              <Mail className="w-5 text-blue-900" /> info@western.edu.kh
+              <Mail className="w-5 text-blue-900" /> {application_info?.email}
             </div>
           </div>
 
@@ -125,7 +124,7 @@ const MyContact = () => (
             <Separator className="mb-4 mt-2" />
             <div className="flex items-start gap-2 text-gray-600 text-base">
               <MapPin className="w-12 text-blue-900 " />
-              <span>No. 20, Street 598C, Phnom Penh Thmey, Sen Sok, Phnom Penh, Cambodia</span>
+              <span>{application_info?.address}</span>
             </div>
           </div>
 
@@ -135,13 +134,15 @@ const MyContact = () => (
             <Separator className="mb-4 mt-2" />
             <div className="flex items-center gap-2 text-gray-600 text-base">
               <CalendarClockIcon className="w-5 text-blue-900" />
-              <span>7:30 AM – 5:30 PM</span>
+              <span>{application_info?.working_hours}</span>
             </div>
           </div>
         </div>
       </div>
+      <MyCareersCardHoverEffectDemo/>
     </div>
   </div>
-);
+)
+};
 
 export default MyContact;

@@ -3,12 +3,14 @@ import { Slash } from 'lucide-react';
 import MyNewLayout from './layout/MyLayout';
 import MyContact from './components/my-contact';
 import MyGoogleMap from './components/my-google-map';
+import { usePage } from '@inertiajs/react';
 
 const Contact = () => {
+    const { contact } = usePage().props;
     return (
         <MyNewLayout>
             <div className='relative text-white bg-red-900 flex flex-col items-center justify-center w-full h-full  p-10 md:p-20'>
-                <p className='text-3xl md:text-6xl font-noto-san-extra-light'>Contacts</p>
+                <p className='text-3xl md:text-6xl font-noto-san-extra-light'>{contact?.title}</p>
                 <div className='mt-10'>
                     <Breadcrumb>
                         <BreadcrumbList>
@@ -19,7 +21,7 @@ const Contact = () => {
                                 <Slash className='text-gray-400'/>
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="#/contact" className='text-gray-400'>Contact</BreadcrumbLink>
+                                <BreadcrumbLink href="#/contact" className='text-gray-400'>{contact?.title}</BreadcrumbLink>
                             </BreadcrumbItem>
                         </BreadcrumbList>
                     </Breadcrumb>

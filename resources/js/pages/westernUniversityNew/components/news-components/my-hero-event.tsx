@@ -1,39 +1,83 @@
-const MyHeroEvent = () => {
+
+const ActivityItem = ({ title, description, imageUrl, reverse = false }) => {
     return (
-        <div id="about" className="relative mt-0 lg:mt-12 overflow-hidden bg-white">
-            <div className="mx-auto max-w-7xl">
-                <div className="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32">
-                    <svg
-                        className="absolute inset-y-0 right-0 hidden h-full w-48 translate-x-1/2 transform text-white lg:block"
-                        fill="currentColor"
-                        viewBox="0 0 100 100"
-                        preserveAspectRatio="none"
-                        aria-hidden="true"
-                    >
-                        <polygon points="50,0 100,0 50,100 0,100"></polygon>
-                    </svg>
-
-                    <div className="pt-1"></div>
-
-                    <main className="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-                        <div className="sm:text-center lg:text-left">
-                            <h2 className="my-6 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl ">Activities And Events</h2>
-
-                            <p>
-                            At Western International School, we provide our students with different experiences and opportunities to help improve and advance their intellectual skills and abilities. We acknowledge and appreciate their hard work and make sure that we reward them in our Award Ceremonies.
-                            </p>
+        <div className="relative overflow-hidden py-12 bg-white border-b border-gray-200">
+            <div className={`flex flex-col-reverse lg:flex-row ${reverse ? 'lg:flex-row-reverse' : ''} items-center max-w-screen-2xl mx-auto`}>
+                
+                {/* Text Content */}
+                <div className="w-full lg:w-1/2 px-6 sm:px-10 md:px-16 lg:px-12 xl:px-20">
+                    <div className="lg:text-left">
+                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 my-6 lg:my-0 lg:mb-4">
+                            {title}
+                        </h2>
+                        <div className="text-gray-700 prose whitespace-pre-line text-base sm:text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: description ?? '' }}>
                         </div>
-                    </main>
+                    </div>
+                </div>
+
+                {/* Image Content */}
+                <div className="w-full lg:w-1/2">
+                    <div className="group h-64 sm:h-80 md:h-96 lg:h-[28rem] w-full overflow-hidden">
+                        <img
+                            src={imageUrl}
+                            alt={title || 'Activity image'}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                    </div>
                 </div>
             </div>
-            <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-                <img
-                    className="h-56 w-full object-cover object-top sm:h-72 md:h-96 lg:h-full lg:w-full"
-                    src="https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt=""
-                />
-            </div>
         </div>
+    );
+};
+
+const MyHeroEvent = ({children}:{children?:any}) => {
+    // console.log(children);
+    
+    // const activities = [
+    //     {
+    //         id: 1,
+    //         title: "Extracurricular Activities",
+    //         description: "Our students also participate in other activities that help them build teamwork, communication, and relationship. It helps students explore their interests and create a broader perspective of the worldview.",
+    //         imageUrl: "https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=600",
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "Cultural Exchange Programs",
+    //         description: "Our cultural exchange programs allow students to immerse themselves in diverse cultures, fostering global understanding and personal growth. These experiences broaden horizons and build lifelong connections.",
+    //         imageUrl: "https://images.pexels.com/photos/3184307/pexels-photo-3184307.jpeg?auto=compress&cs=tinysrgb&w=600",
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "Community Service Projects",
+    //         description: "Students regularly engage in community service, applying their skills to real-world problems and making a positive impact. This fosters empathy, responsibility, and a sense of civic duty.",
+    //         imageUrl: "https://images.pexels.com/photos/3205777/pexels-photo-3205777.jpeg?auto=compress&cs=tinysrgb&w=600",
+    //     },
+    //     {
+    //         id: 4,
+    //         title: "Innovation & Robotics Club",
+    //         description: "The Innovation & Robotics Club inspires students to explore STEM fields through hands-on projects. They design, build, and program robots, developing critical thinking and problem-solving skills.",
+    //         imageUrl: "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=600",
+    //     },
+    //     {
+    //         id: 5,
+    //         title: "Debate and Public Speaking",
+    //         description: "Our debate club hones critical thinking and public speaking skills. Students learn to construct compelling arguments and articulate their ideas effectively, boosting confidence and intellectual prowess.",
+    //         imageUrl: "https://images.pexels.com/photos/1181408/pexels-photo-1181408.jpeg?auto=compress&cs=tinysrgb&w=600",
+    //     },
+    // ];
+
+    return (
+        <section id="about" className="bg-gray-50">
+            {children?.map((activity, index) => (
+                <ActivityItem
+                    key={activity?.id}
+                    title={activity?.title}
+                    description={activity?.long_description}
+                    imageUrl={`/assets/images/pages/${activity?.images[0]?.image}`}
+                    reverse={index % 2 === 1} // Alternates layout
+                />
+            ))}
+        </section>
     );
 };
 

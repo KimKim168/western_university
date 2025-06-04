@@ -86,10 +86,10 @@ const MyNewPost = () => {
             <div className="p-4 text-start">
               <h2 className="text-xl font-bold font-noto-san-extra-light text-red-700">{post.title}</h2>
               <p className="my-4 text-sm text-gray-500">{post.description}</p>
-              <div className="mt-3 flex items-center text-sm text-blue-950">
+              {/* <div className="mt-3 flex items-center text-sm text-blue-950">
                 <CalendarClock className="mr-2 h-4 w-4  text-blue-950" />
                 <span>{post.date}</span>
-              </div>
+              </div> */}
             </div>
           </div>
         ))}

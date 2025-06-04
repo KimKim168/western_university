@@ -2,12 +2,14 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 import { Slash } from 'lucide-react';
 import MyNewLayout from '../layout/MyLayout';
 import MyOutreachProgram from '../components/news-components/my-outreach-program';
+import { usePage } from '@inertiajs/react';
 
 const OutreachPrograms = () => {
+    const { outreachPrograms } = usePage().props;
     return (
         <MyNewLayout>
             <div className="relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20">
-                <p className="font-noto-san-extra-light text-3xl md:text-6xl">Outreach Programs</p>
+                <p className="font-noto-san-extra-light text-3xl md:text-6xl">{outreachPrograms?.title}</p>
                 <div className="mt-10">
                     <Breadcrumb>
                         <BreadcrumbList>
@@ -20,7 +22,7 @@ const OutreachPrograms = () => {
                                 <Slash className="text-gray-400" />
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="#" className="text-white">
+                                <BreadcrumbLink href="/activities_and_events" className="text-white">
                                     School Life
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
@@ -29,14 +31,14 @@ const OutreachPrograms = () => {
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="#/history_and_values" className="text-gray-400">
-                                    Outreach Programs
+                                    {outreachPrograms?.title}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                         </BreadcrumbList>
                     </Breadcrumb>
                 </div>
             </div>
-            <MyOutreachProgram/>
+            <MyOutreachProgram outreachPrograms={outreachPrograms}/>
         </MyNewLayout>
     );
 };
