@@ -516,7 +516,8 @@ input::-webkit-search-cancel-button {
     --yellow: #ffee55;
     --orange: #ff6d1b;
 
-    --background: oklch(0.29 -0.0 -0.17 1);
+    --background-two: oklch(0.29 -0.0 -0.17 1);
+    --background: oklch(100% 0.00011 271.152);
     --buttom-submit: oklch(0.39 0.15 266.19);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);

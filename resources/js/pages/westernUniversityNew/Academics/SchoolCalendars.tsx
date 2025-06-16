@@ -21,14 +21,6 @@ const SchoolCalendars = () => {
                                 <Slash className="text-gray-400" />
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="#" className="text-white">
-                                    Academics
-                                </BreadcrumbLink>
-                            </BreadcrumbItem>
-                            <BreadcrumbSeparator>
-                                <Slash className="text-gray-400" />
-                            </BreadcrumbSeparator>
-                            <BreadcrumbItem>
                                 <BreadcrumbLink href="#/school_calendar" className="text-gray-400">
                                 School Calendar
                                 </BreadcrumbLink>

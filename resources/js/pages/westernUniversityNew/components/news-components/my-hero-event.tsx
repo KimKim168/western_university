@@ -1,5 +1,5 @@
 
-const ActivityItem = ({ title, description, imageUrl, reverse = false }) => {
+const ActivityItem = ({ title, description, short_description, imageUrl, reverse = false }) => {
     return (
         <div className="relative overflow-hidden py-12 bg-white border-b border-gray-200">
             <div className={`flex flex-col-reverse lg:flex-row ${reverse ? 'lg:flex-row-reverse' : ''} items-center max-w-screen-2xl mx-auto`}>
@@ -10,6 +10,8 @@ const ActivityItem = ({ title, description, imageUrl, reverse = false }) => {
                         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 my-6 lg:my-0 lg:mb-4">
                             {title}
                         </h2>
+                        <div className="text-gray-700 prose whitespace-pre-line text-base sm:text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: short_description ?? '' }}>
+                        </div>
                         <div className="text-gray-700 prose whitespace-pre-line text-base sm:text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: description ?? '' }}>
                         </div>
                     </div>
@@ -72,6 +74,7 @@ const MyHeroEvent = ({children}:{children?:any}) => {
                 <ActivityItem
                     key={activity?.id}
                     title={activity?.title}
+                    short_description={activity?.short_description}
                     description={activity?.long_description}
                     imageUrl={`/assets/images/pages/${activity?.images[0]?.image}`}
                     reverse={index % 2 === 1} // Alternates layout

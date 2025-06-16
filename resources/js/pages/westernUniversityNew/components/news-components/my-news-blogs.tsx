@@ -68,15 +68,14 @@ import { Link, usePage } from '@inertiajs/react';
 //   },
 // ];
 
-const MyNewPost = () => {
-  const { tableData } = usePage().props;
-  console.log(tableData);
+const MyNewBlogs = () => {
+  const { blogs } = usePage().props;
+  console.log(blogs);
   return (
-    
-    <div className="mx-auto max-w-screen-2xl bg-white px-4 pt-10 lg:px-20"> 
-     <h1 className="mb-6 border-l-4 pl-4 border-red-700  text-3xl tracking-tight font-bold text-red-700 font-noto-san-extra-light sm:text-4xl dark:text-white">{tableData[0].category_code}</h1>   
+    <div className="mx-auto mt-10 mb-16 max-w-screen-2xl bg-white px-4  lg:px-20"> 
+     <h1 className="mb-6 border-l-4 pl-4 border-red-700  text-3xl tracking-tight font-bold text-red-700 font-noto-san-extra-light sm:text-4xl dark:text-white">{blogs[0].category_code}</h1>   
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {tableData?.map((item) => (        
+        {blogs?.map((item) => (        
          <Link href={`/news/${item.id}`}>
           <div
             key={item.id}
@@ -100,4 +99,4 @@ const MyNewPost = () => {
   );
 };
 
-export default MyNewPost;
+export default MyNewBlogs;

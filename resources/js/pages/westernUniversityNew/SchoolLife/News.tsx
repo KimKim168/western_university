@@ -2,6 +2,8 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 import { Slash } from 'lucide-react';
 import MyNewLayout from '../layout/MyLayout';
 import MyNewPost from '../components/news-components/my-news-post';
+// import { MyPagination } from '@/components/my-pagination';
+import MyNewBlogs from '../components/news-components/my-news-blogs';
 
 const News = () => {
     return (
@@ -20,15 +22,7 @@ const News = () => {
                                 <Slash className="text-gray-400" />
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="#" className="text-white">
-                                    School Life
-                                </BreadcrumbLink>
-                            </BreadcrumbItem>
-                            <BreadcrumbSeparator>
-                                <Slash className="text-gray-400" />
-                            </BreadcrumbSeparator>
-                            <BreadcrumbItem>
-                                <BreadcrumbLink href="#/history_and_values" className="text-gray-400">
+                                <BreadcrumbLink href="#/news" className="text-gray-400">
                                     News & Blogs
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
@@ -37,6 +31,7 @@ const News = () => {
                 </div>
             </div>
             <MyNewPost/>
+            <MyNewBlogs/>
         </MyNewLayout>
     );
 };

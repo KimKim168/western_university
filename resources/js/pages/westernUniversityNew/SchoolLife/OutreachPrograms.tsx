@@ -22,15 +22,7 @@ const OutreachPrograms = () => {
                                 <Slash className="text-gray-400" />
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="/activities_and_events" className="text-white">
-                                    School Life
-                                </BreadcrumbLink>
-                            </BreadcrumbItem>
-                            <BreadcrumbSeparator>
-                                <Slash className="text-gray-400" />
-                            </BreadcrumbSeparator>
-                            <BreadcrumbItem>
-                                <BreadcrumbLink href="#/history_and_values" className="text-gray-400">
+                                <BreadcrumbLink href="#/outreach_programs" className="text-gray-400">
                                     {outreachPrograms?.title}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>

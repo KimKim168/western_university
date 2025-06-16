@@ -176,7 +176,7 @@ Route::get('/student_council', function () {
 
 Route::get('/news_and_blogs', function () {
     return Inertia::render('westernuniversity/school_life/NewsAndBlogs');
-})->name('news_and_blogs');
+});
 
 Route::get('/contact', function () {
     return Inertia::render('westernuniversity/contact/Contact');

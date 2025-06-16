@@ -1,13 +1,13 @@
+// import { usePage } from '@inertiajs/react';
 import React from 'react';
 
-const MySchoolCurriculum = () => {
+const MySchoolCurriculum = ({long_description}:{long_description:any}) => {
   return (
-    <div className="mx-auto max-w-screen-xl py-16 px-4 bg-white text-gray-700 overflow-hidden">
-      <div className="text-center mb-4">
+    <div>
+      {/* <div className="text-center mb-4">
         <h1 className="text-4xl font-bold border-b pb-2">School Weekly Curriculum</h1>
         <p className="text-sm mt-2">Replace your text here! Replace your text here! Replace your text here! Replace your text here!</p>
       </div>
-
       <div className="flex flex-col lg:flex-row gap-8 overflow-x-auto">
         <div className="flex-1">
           <div className="space-y-2">
@@ -80,7 +80,8 @@ const MySchoolCurriculum = () => {
         </table>
       </div>
 
-      <p className="text-center text-sm mt-6">Replace your text here! Replace your text here! Replace your text here!</p>
+      <p className="text-center text-sm mt-6">Replace your text here! Replace your text here! Replace your text here!</p> */}
+      <div dangerouslySetInnerHTML={{__html: long_description}} className='mx-auto max-w-screen-xl py-16 px-4  prose whitespace-pre-line'></div>
     </div>
   );
 };
