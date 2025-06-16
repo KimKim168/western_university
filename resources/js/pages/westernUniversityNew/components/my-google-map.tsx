@@ -4,7 +4,7 @@ const MyGoogleMap = () => {
         const { application_info } = usePage().props;
     
     return (
-        <div className="relative h-96 w-full">
+        <div className="relative mt-12 h-96 w-full">
             <iframe
                 src={application_info?.google_map}
                 width="100%"

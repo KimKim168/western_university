@@ -12,7 +12,7 @@ const MyNewHero = () => {
           </h1>
           <div className="my-8 border-[1.5px] border-black w-15" />
           <p
-            className="mt-6 max-w-[60ch] text-base text-gray-600 whitespace-pre-line"
+            className="mt-6 max-w-[60ch] text-base text-primary whitespace-pre-line"
             dangerouslySetInnerHTML={{ __html: WelcomeToWestern?.long_description }}
           />
         </div>

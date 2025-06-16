@@ -350,6 +350,7 @@ html {
     --color-chart-5: var(--chart-5);
 
     --color-sidebar: var(--sidebar);
+    --color-icon-primary: var(--icon-primary);
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar-primary: var(--sidebar-primary);
     --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
@@ -493,18 +494,30 @@ html {
     background-color: #222;
 } */
 
+/* Target WebKit's clear (X) button */
+input::-webkit-search-cancel-button {
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  background: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12l-4.89 4.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4z"/></svg>') no-repeat center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+
 :root {
     --m: 1.5rem;
 
     --red: #ff6565;
     --pink: #ff64f9;
-    --purple: #6b5fff;
+    --purple: hsl(245, 100%, 69%);
     --blue: #4d8aff;
     --green: #5bff89;
     --yellow: #ffee55;
     --orange: #ff6d1b;
 
-    --background: oklch(1 0 0);
+    --background: oklch(0.29 -0.0 -0.17 1);
+    --buttom-submit: oklch(0.39 0.15 266.19);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);
@@ -518,8 +531,9 @@ html {
     --true-primary-three: oklch(0.38 0.03 237.56);
     --true-primary-four: oklch(0.74 0.17 58.85);
     --true-primary-five: oklch(0.73 0.13 211.69);
-    --primary: oklch(0.54 0.09 194.77);
-    --true-primary: oklch(0.54 0.09 194.77);
+    --primary: oklch(0.39 0.15 266.19);
+    --true-primary: oklab(0.28 0 -0.09);
+    --icon-primary: oklab(0.28 0 -0.09);
     --primary-foreground: oklch(0.985 0 0);
     --success: oklch(0.627 0.194 149.214);
     --success-foreground: oklch(0.985 0 0);
@@ -560,8 +574,10 @@ html {
     --popover: oklch(0.145 0 0);
     --popover-foreground: oklch(0.985 0 0);
     --primary: oklch(0.985 0 0);
+    --buttom-submit: oklch(0.985 0 0);
     /* --true-primary: oklch(0.54 0.15 249.67); */
-    --true-primary: oklch(0.59 0.23 278.87);
+    --true-primary:oklch(0.985 0 0);
+    --icon-primary:oklch(0.985 0 0);
     --true-primary-two: oklch(0.39 0.15 266.19);
     --true-primary-three: oklch(0.38 0.03 237.56);
     --true-primary-four: oklch(0.74 0.17 58.85);

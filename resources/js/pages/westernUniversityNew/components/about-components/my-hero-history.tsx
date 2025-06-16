@@ -5,16 +5,16 @@ const MyHeroHistory = () => {
   const { ourHestory } = usePage().props;
 
   return (
-    <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+    <section className="py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-screen-xl mx-auto grid lg:grid-cols-2  gap-16">
         {/* Text Section */}
-        <div className="text-gray-800">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6">
+        <div className="text-primary">
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight mb-6">
             {ourHestory?.title}
           </h1>
-          <div className="h-1 w-20 bg-black mb-8" />
+          <div className="h-1 w-20 bg-foreground mb-8" />
           <div
-            className="prose prose-gray max-w-[70ch] text-base"
+            className="prose prose-gray  max-w-[70ch] text-base"
             dangerouslySetInnerHTML={{ __html: ourHestory?.long_description }}
           />
         </div>

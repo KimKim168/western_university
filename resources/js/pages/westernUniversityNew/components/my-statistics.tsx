@@ -4,9 +4,9 @@ const MyStatistics = () => {
   const { Statistics } = usePage().props;
 
   return (
-    <div className="mt-12">
+    <div className="p-12  bg-white">
       {Statistics?.map((item) => (
-        <div key={item.id} className="mx-auto max-w-screen-xl bg-white px-4 pb-16 text-center sm:px-16">
+        <div key={item.id} className="mx-auto max-w-screen-xl px-4 pb-16 text-center sm:px-16">
           <h2 className="text-3xl font-bold text-black sm:text-4xl">{item?.title}</h2>
           <div className="mx-auto my-4 h-1 w-16 bg-black"></div>
           <p className="mx-auto max-w-2xl text-sm text-gray-600 sm:text-base">{item?.short_description}</p>

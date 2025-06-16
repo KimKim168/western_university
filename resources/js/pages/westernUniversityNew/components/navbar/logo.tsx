@@ -1,7 +1,7 @@
 import { Link } from '@inertiajs/react';
 
-export const Logo = () => (
-    <Link href='/' className="flex items-center gap-2">
-        <img src="/assets/demo-images/logo_wis.png" alt="Logo" className="h-15 w-auto xl:h-20" />
+export const Logo = ({application_info}:{application_info:any}) => (
+    <Link href='/' className="flex items-center  gap-2">
+        <img src={`/assets/images/application_info/${application_info?.image}`} alt="Logo" className="h-20 w-auto object-cover xl:h-25" />
     </Link>
 );

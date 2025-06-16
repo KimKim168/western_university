@@ -26,7 +26,7 @@ export function MySearchProducts({ className }: { className?: string }) {
     );
 
     return (
-        <div className={cn('flex w-full max-w-xl items-center xl:space-x-2 rounded-xl border p-1', className)}>
+        <div className={cn('flex w-full max-w-xl text-white items-center xl:space-x-2 rounded-xl border p-1', className)}>
             <Input
                 defaultValue={search}
                 type="search"
@@ -39,7 +39,7 @@ export function MySearchProducts({ className }: { className?: string }) {
                         handleSearch(e.target.value);
                     }
                 }}
-                className="ml-0.5 xl:min-w-xs rounded-sm border-none shadow-none"
+                className="ml-0.5 xl:min-w-xsrounded-sm border-none shadow-none"
                 placeholder={`${t('Search')}...`}
             />
             <Button variant="outline" type="submit" onClick={() => handleSearch(search)}>

@@ -38,7 +38,7 @@ export const MenuItem = ({
       <motion.div
         transition={{ duration: 0.3 }}
         className={`text-base px-2 py-11 cursor-pointer font-noto-san-extra-light font-bold hover:text-red-800 ${
-          isActive ? "text-red-700" : "text-black dark:text-white"
+          isActive ? "text-red-700" : "text-black dark:text-black"
         } hover:opacity-90 flex gap-0.5 items-center`}
       >
         {item}
@@ -86,7 +86,7 @@ export const HoveredLink = ({
     <Link
       href={href}
       {...rest}
-      className={`group flex items-center text-sm w-full border-b-[0.5px] py-2 text-white ${
+      className={`group flex items-center text-sm w-full border-b-[0.5px] border-white py-2 text-white ${
         isActive ? "text-red-500 font-extrabold" : ""
       }`}
     >
@@ -109,7 +109,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)}
-      className="relative dark:bg-black flex justify-between items-center space-x-2"
+      className="relative flex justify-between items-center space-x-2"
     >
       <div className="flex items-center space-x-2 text-base">
         {children}

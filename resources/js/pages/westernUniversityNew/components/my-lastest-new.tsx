@@ -42,11 +42,11 @@ const newsItems = [
 
 const MyLastestNew = () => {
     return (
-        <div className="mx-auto max-w-screen-2xl bg-white px-4 py-12 text-center sm:px-16">
-            <h2 className="text-4xl font-bold text-black sm:text-4xl">Latest News</h2>
-            <div className="mx-auto my-10 h-1 w-16 bg-[#2c318a]" />
+        <div className="mx-auto max-w-screen-2xl  px-4 py-12 text-center sm:px-16">
+            <h2 className="text-4xl font-bold text-primary sm:text-4xl">Latest News</h2>
+            <div className="mx-auto mt-5 h-1 w-16 bg-true-primary" />
 
-            <div className="mx-auto mb-12 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="mx-auto my-12 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
                 {newsItems.map((item) => (
                     <a key={item.id} href={`/detail/${item.id}`} className="overflow-hidden border border-gray-200 bg-white shadow-lg hover:cursor-pointer">
                         <img
