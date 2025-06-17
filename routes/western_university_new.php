@@ -5,6 +5,7 @@ use App\Models\Banner;
 use App\Models\Page;
 use App\Models\Post;
 use App\Models\PostCategory;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -31,7 +32,14 @@ Route::get('/', function () {
         ->with(['images'])
         ->where('status', 'active')->limit(6)
         ->get();
-    // return $tableData;
+    $outreachPrograms = Page::where('code', 'OUTREACH_PROGRAMS')
+        ->with([
+            'images',
+            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+        ]) 
+        ->where('status', 'active')
+        ->first();
+    // return $outreachPrograms;
     return Inertia::render('westernUniversityNew/Home', [
         'banners' => $banners,
         'middleSlide' => $middleSlide,
@@ -40,6 +48,7 @@ Route::get('/', function () {
         'Statistics' => $Statistics,
         'tableData' => $tableData,
         'activitiesAndEvents' => $activitiesAndEvents,
+        'outreachPrograms' => $outreachPrograms,
     ]);
 });
 
@@ -211,22 +220,41 @@ Route::get('/admissions', function () {
     ]);
 });
 
-Route::get('/news', function () {
-    $tableData = Post::where('category_code', 'NEWS')
+Route::get('/news', function (Request $request) {
+    $search = $request->input('search', '');
+
+    // Filter NEWS
+    $newsQuery = Post::where('category_code', 'NEWS')
         ->with(['images'])
-        ->where('status', 'active')
-        ->get();
-    
-     $blogs = Post::where('category_code', 'BLOGS')
+        ->where('status', 'active');
+
+    // Filter BLOGS
+    $blogsQuery = Post::where('category_code', 'BLOGS')
         ->with(['images'])
-        ->where('status', 'active')
-        ->get();
-    // return ($tableData);
-    return Inertia::render('westernUniversityNew/SchoolLife/News',[
-        'tableData' => $tableData,
-        'blogs' => $blogs,
+        ->where('status', 'active');
+
+    // Apply search if present
+    if ($search) {
+        $newsQuery->where(function ($sub_query) use ($search) {
+            $sub_query->where('title', 'LIKE', "%{$search}%")
+                      ->orWhere('title_kh', 'LIKE', "%{$search}%");
+        });
+
+        $blogsQuery->where(function ($sub_query) use ($search) {
+            $sub_query->where('title', 'LIKE', "%{$search}%")
+                      ->orWhere('title_kh', 'LIKE', "%{$search}%");
+        });
+    }
+
+    return Inertia::render('westernUniversityNew/SchoolLife/News', [
+        'tableData' => $newsQuery->get(),
+        'blogs' => $blogsQuery->get(),
+        'filters' => [
+            'search' => $search
+        ]
     ]);
 });
+
 Route::get('/news/{id}', function ($id) {
     $showData = Post::where('id', $id)->with('images')->first();
     $relatedPosts = Post::with('category', 'images')->where('id', '!=', $id)->where('category_code', $showData->category_code)->orderBy('id', 'desc')->limit(6)->get();

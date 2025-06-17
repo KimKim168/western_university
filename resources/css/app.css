@@ -619,8 +619,9 @@ input::-webkit-search-cancel-button {
         @apply border-border;
     }
 
-    body {
+      body {
         @apply bg-background text-foreground;
+        scroll-behavior: smooth;
     }
 }
 
@@ -661,6 +662,7 @@ input::-webkit-search-cancel-button {
     object-fit: cover !important;
     padding: 0 !important;
 }
+
 
 .yarl__thumbnails_thumbnail {
     border-radius: 0px !important;

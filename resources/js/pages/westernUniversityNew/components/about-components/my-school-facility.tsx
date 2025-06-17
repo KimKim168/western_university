@@ -84,10 +84,10 @@ const MySchoolFacility = ({schoolFacilitiesChildren}:{schoolFacilitiesChildren?:
             >
               {/* Text Section */}
               <div className="md:w-1/2">
-                <h4 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-900">
+                <h4 className="text-2xl md:text-3xl font-semibold mb-4 text-primary">
                   {item?.title}
                 </h4>
-                <p className="prose whitespace-pre-line text-base md:text-lg text-start leading-relaxed text-gray-700" dangerouslySetInnerHTML={{ __html: item?.long_description }}>
+                <p className="prose prose-p:dark:text-primary whitespace-pre-line text-base md:text-lg text-start leading-relaxed" dangerouslySetInnerHTML={{ __html: item?.long_description }}>
                 </p>
               </div>
 

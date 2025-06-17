@@ -19,19 +19,11 @@ const SchoolFacilities = () => {
                                     Home
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
-                            <BreadcrumbSeparator>
+                                <BreadcrumbSeparator>
                                 <Slash className="text-gray-400" />
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="#" className="text-white">
-                                    About
-                                </BreadcrumbLink>
-                            </BreadcrumbItem>
-                            <BreadcrumbSeparator>
-                                <Slash className="text-gray-400" />
-                            </BreadcrumbSeparator>
-                            <BreadcrumbItem>
-                                <BreadcrumbLink href="#/history_and_values" className="text-gray-400">
+                                <BreadcrumbLink href="#" className="text-gray-400">
                                     {schoolFacilities?.title}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>

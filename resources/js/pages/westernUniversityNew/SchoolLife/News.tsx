@@ -3,7 +3,8 @@ import { Slash } from 'lucide-react';
 import MyNewLayout from '../layout/MyLayout';
 import MyNewPost from '../components/news-components/my-news-post';
 // import { MyPagination } from '@/components/my-pagination';
-import MyNewBlogs from '../components/news-components/my-news-blogs';
+// import MyNewBlogs from '../components/news-components/my-news-blogs';
+import { MySearchTableData } from '@/components/my-search-table-data';
 
 const News = () => {
     return (
@@ -30,8 +31,9 @@ const News = () => {
                     </Breadcrumb>
                 </div>
             </div>
+            
             <MyNewPost/>
-            <MyNewBlogs/>
+            {/* <MyNewBlogs/> */}
         </MyNewLayout>
     );
 };

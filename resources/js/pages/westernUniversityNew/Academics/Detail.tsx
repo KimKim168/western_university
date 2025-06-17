@@ -43,7 +43,7 @@ export default function ResourceDetail() {
                 {/* Main Layout */}
                 <div className="flex flex-col gap-12 lg:flex-row">
                     {/* Content Area */}
-                    <article className="w-full lg:w-3/4">
+                    <div className="w-full">
                         <h1 className="mb-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">{showData?.title}</h1>
 
                         {showData?.images?.[0]?.image && (
@@ -56,14 +56,17 @@ export default function ResourceDetail() {
                             />
                         )}
 
-                        <section className="prose prose-sm sm:prose lg:prose-lg dark:prose-invert ck-content max-w-none">
-                            <div dangerouslySetInnerHTML={{ __html: showData?.long_description }} />
-                        </section>
-                    </article>
+                        <div
+                            className="prose dark:prose-invert ck-content w-full max-w-none"
+                            dangerouslySetInnerHTML={{ __html: showData?.long_description }}
+                        />
+                    </div>
 
                     {/* Sidebar */}
-                    <aside className="sticky top-8 w-full lg:w-1/4">
-                        <h2 className="mb-6 text-2xl font-semibold text-gray-800 sm:text-3xl dark:text-gray-200 border-l-4 border-red-700 pl-2">Related</h2>
+                    <div className="sticky top-8 w-1/4">
+                        <h2 className="mb-6 border-l-4 border-red-700 pl-2 text-2xl font-semibold text-gray-800 sm:text-3xl dark:text-gray-200">
+                            Related
+                        </h2>
                         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1">
                             {relatedPosts?.map((item, index) => (
                                 <Link
@@ -84,7 +87,7 @@ export default function ResourceDetail() {
                                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-blue-950/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                                 <a
                                                     href={`/detail/${item?.id}`}
-                                                    className="rounded-lg border text-[10px] border-white px-4 py-2 font-semibold text-white"
+                                                    className="rounded-lg border border-white px-4 py-2 text-[10px] font-semibold text-white"
                                                 >
                                                     Learn More
                                                 </a>
@@ -99,7 +102,7 @@ export default function ResourceDetail() {
                                 </Link>
                             ))}
                         </div>
-                    </aside>
+                    </div>
                 </div>
             </section>
         </MyNewLayout>

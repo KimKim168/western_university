@@ -81,7 +81,7 @@ const MySchoolCurriculum = ({long_description}:{long_description:any}) => {
       </div>
 
       <p className="text-center text-sm mt-6">Replace your text here! Replace your text here! Replace your text here!</p> */}
-      <div dangerouslySetInnerHTML={{__html: long_description}} className='mx-auto max-w-screen-xl py-16 px-4  prose whitespace-pre-line'></div>
+      <div dangerouslySetInnerHTML={{__html: long_description}} className='mx-auto max-w-screen-xl py-16 px-4  prose prose-p:dark:text-primary prose-headings:dark:text-primary text-primary whitespace-pre-line'></div>
     </div>
   );
 };

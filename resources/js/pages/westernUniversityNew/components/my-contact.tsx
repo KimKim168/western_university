@@ -22,8 +22,8 @@ const { application_info } = usePage().props;
         {/* Left - Form & Intro */}
         <div className="col-span-2 lg:col-span-9">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Visit The School</h2>
-          <div className="my-6 w-20 border-[1.5px] border-black" />
-          <p className="text-base text-gray-600 sm:text-lg">
+          <div className="my-6 w-20 border-[1.5px] border-primary" />
+          <p className="text-base text-primary sm:text-lg">
             Western International School Central Office
           </p>
 
@@ -71,13 +71,13 @@ const { application_info } = usePage().props;
                     <Textarea
                       id="message"
                       placeholder="Message"
-                      className="mt-1.5 h-40 bg-white shadow-none"
+                      className="mt-1.5 h-40 bg-white shadow-none dark:border-white"
                       rows={6}
                     />
                   </div>
                 </div>
                 <Button
-                  className="mt-6 bg-red-800 font-black hover:bg-blue-900"
+                  className="mt-6 bg-red-800 font-black text-white hover:bg-blue-900"
                   size="lg"
                 >
                   Send Message
@@ -103,8 +103,8 @@ const { application_info } = usePage().props;
           <div>
             <h3 className="text-xl font-bold tracking-tight">Phone</h3>
             <Separator className="mb-4 mt-2" />
-            <div className="flex items-center gap-2 text-gray-600 text-base">
-              <Phone className="w-5 text-blue-900" fill="#1c398e" /> {application_info?.phone}
+            <div className="flex items-center gap-2 text-primary text-base">
+              <Phone className="w-5 "/> {application_info?.phone}
             </div>
             
           </div>
@@ -113,8 +113,8 @@ const { application_info } = usePage().props;
           <div>
             <h3 className="text-xl font-bold tracking-tight">Email</h3>
             <Separator className="mb-4 mt-2" />
-            <div className="flex items-center gap-2 text-red-800 text-base">
-              <Mail className="w-5 text-blue-900" /> {application_info?.email}
+            <div className="flex items-center gap-2 text-primary text-base">
+              <Mail className="w-5" /> {application_info?.email}
             </div>
           </div>
 
@@ -122,8 +122,8 @@ const { application_info } = usePage().props;
           <div>
             <h3 className="text-xl font-bold tracking-tight">Address</h3>
             <Separator className="mb-4 mt-2" />
-            <div className="flex items-start gap-2 text-gray-600 text-base">
-              <MapPin className="w-12 text-blue-900 " />
+            <div className="flex items-center gap-2 text-primary text-base">
+              <MapPin className="w-12 " />
               <span>{application_info?.address}</span>
             </div>
           </div>
@@ -132,8 +132,8 @@ const { application_info } = usePage().props;
           <div>
             <h3 className="text-xl font-bold tracking-tight">Opening Hours</h3>
             <Separator className="mb-4 mt-2" />
-            <div className="flex items-center gap-2 text-gray-600 text-base">
-              <CalendarClockIcon className="w-5 text-blue-900" />
+            <div className="flex items-center gap-2 text-primary text-base">
+              <CalendarClockIcon className="w-5" />
               <span>{application_info?.working_hours}</span>
             </div>
           </div>

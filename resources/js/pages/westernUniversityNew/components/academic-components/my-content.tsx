@@ -6,7 +6,7 @@ const MyContent = ({ children }: { children: any[] }) => {
     const activeItem = children.find((item) => item.title === activeTitle);
 
     return (
-        <div className="bg-white px-4 py-16 sm:px-6 lg:px-8">
+        <div className="px-4 py-16 sm:px-6 lg:px-8">
             <div className="mx-auto grid max-w-screen-xl grid-cols-1 gap-10 lg:grid-cols-12">
                 {/* Sidebar */}
                 <div className="lg:col-span-4">
@@ -18,7 +18,7 @@ const MyContent = ({ children }: { children: any[] }) => {
                                     key={item.id}
                                     onClick={() => setActiveTitle(item.title)}
                                     className={`w-full rounded-md px-4 py-2 text-center text-lg transition-colors duration-300 lg:w-auto ${
-                                        isActive ? 'bg-red-700 text-white' : 'text-gray-800 hover:bg-red-700 hover:text-white'
+                                        isActive ? 'bg-red-700 text-white' : 'text-primary hover:bg-red-700 hover:text-white'
                                     }`}
                                 >
                                     {item.title}
@@ -33,14 +33,13 @@ const MyContent = ({ children }: { children: any[] }) => {
                     {activeItem && (
                         <>
                             <div className="w-full">
-                                <h1 className="w-full text-3xl leading-tight font-bold md:text-4xl">{activeItem.title}</h1>
-                                <div className="mt-4 w-16 border-b-2 border-black" />
+                                <h1 className="text-primary w-full text-3xl leading-tight font-bold md:text-4xl">{activeItem.title}</h1>
+                                <div className="border-primary mt-4 w-16 border-b-2" />
                                 <div
-                                    className="prose prose-red mt-6 w-full max-w-none"
+                                    className="prose-h1:dark:text-primary prose-h2:dark:text-primary prose-h3:dark:text-primary prose-h4:dark:text-primary prose-h5:dark:text-primary prose-h6:dark:text-primary prose-headings:dark:text-primary prose-strong:dark:text-primary prose-em:dark:text-primary prose-blockquote:dark:text-primary prose-li:dark:text-primary prose-a:dark:text-primary prose-p:dark:text-white mt-6 w-full max-w-none"
                                     dangerouslySetInnerHTML={{ __html: activeItem.long_description }}
                                 />
                             </div>
-
                             <div>
                                 <img
                                     src={`/assets/images/pages/${activeItem.images[0]?.image}`}

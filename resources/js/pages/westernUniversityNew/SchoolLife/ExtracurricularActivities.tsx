@@ -23,14 +23,6 @@ const ActivitiesAndEvents = () => {
                                 <Slash className="text-gray-400" />
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="/activities_and_events" className="text-white">
-                                    School Life
-                                </BreadcrumbLink>
-                            </BreadcrumbItem>
-                            <BreadcrumbSeparator>
-                                <Slash className="text-gray-400" />
-                            </BreadcrumbSeparator>
-                            <BreadcrumbItem>
                                 <BreadcrumbLink href="#/history_and_values" className="text-gray-400">
                                     {extracurricularActivities?.title}
                                 </BreadcrumbLink>
@@ -40,7 +32,7 @@ const ActivitiesAndEvents = () => {
                 </div>
             </div>
             <MyHeroExtracurricularActivities children={extracurricularActivities?.children}/>
-            <MyImageExtracurricularActivities/>
+            {/* <MyImageExtracurricularActivities/> */}
         </MyNewLayout>
     );
 };

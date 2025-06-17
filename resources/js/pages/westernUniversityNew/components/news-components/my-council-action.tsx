@@ -6,7 +6,7 @@ const MyCouncilAction = () => {
   return (
     <div className="flex items-center justify-center">
       <div className="mx-auto w-full max-w-screen-xl px-6 py-12 lg:px-0">
-        <h2 className="border-l-2 border-red-900 pl-2 text-3xl leading-10 font-bold tracking-tight sm:text-4xl md:text-[40px] md:leading-[3.25rem]">
+        <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tighter border-l-4 border-red-700 pl-2">
           {studentCouncilInAction?.title}
         </h2>
         {studentCouncilInAction?.children?.map((item, index) => {

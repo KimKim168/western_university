@@ -22,14 +22,6 @@ const Programs = () => {
                                 <Slash className="text-gray-400" />
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="#" className="text-white">
-                                    Academics
-                                </BreadcrumbLink>
-                            </BreadcrumbItem>
-                            <BreadcrumbSeparator>
-                                <Slash className="text-gray-400" />
-                            </BreadcrumbSeparator>
-                            <BreadcrumbItem>
                                 <BreadcrumbLink href="#/history_and_values" className="text-gray-400">
                                     {programs?.title}
                                 </BreadcrumbLink>
@@ -38,7 +30,7 @@ const Programs = () => {
                     </Breadcrumb>
                 </div>
             </div>
-            <MyContent children={programs?.children} activeTitle="Summer Program"/>
+            <MyContent children={programs?.children} />
         </MyNewLayout>
     );
 };

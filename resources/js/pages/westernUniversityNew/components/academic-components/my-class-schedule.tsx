@@ -24,40 +24,40 @@
 // };
 const MyClassSchedules = ({schedulesAndSubjects}:{schedulesAndSubjects:any}) => {
   return (
-    <div className="whitespace-pre-line max-w-screen-2xl mx-auto px-6 lg:px-16 prose-td:border prose" dangerouslySetInnerHTML={{__html: schedulesAndSubjects?.long_description}}>
-      {/* <h1 className="text-xl md:text-3xl font-bold text-center mb-10">Weekly Schedules and Subjects (Grades 3–6)</h1>
-      {Object.entries(schedules).map(([grade, schedule]) => (
-        <div key={grade} className="mb-12">
-          <h2 className="text-xl font-semibold mb-4 text-blue-600">{grade}</h2>
-          <div className="overflow-x-auto">
-            <table className="min-w-full border border-gray-300 text-sm">
-              <thead>
-                <tr className="bg-blue-100 text-center">
-                  <th className="border border-gray-300 p-2">Class Hour</th>
-                  <th className="border border-gray-300 p-2">Monday</th>
-                  <th className="border border-gray-300 p-2">Tuesday</th>
-                  <th className="border border-gray-300 p-2">Wednesday</th>
-                  <th className="border border-gray-300 p-2">Thursday</th>
-                  <th className="border border-gray-300 p-2">Friday</th>
-                </tr>
-              </thead>
-              <tbody>
-                {schedule.map((row, i) => (
-                  <tr key={i} className="text-center">
-                    <td className="border border-gray-300 p-2 font-medium">{row.hour}</td>
-                    <td className="border border-gray-300 p-2">{row.Monday}</td>
-                    <td className="border border-gray-300 p-2">{row.Tuesday}</td>
-                    <td className="border border-gray-300 p-2">{row.Wednesday}</td>
-                    <td className="border border-gray-300 p-2">{row.Thursday}</td>
-                    <td className="border border-gray-300 p-2">{row.Friday}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      ))} */}
-      
+    <div 
+    className="
+        prose
+        max-w-screen-2xl
+        mx-auto
+        px-6
+        lg:px-16
+        dark:border-white
+        prose-p:dark:text-white
+        prose-a:dark:text-primary
+        prose-li:dark:text-primary
+        prose-strong:dark:text-primary
+        prose-em:dark:text-primary
+        prose-blockquote:dark:text-primary
+
+        prose-h1:dark:text-primary
+        prose-h2:dark:text-primary
+        prose-h3:dark:text-primary
+        prose-h4:dark:text-primary
+        prose-h5:dark:text-primary
+        prose-h6:dark:text-primary
+        prose-headings:dark:text-primary
+
+        prose-th:dark:text-primary
+        prose-td:dark:text-primary
+        prose-td:dark:border-primary
+        prose-tr:dark:border-primary
+        prose-tr:dark:border
+        prose-td:dark:border
+        prose-table:dark:border-primary
+        prose-img:dark:border-primary
+        prose-hr:dark:border-primary
+        prose-td:border-primary
+      "dangerouslySetInnerHTML={{__html: schedulesAndSubjects?.long_description}}>
     </div>
   );
 };

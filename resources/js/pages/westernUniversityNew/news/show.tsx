@@ -7,43 +7,10 @@ export default function show() {
     return (
         <MyNewLayout>
             <section className="mx-auto max-w-screen-2xl px-4 py-10 sm:px-6 lg:px-20">
-                {/* Breadcrumb */}
-                {/* <Breadcrumb className="mb-8">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-
-            <BreadcrumbSeparator>
-              <ChevronsRight className="h-4 w-4" />
-            </BreadcrumbSeparator>
-
-            <BreadcrumbItem>
-              <BreadcrumbLink href={`/${showData?.category?.name?.toLowerCase()}`}>
-                {showData?.category?.name}
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-
-            {showData?.name && (
-              <>
-                <BreadcrumbSeparator>
-                  <ChevronsRight className="h-4 w-4" />
-                </BreadcrumbSeparator>
-
-                <BreadcrumbItem isCurrentPage>
-                  <BreadcrumbLink href="#" aria-current="page">
-                    {showData.name}
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-              </>
-            )}
-          </BreadcrumbList>
-        </Breadcrumb> */}
-
                 {/* Main Layout */}
                 <div className="flex flex-col gap-12 lg:flex-row">
                     {/* Content Area */}
-                    <article className="w-full lg:w-3/4">
+                    <div className="w-full lg:w-3/4">
                         <h1 className="mb-6 text-3xl tracking-tight font-bold text-red-700 font-noto-san-extra-light sm:text-4xl dark:text-white">{showData?.title}</h1>
 
                         {showData?.images?.[0]?.image && (
@@ -58,19 +25,19 @@ export default function show() {
                         <section className="prose prose-sm sm:prose lg:prose-lg dark:prose-invert ck-content max-w-none">
                             <div dangerouslySetInnerHTML={{ __html: showData?.long_description }} />
                         </section>
-                    </article>
+                    </div>
 
                     {/* Sidebar */}
-                    <aside className="sticky top-8 w-full lg:w-1/4">
+                    <div className="sticky top-8 w-full lg:w-1/4">
                         <h2 className="mb-6 text-2xl font-semibold text-gray-800 sm:text-3xl dark:text-gray-200 border-l-4 border-red-700 pl-2">Related {showData?.category_code}</h2>
                         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1">
                             {relatedPosts?.map((item, index) => (
                                 <Link
-                                    href={`/detail/${item.id}`}
+                                    href={`/news/${item.id}`}
                                     key={index}
                                     className="group block h-full transition-shadow hover:rounded-xl hover:shadow-md"
                                 >
-                                    <div className="flex h-full flex-col gap-3 overflow-hidden xl:rounded-xl bg-white shadow-sm transition hover:bg-gray-50 lg:flex-row dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                    <div className="flex h-full flex-col gap-3 overflow-hidden lg:rounded-xl bg-white shadow-sm transition hover:bg-gray-50 lg:flex-row dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                                         {/* Thumbnail */}
                                         <div className="relative aspect-video xl:aspect-square w-full flex-shrink-0 overflow-hidden bg-gray-100 lg:w-28 dark:bg-gray-700">
                                             <img
@@ -98,7 +65,7 @@ export default function show() {
                                 </Link>
                             ))}
                         </div>
-                    </aside>
+                    </div>
                 </div>
             </section>
         </MyNewLayout>

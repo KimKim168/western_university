@@ -1,29 +1,29 @@
-
-const ActivityItem = ({ title, description, short_description, imageUrl, reverse = false }) => {
+const ActivityItem = ({ id, title, description, short_description, imageUrl, reverse = false }) => {
     return (
-        <div className="relative overflow-hidden py-12 bg-white border-b border-gray-200">
-            <div className={`flex flex-col-reverse lg:flex-row ${reverse ? 'lg:flex-row-reverse' : ''} items-center max-w-screen-2xl mx-auto`}>
-                
+        <div id={id} className="relative overflow-hidden border-b border-gray-200 py-12">
+            <div className={`flex flex-col-reverse lg:flex-row ${reverse ? 'lg:flex-row-reverse' : ''} mx-auto max-w-screen-2xl items-center`}>
                 {/* Text Content */}
-                <div className="w-full lg:w-1/2 px-6 sm:px-10 md:px-16 lg:px-12 xl:px-20">
-                    <div className="lg:text-left">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 my-6 lg:my-0 lg:mb-4">
-                            {title}
-                        </h2>
-                        <div className="text-gray-700 prose whitespace-pre-line text-base sm:text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: short_description ?? '' }}>
-                        </div>
-                        <div className="text-gray-700 prose whitespace-pre-line text-base sm:text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: description ?? '' }}>
-                        </div>
+                <div className="w-full px-6 sm:px-10 md:px-16 lg:w-1/2 lg:px-12 xl:px-20">
+                    <div className="prose dark:prose-invert ck-content lg:text-left">
+                        <h2 className="my-6 text-3xl font-bold text-gray-900 sm:text-4xl lg:my-0 lg:mb-4">{title}</h2>
+                        <div
+                            className="prose text-base leading-relaxed whitespace-pre-line text-gray-700 sm:text-lg"
+                            dangerouslySetInnerHTML={{ __html: short_description ?? '' }}
+                        ></div>
+                        <div
+                            className="prose text-base leading-relaxed whitespace-pre-line text-gray-700 sm:text-lg"
+                            dangerouslySetInnerHTML={{ __html: description ?? '' }}
+                        ></div>
                     </div>
                 </div>
 
                 {/* Image Content */}
                 <div className="w-full lg:w-1/2">
-                    <div className="group h-64 sm:h-80 md:h-96 lg:h-[28rem] w-full overflow-hidden">
+                    <div className="group h-64 w-full overflow-hidden sm:h-80 md:h-96 lg:h-[28rem]">
                         <img
                             src={imageUrl}
                             alt={title || 'Activity image'}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                     </div>
                 </div>
@@ -32,9 +32,9 @@ const ActivityItem = ({ title, description, short_description, imageUrl, reverse
     );
 };
 
-const MyHeroEvent = ({children}:{children?:any}) => {
+const MyHeroEvent = ({ children }: { children?: any }) => {
     // console.log(children);
-    
+
     // const activities = [
     //     {
     //         id: 1,
@@ -69,9 +69,10 @@ const MyHeroEvent = ({children}:{children?:any}) => {
     // ];
 
     return (
-        <section id="about" className="bg-gray-50">
+        <section>
             {children?.map((activity, index) => (
                 <ActivityItem
+                    id={`event_id${activity?.id}`} 
                     key={activity?.id}
                     title={activity?.title}
                     short_description={activity?.short_description}

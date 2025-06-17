@@ -56,10 +56,10 @@ const MyCampuseTeam = () => {
 
   return (
     <div className="flex flex-col justify-center mt-10 px-6 lg:px-0  max-w-screen-xl mx-auto">
-      <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tighter border-l-2 border-red-900 pl-2">
+      <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tighter border-l-4 border-red-700 pl-2">
         {campusRepresentative?.title}
       </h2>
-      <div className="mt-4 text-base sm:text-lg prose whitespace-pre-line" dangerouslySetInnerHTML={ {__html: campusRepresentative?.short_description}}/>
+      <div className="mt-4 text-base sm:text-lg prose dark:prose-invert ck-content whitespace-pre-line" dangerouslySetInnerHTML={ {__html: campusRepresentative?.short_description}}/>
       <div className="mt-10 sm:mt-10 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {campusRepresentative?.children?.map((member) => (
           <div key={member.id}>
@@ -70,8 +70,8 @@ const MyCampuseTeam = () => {
               width={120}
               height={120}
             />
-            <h3 className="mt-4 text-lg xl:text-xl font-semibold" >{member.title}</h3>
-            <p className="text-muted-foreground text-md prose" dangerouslySetInnerHTML={{__html:member?.short_description}}></p>
+            <h3 className="mt-4 text-lg xl:text-xl prose dark:prose-invert ck-content font-semibold" >{member.title}</h3>
+            <p className="text-muted-foreground text-md prose dark:prose-invert ck-content" dangerouslySetInnerHTML={{__html:member?.short_description}}></p>
           </div>
         ))}
       </div>

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 export function MyNewSlide() {
     const { banners } = usePage().props;
-   console.log(banners);
+//    console.log(banners);
 
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 4000, stopOnInteraction: false })]);
@@ -52,7 +52,7 @@ export function MyNewSlide() {
                 {banners?.map((_, index) => (
                     <button
                         key={index}
-                        className={`h-2 w-2 rounded-full transition sm:h-3 sm:w-3 ${index === selectedIndex ? 'bg-[#ffff]' : 'border'}`}
+                        className={`h-2 w-2 rounded-full transition sm:h-3 sm:w-3 ${index === selectedIndex ? 'bg-[#ffff]' : 'border-white border'}`}
                         onClick={() => emblaApi && emblaApi.scrollTo(index)}
                     />
                 ))}

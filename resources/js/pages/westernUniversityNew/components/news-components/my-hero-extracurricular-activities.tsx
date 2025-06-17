@@ -1,12 +1,12 @@
 
 const ActivityItem = ({ title, description, imageUrl, reverse = false }) => {
     return (
-        <div className="relative overflow-hidden py-12 bg-white border-b border-gray-200">
+        <div className="relative overflow-hidden py-12  border-b border-gray-200">
             <div className={`flex flex-col-reverse lg:flex-row ${reverse ? 'lg:flex-row-reverse' : ''} items-center max-w-screen-2xl mx-auto`}>
                 
                 {/* Text Content */}
                 <div className="w-full lg:w-1/2 px-6 sm:px-10 md:px-16 lg:px-12 xl:px-20">
-                    <div className="lg:text-left">
+                    <div className="lg:text-left prose dark:prose-invert ck-content">
                         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 my-6 lg:my-0 lg:mb-4">
                             {title}
                         </h2>
@@ -67,7 +67,7 @@ const MyHeroEvent = ({children}:{children?:any}) => {
     // ];
 
     return (
-        <section id="about" className="bg-gray-50">
+        <section id="about">
             {children?.map((activity, index) => (
                 <ActivityItem
                     key={activity?.id}

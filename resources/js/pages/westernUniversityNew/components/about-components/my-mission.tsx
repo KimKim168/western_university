@@ -92,11 +92,11 @@ const MyMission = () => {
     <div className="mb-12 flex items-center justify-center">
       <div className="max-w-screen-xl w-full mx-auto flex gap-12 px-6 py-12">
         <div>
-          <h1 className="max-w-[17ch] text-4xl md:text-5xl lg:text-[2.75rem] xl:text-5xl font-bold !leading-[1.2]">
+          <h1 className="max-w-[17ch] text-primary prose text-3xl md:text-5xl lg:text-[2.75rem] xl:text-5xl font-bold !leading-[1.2]">
           {mission?.title}
           </h1>
-          <div className="my-10 border-[1.5px] border-black w-15 "/>
-          <p className="mt-6 max-w-[70ch] text-base text-gray-600 prose whitespace-pre-line" dangerouslySetInnerHTML={{__html:mission?.long_description}}/>
+          <div className="my-5 border-[1.5px] border-primary w-15 "/>
+          <div className="mt-6 prose prose-p:dark:text-white text-base leading-relaxed whitespace-pre-line dark:text-white" dangerouslySetInnerHTML={{__html:mission?.long_description}}/>
         </div>
       </div>
     </div>

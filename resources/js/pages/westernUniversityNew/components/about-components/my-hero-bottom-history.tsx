@@ -3,7 +3,7 @@ import { usePage } from '@inertiajs/react';
 import { useState } from 'react';
 const MyHeroBottomHistory = () => {
   const { vision } = usePage().props;
-  console.log(vision)
+  // console.log(vision)
   //  const images = [
   //   "/assets/demo-images/Homepage/03_welcome_to_western_1.jpg",
   //   "/assets/demo-images/Homepage/03_welcome_to_western_3.jpg",
@@ -27,7 +27,7 @@ const MyHeroBottomHistory = () => {
             className="w-full aspect-video overflow-hidden rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
             onClick={() => setCurrentIndex(index)}
           >
-            <img className="w-full h-full object-cover" src={`/assets/images/pages/${img.image}`} alt={`Image ${index}`} />
+            <img className="w-full h-full object-cover" src={`/assets/images/pages/${img.image}`} />
           </div>
         ))}
       </div>
@@ -92,11 +92,11 @@ const MyHeroBottomHistory = () => {
     <div className="mb-12 flex items-center justify-center">
       <div className="max-w-screen-xl w-full mx-auto flex gap-12 px-6 xl:px-0 py-12">
         <div>
-          <h1 className="max-w-[17ch] text-3xl md:text-5xl lg:text-[2.75rem] xl:text-5xl font-bold !leading-[1.2]">
+          <h1 className="max-w-[17ch] text-primary prose text-3xl md:text-5xl lg:text-[2.75rem] xl:text-5xl font-bold !leading-[1.2]">
           {vision?.title}
           </h1>
           <div className="my-5 border-[1.5px] border-primary w-15 "/>
-          <div className="mt-6 max-w-[70ch] text-base text-primary prose whitespace-pre-line" dangerouslySetInnerHTML={{__html:vision?.short_description}}/>
+          <div className="mt-6 max-w-[70ch] text-base prose-p:dark:text-white prose whitespace-pre-line" dangerouslySetInnerHTML={{__html:vision?.short_description}}/>
         </div>
       </div>
     </div>

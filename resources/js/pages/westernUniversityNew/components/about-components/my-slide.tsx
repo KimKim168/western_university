@@ -52,7 +52,7 @@ const MySlide = ({ className, images = [] }: { className?: string; images?: any 
                     </CarouselContent>
                     <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center justify-center gap-2 py-2">
                         {Array.from({ length: count }).map((_, index) => (
-                            <div key={index} className={`size-3 rounded-full ${current === index + 1 ? ' bg-white' : 'border'}`}></div>
+                            <div key={index} className={`size-3 rounded-full ${current === index + 1 ? ' bg-white' : 'border border-white'}`}></div>
                         ))}
                     </div>
 

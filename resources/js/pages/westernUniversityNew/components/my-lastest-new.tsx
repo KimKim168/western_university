@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
-import { CalendarClock } from 'lucide-react';
+// import { CalendarClock } from 'lucide-react';
 
 // const newsItems = [
 //     {
@@ -42,7 +42,7 @@ import { CalendarClock } from 'lucide-react';
 
 const MyLastestNew = () => {
     const { tableData } = usePage().props;
-    console.log(tableData);
+    // console.log(tableData);
     return (
         <div className="mx-auto max-w-screen-2xl  px-4 py-12 text-center sm:px-16">
             <h2 className="text-4xl font-bold text-primary sm:text-4xl">Latest News</h2>

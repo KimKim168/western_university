@@ -22,15 +22,7 @@ const ClassScheduleAndSubject = () => {
                            <Slash className="text-gray-400" />
                        </BreadcrumbSeparator>
                        <BreadcrumbItem>
-                           <BreadcrumbLink href="#" className="text-white">
-                               Academics
-                           </BreadcrumbLink>
-                       </BreadcrumbItem>
-                       <BreadcrumbSeparator>
-                           <Slash className="text-gray-400" />
-                       </BreadcrumbSeparator>
-                       <BreadcrumbItem>
-                           <BreadcrumbLink href="#/history_and_values" className="text-gray-400">
+                           <BreadcrumbLink href="#" className="text-gray-400">
                           {schedulesAndSubjects?.title}
                            </BreadcrumbLink>
                        </BreadcrumbItem>

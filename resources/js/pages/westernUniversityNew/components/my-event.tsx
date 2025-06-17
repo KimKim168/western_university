@@ -4,13 +4,13 @@ import { User } from 'lucide-react';
 const MyEvent = () => {
     const { activitiesAndEvents } = usePage().props;
     return (
-        <div className="mx-auto max-w-screen-2xl px-4 py-16 text-center sm:px-16">
+        <div className="mx-auto max-w-screen-2xl px-4 py-16 text-center border-t sm:px-16">
             <h2 className="text-primary text-3xl font-bold sm:text-4xl">Events</h2>
             <div className="bg-true-primary mx-auto mt-5 h-1 w-16"></div>
             <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
                     {activitiesAndEvents?.children?.map((item) => (
-                        <div className="group relative overflow-hidden bg-white shadow-lg">
+                        <div key={item.id} className="group relative overflow-hidden bg-white shadow-lg">
                             {/* Image with Hover Effect */}
                             <div className="relative">
                                 <img className="aspect-[9/10] w-full object-cover" src={`/assets/images/pages/${item?.images?.[0]?.image}`} alt="Event Image" />
@@ -18,9 +18,9 @@ const MyEvent = () => {
                                     {/* <a href={`/detail/${1}`} className="mb-2 rounded-lg bg-[#e31c24] px-6 py-2 font-semibold text-white">
                                     Book Now
                                 </a> */}
-                                    <a href={`/activities_and_events`} className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
+                                    <Link href={`/activities_and_events#event_id${item.id}`} className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
                                         Learn More
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
 
@@ -51,10 +51,10 @@ const MyEvent = () => {
                 </div>
             </div>
             <Link
-                href="/school_calendar"
+                href="/activities_and_events"
                 className="mt-6 inline-flex items-center rounded-md bg-[#e31c24] px-6 py-3 font-semibold text-[#ffff] shadow-md transition hover:bg-blue-950"
             >
-                View Event Calendar{' '}
+                View All Events{' '}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="ml-2 h-5 w-5"

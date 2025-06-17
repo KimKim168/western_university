@@ -17,7 +17,7 @@ export function MyCareersCardHoverEffectDemo() {
     }, []);
 
     return (
-        <div id="career" className="mx-auto my-10 max-w-screen-2xl">
+        <div id="job_opportunities" className="mx-auto my-10 max-w-screen-2xl scroll-mt-20">
             <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">{careers?.title}</h2>
             <HoverEffect items={careers?.children} />
         </div>
