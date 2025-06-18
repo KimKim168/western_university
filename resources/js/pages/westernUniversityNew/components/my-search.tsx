@@ -14,7 +14,7 @@ const MySearch = () => {
                         </Button>
                     </SheetTrigger>
                 </div>
-                <SheetContent side="top" className="w-full bg-white/30 p-6 shadow-md backdrop-blur-xl">
+                <SheetContent side="top" className="w-full bg-background/30 p-6 shadow-md backdrop-blur-xl">
                     <SheetHeader>
                         <SheetTitle className="text-white">Search</SheetTitle>
                     </SheetHeader>

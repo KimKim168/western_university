@@ -24,9 +24,8 @@ export function MySearchProducts({ className }: { className?: string }) {
         }, 500),
         [currentPath], // Dependency ensures it updates if the path changes
     );
-
     return (
-        <div className={cn('flex w-full max-w-xl text-white items-center xl:space-x-2 rounded-xl border p-1', className)}>
+        <div className={cn('flex w-full max-w-xl text-foreground items-center xl:space-x-2 rounded-xl border p-1', className)}>
             <Input
                 defaultValue={search}
                 type="search"

@@ -1,10 +1,8 @@
+import { MyPagination } from '@/components/my-pagination';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Slash } from 'lucide-react';
-import MyNewLayout from '../layout/MyLayout';
 import MyNewPost from '../components/news-components/my-news-post';
-// import { MyPagination } from '@/components/my-pagination';
-// import MyNewBlogs from '../components/news-components/my-news-blogs';
-import { MySearchTableData } from '@/components/my-search-table-data';
+import MyNewLayout from '../layout/MyLayout';
 
 const News = () => {
     return (
@@ -31,8 +29,11 @@ const News = () => {
                     </Breadcrumb>
                 </div>
             </div>
-            
-            <MyNewPost/>
+
+            <div className='mb-10'>
+                <MyNewPost />
+                <MyPagination />
+            </div>
             {/* <MyNewBlogs/> */}
         </MyNewLayout>
     );

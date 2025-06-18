@@ -1,5 +1,7 @@
+import MyNoData from '@/components/my-no-data';
 import { MySearchTableData } from '@/components/my-search-table-data';
 import { Link, usePage } from '@inertiajs/react';
+import FilterCategory from '../../SchoolLife/FilterCategory';
 
 // Reusable card component
 const PostCard = ({ item }) => (
@@ -21,41 +23,26 @@ const PostCard = ({ item }) => (
 );
 
 const MyNewPost = () => {
-    const { tableData, blogs } = usePage().props;
-
+    const { tableData } = usePage().props;
     return (
         <div className="mx-auto max-w-screen-2xl px-4 pt-10 lg:px-20">
-            <MySearchTableData className='mb-10'/>
-            {/* NEWS Section */}
-            <div className="mb-4 flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <h1 className="font-noto-san-extra-light border-l-4 border-red-700 pl-4 text-3xl font-bold tracking-tight text-red-700 sm:text-4xl dark:text-white">
-                    {tableData?.[0]?.category_code || 'No News'}
-                </h1>
+            <div className='flex h-full gap-2'>
+                <MySearchTableData className="mb-10" />
+                <FilterCategory />
             </div>
+            {/* NEWS Section */}
+            {/* <div className="mb-4 flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <h1 className="font-noto-san-extra-light border-l-4 border-red-700 pl-4 text-3xl font-bold tracking-tight text-red-700 sm:text-4xl dark:text-white">
+                    News & Blogs
+                </h1>
+            </div> */}
 
-            {tableData?.length > 0 ? (
+            {tableData?.data?.length > 0 ? (
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {tableData.map((item) => (
-                        <PostCard key={item.id} item={item} />
-                    ))}
+                    {tableData?.data.map((item) => <PostCard key={item.id} item={item} />)}
                 </div>
             ) : (
-                <p className="text-center text-xl text-gray-500">No News Data</p>
-            )}
-
-            {/* BLOGS Section */}
-            <h1 className="font-noto-san-extra-light mt-16 mb-6 border-l-4 border-red-700 pl-4 text-3xl font-bold tracking-tight text-red-700 sm:text-4xl dark:text-white">
-                {blogs?.[0]?.category_code || 'No Blogs'}
-            </h1>
-
-            {blogs?.length > 0 ? (
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {blogs.map((item) => (
-                        <PostCard key={item.id} item={item} />
-                    ))}
-                </div>
-            ) : (
-                <p className="text-center text-xl text-gray-500">No Blogs Data</p>
+                <MyNoData />
             )}
         </div>
     );

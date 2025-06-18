@@ -26,7 +26,7 @@ export function MySearchTableData({ className }: { className?: string }) {
     );
 
     return (
-        <div className={cn('flex w-full items-center space-x-2 rounded-xl border p-1', className)}>
+        <div className={cn('flex w-full max-w-xl items-center space-x-2 rounded-xl border p-1', className)}>
             <Input
                 defaultValue={search}
                 type="search"
@@ -35,7 +35,7 @@ export function MySearchTableData({ className }: { className?: string }) {
                     setSearch(e.target.value);
                     handleSearch(e.target.value);
                 }}
-                className="ml-0.5 min-w-[100px] rounded-sm border-none shadow-none"
+                className="ml-0.5 min-w-xs rounded-sm border-none shadow-none"
                 placeholder={`${t('Search')}...`}
             />
             <Button variant="outline" type="submit" onClick={() => handleSearch(search)}>
