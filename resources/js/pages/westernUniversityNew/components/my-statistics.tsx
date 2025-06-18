@@ -4,16 +4,16 @@ const MyStatistics = () => {
   const { Statistics } = usePage().props;
 
   return (
-    <div className="p-12 bg-white dark:bg-black transition-colors duration-300">
+    <div className="pt-12 bg-white dark:bg-black transition-colors duration-300">
       {Statistics?.map((item) => (
-        <div key={item.id} className="mx-auto max-w-screen-xl px-4 pb-16 text-center sm:px-16">
+        <div key={item.id} className="mx-auto max-w-screen-xl px-6 pb-16 text-center sm:px-16">
           <h2 className="text-3xl font-bold text-primary sm:text-4xl">{item?.title}</h2>
           <div className="mx-auto my-4 h-1 w-16 bg-primary dark:bg-white"></div>
           <p className="mx-auto max-w-2xl text-sm text-gray-600 dark:text-gray-300 sm:text-base">
             {item?.short_description}
           </p>
 
-          <div className="mx-auto mt-12 grid max-w-full grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-4">
+          <div className="mx-auto mt-12 grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-4">
             {item?.children?.map((values) => (
               <a
                 href={values.type ? values.link : values.content}

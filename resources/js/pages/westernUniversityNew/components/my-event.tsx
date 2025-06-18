@@ -4,11 +4,11 @@ const MyEvent = () => {
     const { activitiesAndEvents } = usePage().props;
 
     return (
-        <div className="mx-auto max-w-screen-2xl px-4 py-16 text-center border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900 transition-colors duration-300 sm:px-16">
+        <div className="mx-auto max-w-screen-2xl px-6 lg:px-20 py-16 text-center border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900 transition-colors duration-300 sm:px-16">
             <h2 className="text-primary text-3xl font-bold dark:text-white sm:text-4xl">Events</h2>
             <div className="bg-true-primary mx-auto mt-5 h-1 w-16 dark:bg-white"></div>
 
-            <div className="container mx-auto px-4 py-12">
+            <div className="container mx-auto py-12">
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
                     {activitiesAndEvents?.children?.map((item) => (
                         <div

@@ -10,7 +10,7 @@ const MyNewMiddleSection = () => {
                 </div>
 
                
-                <div className="h-full w-full px-4 py-12 text-white sm:px-10 md:p-24">
+                <div className="h-full w-full px-6 py-12 text-white sm:px-10 md:p-24">
                     <h2 className="text-4xl font-bold">{outreachPrograms?.title}</h2>
                     <div className="my-5 h-1 w-16 bg-white"></div>
                     <div className="prose text-gray-300 line-clamp-2" dangerouslySetInnerHTML={{__html:outreachPrograms?.long_description}}>

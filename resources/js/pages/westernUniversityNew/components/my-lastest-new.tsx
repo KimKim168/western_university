@@ -44,7 +44,7 @@ const MyLastestNew = () => {
      const { tableData } = usePage().props;
 
     return (
-        <div className="mx-auto max-w-screen-2xl px-4 py-12 text-center dark:bg-gray-900 sm:px-16 transition-colors duration-300">
+        <div className="mx-auto max-w-screen-2xl px-6 py-12 text-center dark:bg-gray-900 sm:px-20 transition-colors duration-300">
             <h2 className="text-4xl font-bold text-primary dark:text-white sm:text-4xl">Latest News</h2>
             <div className="mx-auto mt-5 h-1 w-16 bg-true-primary dark:bg-white" />
 
