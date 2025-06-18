@@ -8,14 +8,14 @@ const SectionCards = () => {
     const { t, currentLocale } = useTranslation();
     const { featureDatas } = usePage().props;
     const features = [
-        {
-            icon: ListTodoIcon,
-            title: t('Items'),
-            total_records: `${featureDatas?.item_counts}`,
-            // sub_total_records: `Total view : ${featureDatas?.totalPostViews}`,
-            link: '/admin/items',
-            permission: 'item view',
-        },
+        // {
+        //     icon: ListTodoIcon,
+        //     title: t('Items'),
+        //     total_records: `${featureDatas?.item_counts}`,
+        //     sub_total_records: `Total view : ${featureDatas?.totalPostViews}`,
+        //     link: '/admin/items',
+        //     permission: 'item view',
+        // },
         {
             icon: FilePenLineIcon,
             title: t('Posts'),

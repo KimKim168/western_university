@@ -9,7 +9,7 @@ const Campuses = () => {
     const { campuses } = usePage().props;
     return (
         <MyNewLayout>
-            <div className="relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20">
+            <div className="relative flex h-full w-full flex-col items-center justify-center bg-red-900 dark:bg-red-950 p-10 text-white md:p-20">
                 <p className="font-noto-san-extra-light text-3xl md:text-6xl">{campuses?.title}</p>
                 <div className="mt-10">
                     <Breadcrumb>
@@ -17,14 +17,6 @@ const Campuses = () => {
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="/" className="text-white">
                                     Home
-                                </BreadcrumbLink>
-                            </BreadcrumbItem>
-                            <BreadcrumbSeparator>
-                                <Slash className="text-gray-400" />
-                            </BreadcrumbSeparator>
-                            <BreadcrumbItem>
-                                <BreadcrumbLink href="#" className="text-white">
-                                    About
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator>

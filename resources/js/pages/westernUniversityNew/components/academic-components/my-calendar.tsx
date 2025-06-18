@@ -1,11 +1,9 @@
 import { usePage } from '@inertiajs/react';
-import { User } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
 const MyCalendar = () => {
-  const { schoolCalendar } = usePage().props; // assume this is an array
+  const { schoolCalendar } = usePage().props;
 
-  // Group events by Month-Year
   const groupedEvents = useMemo(() => {
     if (!Array.isArray(schoolCalendar)) return [];
 
@@ -16,13 +14,12 @@ const MyCalendar = () => {
       const monthYear = date.toLocaleDateString('en-US', {
         month: 'long',
         year: 'numeric',
-      }); // e.g., "June 2025"
+      });
 
       if (!groups[monthYear]) groups[monthYear] = [];
       groups[monthYear].push(event);
     });
 
-    // Turn object into array
     return Object.entries(groups).map(([month, events]) => ({
       month,
       Children: events,
@@ -48,28 +45,28 @@ const MyCalendar = () => {
       <div className="my-8 flex items-center justify-center space-x-6">
         <button
           onClick={handlePrev}
-          className="rounded-lg border border-gray-200 p-2 shadow-sm hover:bg-gray-100 disabled:opacity-50"
+          className="rounded-lg border border-gray-200 p-2 shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800 disabled:opacity-50"
           disabled={currentMonthIndex === 0}
         >
-          <svg className="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="h-5 w-5 text-gray-500 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
-        <h2 className="text-2xl font-semibold text-primary">{currentMonth?.month}</h2>
+        <h2 className="text-2xl font-semibold text-primary dark:text-white">{currentMonth?.month}</h2>
 
         <button
           onClick={handleNext}
-          className="rounded-lg border border-gray-200 p-2 shadow-sm hover:bg-gray-100 disabled:opacity-50"
+          className="rounded-lg border border-gray-200 p-2 shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800 disabled:opacity-50"
           disabled={currentMonthIndex === groupedEvents.length - 1}
         >
-          <svg className="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="h-5 w-5 text-gray-500 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
           </svg>
         </button>
       </div>
 
-      <div className="mx-auto my-10 h-1 w-16 bg-[#282d91]"></div>
+      <div className="mx-auto my-10 h-1 w-16 bg-primary dark:bg-white"></div>
 
       {/* Events Grid */}
       <div className="grid grid-cols-1 justify-center gap-6 sm:grid-cols-2 xl:grid-cols-[repeat(auto-fit,_minmax(250px,400px))]">
@@ -79,7 +76,7 @@ const MyCalendar = () => {
           const month = date.toLocaleDateString('en-US', { month: 'long' });
           const year = date.toLocaleDateString('en-US', { year: 'numeric' });
           return (
-            <div key={event.id} className="group relative overflow-hidden bg-white shadow-lg">
+            <div key={event.id} className="group relative overflow-hidden bg-white dark:bg-gray-900 shadow-lg dark:shadow-md transition-all duration-300">
               <div className="relative">
                 <img
                   className="aspect-[9/10] w-full object-cover"
@@ -98,14 +95,11 @@ const MyCalendar = () => {
                   <p className="text-base font-bold">{day}</p>
                   <p className="text-base uppercase">{month}</p>
                   <p className="text-base font-bold">{year}</p>
-                  {/* <p className='whitespace-pre-line'>{event?.short_description}</p> */}
                 </div>
                 <div className="my-2 text-left">
-                  <h2 className="font-noto-san-extra-light mb-2 line-clamp-2 text-base text-red-700">{event.title}</h2>
-                  {/* <p className="flex items-center text-sm text-gray-600">
-                    <User className="mr-1 h-4 w-4 text-red-700" />
-                    Walter Stanley
-                  </p> */}
+                  <h2 className="font-noto-san-extra-light mb-2 line-clamp-2 text-base text-red-700 dark:text-primary">
+                    {event.title}
+                  </h2>
                 </div>
               </div>
             </div>

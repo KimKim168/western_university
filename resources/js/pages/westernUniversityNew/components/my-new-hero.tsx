@@ -8,10 +8,10 @@ const MyNewHero = () => {
       <div className="max-w-screen-xl w-full mx-auto grid lg:grid-cols-2 gap-12 px-6 py-12 items-stretch">
         <div>
 
-          <h1 className="max-w-[17ch] text-3xl md:text-5xl lg:text-[2.75rem] xl:text-4xl font-bold !leading-[1.2]">
+          <h1 className="max-w-[17ch] text-primary text-3xl md:text-5xl lg:text-[2.75rem] xl:text-4xl font-bold !leading-[1.2]">
             {WelcomeToWestern?.title}
           </h1>
-          <div className="my-8 border-[1.5px] border-black w-15" />
+          <div className="my-8 border-[1.5px] border-primary w-15" />
           {WelcomeToWestern?.short_description && <div
             className="mt-6 max-w-[60ch] text-base text-primary whitespace-pre-line"
             dangerouslySetInnerHTML={{ __html: WelcomeToWestern?.short_description }}

@@ -25,7 +25,7 @@ export const ParallaxScroll = ({ images, className }: ParallaxScrollProps) => {
     return (
       <div key={idx} className="w-full group">
         <a href={href} className="block h-full">
-          <div className="flex flex-col h-full rounded-2xl overflow-hidden bg-white shadow-md transform transition duration-300 ease-in-out group-hover:scale-[1.02] group-hover:shadow-xl">
+          <div className="flex flex-col h-full rounded-2xl overflow-hidden bg-white dark:bg-gray-900 shadow-md dark:shadow-lg transform transition duration-300 ease-in-out group-hover:scale-[1.02] group-hover:shadow-xl">
             <div className="overflow-hidden">
               <img
                 src={imgSrc}
@@ -33,10 +33,10 @@ export const ParallaxScroll = ({ images, className }: ParallaxScrollProps) => {
                 className="h-64 w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <div className="flex flex-col flex-1 p-5 text-gray-800">
+            <div className="flex flex-col flex-1 p-5 text-gray-800 dark:text-white">
               <h3 className="text-lg font-bold mb-2">{item.title}</h3>
               <p
-                className="prose prose-base whitespace-pre-line text-base text-gray-600 line-clamp-[10]"
+                className="prose prose-base whitespace-pre-line text-base text-gray-600 dark:text-gray-300 line-clamp-[10]"
                 dangerouslySetInnerHTML={{ __html: item.long_description }}
               />
             </div>

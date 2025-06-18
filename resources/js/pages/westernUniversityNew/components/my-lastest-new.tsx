@@ -41,30 +41,36 @@ import { Link, usePage } from '@inertiajs/react';
 // ];
 
 const MyLastestNew = () => {
-    const { tableData } = usePage().props;
-    // console.log(tableData);
+     const { tableData } = usePage().props;
+
     return (
-        <div className="mx-auto max-w-screen-2xl  px-4 py-12 text-center sm:px-16">
-            <h2 className="text-4xl font-bold text-primary sm:text-4xl">Latest News</h2>
-            <div className="mx-auto mt-5 h-1 w-16 bg-true-primary" />
+        <div className="mx-auto max-w-screen-2xl px-4 py-12 text-center dark:bg-gray-900 sm:px-16 transition-colors duration-300">
+            <h2 className="text-4xl font-bold text-primary dark:text-white sm:text-4xl">Latest News</h2>
+            <div className="mx-auto mt-5 h-1 w-16 bg-true-primary dark:bg-white" />
+
             <div className="mx-auto my-12 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
                 {tableData?.map((item) => (
-                    <a key={item.id} href={`/detail/${item.id}`} className="overflow-hidden border border-gray-200 bg-white shadow-lg hover:cursor-pointer">
+                    <a
+                        key={item.id}
+                        href={`/detail/${item.id}`}
+                        className="overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg hover:cursor-pointer transition-all duration-300"
+                    >
                         <img
                             src={`/assets/images/posts/${item?.images?.[0]?.image}`}
                             width={400}
                             height={250}
                             className="aspect-video w-full object-cover"
+                            alt={item?.title}
                         />
                         <div className="p-4 text-start">
-                            <h2 className="text-xl font-noto-san-extra-light font-bold text-red-700">
+                            <h2 className="text-xl font-noto-san-extra-light font-bold text-red-700 dark:text-red-400">
                                 {item.title}
                             </h2>
-                            <p className="my-6 text-gray-500">
+                            <p className="my-6 text-gray-500 dark:text-gray-300">
                                 {item.short_description}
                             </p>
-                            {/* Uncomment this block to display time info
-                            <div className="mt-3 flex items-center text-sm text-blue-950">
+                            {/* Uncomment to show time info
+                            <div className="mt-3 flex items-center text-sm text-blue-950 dark:text-white">
                                 <CalendarClock className="mr-2 h-4 w-4" />
                                 <span>2 days ago</span>
                             </div>
@@ -76,7 +82,7 @@ const MyLastestNew = () => {
 
             <Link
                 href="/news"
-                className="inline-flex items-center mt-6 px-6 py-3 bg-[#e31c24] rounded-md text-white hover:bg-blue-950 font-semibold shadow-md transition duration-500"
+                className="inline-flex items-center mt-6 px-6 py-3 bg-[#e31c24] text-white rounded-md font-semibold shadow-md transition duration-500 hover:bg-blue-950"
             >
                 View All Courses
             </Link>

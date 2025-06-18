@@ -47,7 +47,8 @@ const NavbarPage = () => {
 
       <nav
         ref={headerRef}
-        className={`sticky top-0 z-50 w-full bg-white transition-all duration-300 ease-in-out backdrop-blur-md`}
+        className={`sticky top-0 z-50 w-full transition-all duration-300 ease-in-out backdrop-blur-md 
+          bg-white dark:bg-black border-b border-gray-200 dark:border-gray-700`}
       >
       <div ref={sentinelRef} />
         <div className="mx-auto flex xl:h-28 max-w-screen-2xl items-center justify-between px-6 xl:px-16">

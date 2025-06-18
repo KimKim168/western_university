@@ -7,7 +7,7 @@ const ActivityItem = ({ title, description, imageUrl, reverse = false }) => {
                 {/* Text Content */}
                 <div className="w-full lg:w-1/2 px-6 sm:px-10 md:px-16 lg:px-12 xl:px-20">
                     <div className="lg:text-left prose dark:prose-invert ck-content">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 my-6 lg:my-0 lg:mb-4">
+                        <h2 className="text-2xl sm:text-3xl font-bold text-red-700 font-noto-san-extra-light my-6 lg:my-0 lg:mb-4">
                             {title}
                         </h2>
                         <div className="text-gray-700 prose whitespace-pre-line text-base sm:text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: description ?? '' }}>

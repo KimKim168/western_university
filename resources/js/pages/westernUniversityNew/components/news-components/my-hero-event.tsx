@@ -5,7 +5,7 @@ const ActivityItem = ({ id, title, description, short_description, imageUrl, rev
                 {/* Text Content */}
                 <div className="w-full px-6 sm:px-10 md:px-16 lg:w-1/2 lg:px-12 xl:px-20">
                     <div className="prose dark:prose-invert ck-content lg:text-left">
-                        <h2 className="my-6 text-3xl font-bold text-gray-900 sm:text-4xl lg:my-0 lg:mb-4">{title}</h2>
+                        <h2 className="my-6 text-2xl font-bold text-red-700 font-noto-san-extra-light sm:text-3xl lg:my-0 lg:mb-4">{title}</h2>
                         <div
                             className="prose text-base leading-relaxed whitespace-pre-line text-gray-700 sm:text-lg"
                             dangerouslySetInnerHTML={{ __html: short_description ?? '' }}

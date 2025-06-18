@@ -4,7 +4,7 @@ import { usePage } from "@inertiajs/react";
 
 export function MyCampuseGridLayout() {
     const { campuses } = usePage().props;
-    console.log(campuses);
+    // console.log(campuses);
   return <ParallaxScroll images={campuses?.children} />;
 }
 

@@ -3,7 +3,7 @@ import { Link, usePage } from '@inertiajs/react';
 const MyNewMiddleSection = () => {
     const { outreachPrograms } = usePage().props;
     return (
-        <div className="bg-blue-950">
+        <div className="bg-blue-950 dark:bg-gray-900">
             <div className="mx-auto grid max-w-screen-2xl items-center lg:grid-cols-2">
                 <div className="h-full w-full">
                     <img src={`/assets/images/pages/${outreachPrograms?.images?.[0]?.image}`}  className="h-full w-full object-cover" />

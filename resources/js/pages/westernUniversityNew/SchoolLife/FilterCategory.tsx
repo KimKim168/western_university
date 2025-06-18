@@ -49,72 +49,68 @@ export default function FilterCategory() {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <div className="grid grid-cols-12 gap-4">
-                    <div className="col-span-6">
-                        <FormField
-                            control={form.control}
-                            name="category_code"
-                            render={({ field }) => (
-                                <FormItem className="flex flex-col">
-                                    <Popover>
-                                        <PopoverTrigger asChild>
-                                            <FormControl>
-                                                <Button
-                                                    variant="outline"
-                                                    role="combobox"
-                                                    className={cn('w-full h-12 justify-between', !field.value && 'text-muted-foreground')}
+                <FormField
+                    control={form.control}
+                    name="category_code"
+                    render={({ field }) => (
+                        <FormItem className="flex flex-col">
+                            <Popover>
+                                <PopoverTrigger asChild>
+                                    <FormControl>
+                                        <Button
+                                            variant="outline"
+                                            role="combobox"
+                                            className={cn('h-12 w-full justify-between', !field.value && 'text-muted-foreground')}
+                                        >
+                                            {field.value ? postCategories.find((category) => category.code === field.value)?.name : 'All'}
+                                            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                        </Button>
+                                    </FormControl>
+                                </PopoverTrigger>
+                                <PopoverContent className="w-[200px] p-0">
+                                    <Command>
+                                        <CommandInput placeholder="Search ..." />
+                                        <CommandList>
+                                            <CommandEmpty>No status found.</CommandEmpty>
+                                            <CommandGroup>
+                                                <CommandItem
+                                                    value=""
+                                                    onSelect={() => {
+                                                        form.setValue('category_code', '');
+                                                        form.handleSubmit(onSubmit)();
+                                                    }}
                                                 >
-                                                    {field.value ? postCategories.find((category) => category.code === field.value)?.name : 'All'}
-                                                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                                </Button>
-                                            </FormControl>
-                                        </PopoverTrigger>
-                                        <PopoverContent className="w-[200px] p-0">
-                                            <Command>
-                                                <CommandInput placeholder="Search ..." />
-                                                <CommandList>
-                                                    <CommandEmpty>No status found.</CommandEmpty>
-                                                    <CommandGroup>
-                                                        <CommandItem
-                                                            value=""
-                                                            onSelect={() => {
-                                                                form.setValue('category_code', '');
-                                                                form.handleSubmit(onSubmit)();
-                                                            }}
-                                                        >
-                                                            <Check className={cn('mr-2 h-4 w-4', '' === field.value ? 'opacity-100' : 'opacity-0')} />
-                                                            All
-                                                        </CommandItem>
-                                                        {postCategories?.map((category) => (
-                                                            <CommandItem
-                                                                value={category.name}
-                                                                key={category.code}
-                                                                onSelect={() => {
-                                                                    form.setValue('category_code', category.code);
-                                                                    form.handleSubmit(onSubmit)();
-                                                                }}
-                                                            >
-                                                                <Check
-                                                                    className={cn(
-                                                                        'mr-2 h-4 w-4',
-                                                                        category.code === field.value ? 'opacity-100' : 'opacity-0',
-                                                                    )}
-                                                                />
-                                                                {category.name}
-                                                            </CommandItem>
-                                                        ))}
-                                                    </CommandGroup>
-                                                </CommandList>
-                                            </Command>
-                                        </PopoverContent>
-                                    </Popover>
+                                                    <Check className={cn('mr-2 h-4 w-4', '' === field.value ? 'opacity-100' : 'opacity-0')} />
+                                                    All
+                                                </CommandItem>
+                                                {postCategories?.map((category) => (
+                                                    <CommandItem
+                                                        value={category.name}
+                                                        key={category.code}
+                                                        onSelect={() => {
+                                                            form.setValue('category_code', category.code);
+                                                            form.handleSubmit(onSubmit)();
+                                                        }}
+                                                    >
+                                                        <Check
+                                                            className={cn(
+                                                                'mr-2 h-4 w-4',
+                                                                category.code === field.value ? 'opacity-100' : 'opacity-0',
+                                                            )}
+                                                        />
+                                                        {category.name}
+                                                    </CommandItem>
+                                                ))}
+                                            </CommandGroup>
+                                        </CommandList>
+                                    </Command>
+                                </PopoverContent>
+                            </Popover>
 
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                    </div>
-                </div>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
             </form>
         </Form>
     );
