@@ -8,7 +8,7 @@ export default function AppLogoIcon(props: SVGAttributes<SVGElement>) {
         <>
             {application_info?.image ? (
                 <Avatar {...props}>
-                    <AvatarImage className='object-contain' src={`/assets/images/application_info/thumb/${application_info?.image}`} />
+                    <AvatarImage src={`/assets/images/application_info/thumb/${application_info?.image}`} />
                 </Avatar>
             ) : (
                 <svg {...props} viewBox="0 0 40 42" xmlns="http://www.w3.org/2000/svg">

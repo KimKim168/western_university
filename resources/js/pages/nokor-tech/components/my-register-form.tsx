@@ -185,12 +185,12 @@ export function RegisterForm({
                 Register
               </Button>
             </div>
-            {/* <div className="mt-4 text-center text-sm">
+            <div className="mt-4 text-center text-sm">
               Have an account?{" "}
               <Link href="/admin/login" className="underline underline-offset-4">
                 Sign In
               </Link>
-            </div> */}
+            </div>
           </form>
         </CardContent>
       </Card>

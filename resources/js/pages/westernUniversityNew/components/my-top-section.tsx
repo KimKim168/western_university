@@ -54,7 +54,7 @@ const MyTopSection = () => {
                                 )}
                             </div>
                             <a href="/login" className="hover:text-white">
-                                Login/Register
+                                {/* Login/Register */}Login
                             </a>
                         </div>
                         <ToggleModeSwitch />
