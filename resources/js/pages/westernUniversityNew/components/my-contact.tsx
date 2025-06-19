@@ -12,7 +12,7 @@ import { MyCareersCardHoverEffectDemo } from './my-careers';
 
 
 const MyContact = () => {
-const { application_info } = usePage().props;
+const { application_info, contact } = usePage().props;
 
   return(
    
@@ -21,12 +21,10 @@ const { application_info } = usePage().props;
       <div className="grid grid-cols-2 gap-12 lg:grid-cols-12">
         {/* Left - Form & Intro */}
         <div className="col-span-2 lg:col-span-9">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Visit The School</h2>
-          <div className="my-6 w-20 border-[1.5px] border-primary" />
-          <p className="text-base text-primary sm:text-lg">
-            Western International School Central Office
-          </p>
-
+          <div className="text-3xl font-bold tracking-tight md:text-4xl" dangerouslySetInnerHTML={{__html:contact?.short_description}}></div>
+          <div className="my-4 w-14 border-[1.5px] border-primary" />
+          <div className="text-base sm:text-lg" dangerouslySetInnerHTML={{__html:contact?.long_description}}>
+          </div>
           {/* Contact Form */}
           <Card className="mt-8 border-0 overflow-hidden">
             <CardContent className="p-0 overflow-hidden">
@@ -37,7 +35,7 @@ const { application_info } = usePage().props;
                     <Input
                       placeholder="First name"
                       id="firstName"
-                      className="mt-1.5 h-11 bg-white shadow-none"
+                      className="mt-1.5 h-11 bg-background shadow-none text-primary"
                     />
                   </div>
                   <div>
@@ -45,7 +43,7 @@ const { application_info } = usePage().props;
                     <Input
                       placeholder="Last name"
                       id="lastName"
-                      className="mt-1.5 h-11 bg-white shadow-none"
+                      className="mt-1.5 h-11 bg-background shadow-none text-primary"
                     />
                   </div>
                   <div>
@@ -54,7 +52,7 @@ const { application_info } = usePage().props;
                       type="email"
                       placeholder="Email"
                       id="email"
-                      className="mt-1.5 h-11 bg-white shadow-none"
+                      className="mt-1.5 h-11 bg-background shadow-none text-primary"
                     />
                   </div>
                   <div>
@@ -63,7 +61,7 @@ const { application_info } = usePage().props;
                       type="tel"
                       placeholder="Phone"
                       id="phone"
-                      className="mt-1.5 h-11 bg-white shadow-none"
+                      className="mt-1.5 h-11 bg-background shadow-none text-primary"
                     />
                   </div>
                   <div className="md:col-span-2">
