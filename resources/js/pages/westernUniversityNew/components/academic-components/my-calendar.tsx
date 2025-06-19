@@ -90,8 +90,8 @@ const MyCalendar = () => {
                 </div>
               </div>
 
-              <div className="flex h-full space-x-3 pr-4">
-                <div className="rounded-bl-lg bg-[#2c318a] p-2 text-center text-white">
+              <div className="flex h-full space-x-3">
+                <div className=" bg-[#2c318a] px-6 py-2 text-white">
                   <p className="text-base font-bold">{day}</p>
                   <p className="text-base uppercase">{month}</p>
                   <p className="text-base font-bold">{year}</p>

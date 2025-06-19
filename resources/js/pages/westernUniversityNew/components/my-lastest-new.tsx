@@ -43,6 +43,10 @@ import { Link, usePage } from '@inertiajs/react';
 const MyLastestNew = () => {
      const { tableData } = usePage().props;
 
+      if (!tableData || tableData.length === 0) {
+        return <div className='mb-10'></div>; // or a loading/empty state if you want
+    }
+
     return (
         <div className="mx-auto max-w-screen-2xl px-6 py-12 text-center dark:bg-gray-900 sm:px-20 transition-colors duration-300">
             <h2 className="text-4xl font-bold text-primary dark:text-white sm:text-4xl">Latest News</h2>

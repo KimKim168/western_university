@@ -2,7 +2,9 @@ import { Link, usePage } from '@inertiajs/react';
 
 const MyEvent = () => {
     const { activitiesAndEvents } = usePage().props;
-
+       if (!activitiesAndEvents || activitiesAndEvents.length === 0) {
+        return <div className='mb-10'></div>; // or a loading/empty state if you want
+    }
     return (
         <div className="mx-auto max-w-screen-2xl px-6 lg:px-20 py-16 text-center border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900 transition-colors duration-300 sm:px-16">
             <h2 className="text-primary text-3xl font-bold dark:text-white sm:text-4xl">Events</h2>
@@ -38,8 +40,8 @@ const MyEvent = () => {
                                     {item?.title}
                                 </h2>
                                 <div
-                                    className="flex items-start prose prose-p:line-clamp-2 text-sm text-gray-600 dark:text-gray-300"
-                                    dangerouslySetInnerHTML={{ __html: item?.short_description }}
+                                    className="prose prose-p:line-clamp-2 prose-p:text-start text-sm text-gray-600 dark:text-gray-300"
+                                    dangerouslySetInnerHTML={{ __html: item?.long_description }}
                                 />
                             </div>
                         </div>
