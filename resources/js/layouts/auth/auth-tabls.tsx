@@ -5,7 +5,7 @@ const AuthTabs = () => {
     const { url } = usePage();
 
     const isLogin = url === '/login';
-    const isRegister = url === '/register';
+    // const isRegister = url === '/register';
 
     return (
         <div className="mx-auto mb-6 w-full max-w-full">
@@ -13,13 +13,13 @@ const AuthTabs = () => {
                 <Link
                     href="/login"
                     className={cn(
-                        'rounded-xl py-2 text-center text-sm font-medium transition-all',
+                        'rounded-xl col-span-2 py-2 text-center text-sm font-medium transition-all',
                         isLogin ? 'bg-background text-foreground shadow' : 'text-muted-foreground hover:text-foreground',
                     )}
                 >
                     Login
                 </Link>
-                <Link
+                {/* <Link
                     href="/register"
                     className={cn(
                         'rounded-xl py-2 text-center text-sm font-medium transition-all',
@@ -27,7 +27,7 @@ const AuthTabs = () => {
                     )}
                 >
                     Register
-                </Link>
+                </Link> */}
             </div>
         </div>
     );
