@@ -1,3 +1,4 @@
+import MyNoData from '@/components/my-no-data';
 import { Button } from '@/components/ui/button';
 import { Link } from '@inertiajs/react';
 import { ArrowUpRight } from 'lucide-react';
@@ -55,7 +56,9 @@ const MyOutreachProgram = ({ outreachPrograms }: { outreachPrograms: any }) => {
                     dangerouslySetInnerHTML={{ __html: outreachPrograms?.long_description }}
                 />
             </div>
-            <div className="grid w-full grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-4">
+            {
+                outreachPrograms?.children?.length > 0 ? (
+                     <div className="grid w-full grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-4">
                 {outreachPrograms?.children?.map((item) => (
                     <div key={item.id} className="transition-all duration-500 hover:scale-105">
                         <img
@@ -77,6 +80,11 @@ const MyOutreachProgram = ({ outreachPrograms }: { outreachPrograms: any }) => {
                     </div>
                 ))}
             </div>
+                ) : (
+                    <MyNoData/>
+                )
+            }
+           
         </div>
     );
 };
