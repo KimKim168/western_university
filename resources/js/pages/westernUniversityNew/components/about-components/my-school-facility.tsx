@@ -70,8 +70,8 @@ import MySlide from "./my-slide";
 
 const MySchoolFacility = ({schoolFacilitiesChildren}:{schoolFacilitiesChildren?:any}) => {
   return (
-    <div className=" py-16">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+    <div className="py-10 lg:py-16">
+      <div className="max-w-screen-xl mx-auto px-6  lg:px-20 space-y-8">
         {schoolFacilitiesChildren?.map((item, index) => {
           const isReversed = index % 2 === 1;
 
@@ -80,7 +80,7 @@ const MySchoolFacility = ({schoolFacilitiesChildren}:{schoolFacilitiesChildren?:
               key={item?.id}
               className={`flex flex-col md:flex-row ${
                 isReversed ? "md:flex-row-reverse" : ""
-              }  gap-10 p-6 rounded-3xl `}
+              }  gap-10 rounded-3xl `}
             >
               {/* Text Section */}
               <div className="md:w-1/2">

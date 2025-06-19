@@ -14,7 +14,7 @@ export const NavigationSheet = () => {
           <AlignLeftIcon className="text-primary stroke-3" />
         </Button>
       </SheetTrigger>
-      <SheetContent className="overflow-y-auto h-screen p-4 bg-white">
+      <SheetContent className="overflow-y-auto h-screen p-4 pb-30 bg-white">
         <Logo application_info={application_info}/>
         <div className="text-base space-y-4">
           <Link prefetch href="/" className="font-bold text-black font-noto-san-extra-light">Home</Link>

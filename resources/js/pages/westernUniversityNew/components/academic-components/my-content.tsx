@@ -6,7 +6,7 @@ const MyContent = ({ children }: { children: any[] }) => {
     const activeItem = children.find((item) => item.title === activeTitle);
 
     return (
-        <div className="px-4 py-16 sm:px-6 lg:px-8">
+        <div className="px-6 py-16  lg:px-20">
             <div className="mx-auto grid max-w-screen-xl grid-cols-1 gap-10 lg:grid-cols-12">
                 {/* Sidebar */}
                 <div className="lg:col-span-4">

@@ -38,7 +38,7 @@ const MyEvent = () => {
                                     {item?.title}
                                 </h2>
                                 <div
-                                    className="flex items-center text-sm text-gray-600 dark:text-gray-300"
+                                    className="flex items-start prose prose-p:line-clamp-2 text-sm text-gray-600 dark:text-gray-300"
                                     dangerouslySetInnerHTML={{ __html: item?.short_description }}
                                 />
                             </div>

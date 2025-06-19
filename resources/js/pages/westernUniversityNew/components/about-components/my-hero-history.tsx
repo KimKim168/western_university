@@ -4,7 +4,7 @@ const MyHeroHistory = () => {
     const { ourHestory } = usePage().props;
 
     return (
-        <section className="px-4 py-16 sm:px-6 lg:px-8">
+        <section className="px-6 pt-16 lg:px-20">
             <div className="mx-auto grid max-w-screen-xl gap-16 lg:grid-cols-2">
                 {/* Text Section */}
                 <div className="text-primary">
