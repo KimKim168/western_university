@@ -5,6 +5,9 @@ interface StudentCouncil {
 }
 
 const MyHeroStudentCouncil = ({ studentCouncil }: { studentCouncil: any }) => {
+  if(!studentCouncil || studentCouncil?.lengt == 0){
+    return <div className="my-10"></div>
+  }
   return (
     <div className="flex flex-col max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-0 my-12 lg:my-16">
       

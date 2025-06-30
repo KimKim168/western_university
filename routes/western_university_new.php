@@ -19,13 +19,18 @@ Route::get('/', function () {
     $banners = Banner::where('position_code', 'HOME_SLIDE_TOP')->orderBy('order_index')->where('status', 'active')->get();
     $middleSlide = Banner::where('position_code', 'HOME_MIDDLE_SLIDE')->orderBy('order_index')->where('status', 'active')->get();
     $slideBottom = Banner::where('position_code', 'HOM_SLIDE_BOTTOM')->orderBy('order_index')->where('status', 'active')->get();
-    $WelcomeToWestern = Page::where('code', 'WELCOME_TO_WESTERN')->with('images')->first();
-    $Statistics = Page::where('code', 'STATISTICS')->with(['children.images'])->get();
+    $WelcomeToWestern = Page::where('code', 'WELCOME_TO_WESTERN')->with('images')->where('status', 'active')->first();
+
+    $Statistics = Page::where('code', 'STATISTICS')
+        ->with([
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
+        ])
+        ->get();
+
     $activitiesAndEvents = Page::where('code', 'ACTIVITIES_AND_EVENTS')
         ->with([
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
         ])
-        ->where('status', 'active')
         ->first();
 
     $tableData = Post::where('category_code', 'NEWS')
@@ -35,7 +40,7 @@ Route::get('/', function () {
     $outreachPrograms = Page::where('code', 'OUTREACH_PROGRAMS')
         ->with([
             'images',
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
         ])
         ->where('status', 'active')
         ->first();
@@ -57,9 +62,8 @@ Route::get('/contact', function () {
 
     $careers = Page::where('code', 'CAREERS')
         ->with([
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
         ])
-        ->where('status', 'active')
         ->first();
     //  return $careers;
     return Inertia::render('westernUniversityNew/Contact', [
@@ -74,9 +78,9 @@ Route::get('/history_and_values', function () {
     $vision = Page::where('code', 'OUR_VISION')->with('images')->orderBy('order_index')->where('status', 'active')->first();
     $mission = Page::where('code', 'OUR_MISSION')->with('images')->orderBy('order_index')->where('status', 'active')->first();
     $valuesWiscare = Page::where('code', 'VALUES_WISCARE')->with([
-        'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+        'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
     ])
-        ->where('status', 'active')->first();
+        ->first();
     //use get() result is it catch data to array [], use first() 
     // return $valuesWiscare;
     return Inertia::render('westernUniversityNew/About/HistoryAndValues', [
@@ -91,9 +95,8 @@ Route::get('/history_and_values', function () {
 Route::get('/campuses', function () {
     $campuses = Page::where('code', 'CAMPUSES')
         ->with([
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
         ])
-        ->where('status', 'active')
         ->first();
     // return $campuses;
     return Inertia::render('westernUniversityNew/About/Campuses', [
@@ -104,9 +107,8 @@ Route::get('/campuses', function () {
 Route::get('/school_facilities', function () {
     $schoolFacilities = Page::where('code', 'SCHOOL_FACILITIES')
         ->with([
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
         ])
-        ->where('status', 'active')
         ->first();
     // return $schoolFacilities;
     return Inertia::render('westernUniversityNew/About/SchoolFacilities', [
@@ -118,7 +120,6 @@ Route::get('/student_council', function () {
     $studentCouncil = Page::where('code', 'STUDENT_COUNCIL')
         ->with([
             'images', // Main image code STUDENT_COUNCIL
-            // 'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
         ])
         // ->with('image') 
         ->where('status', 'active')
@@ -127,30 +128,27 @@ Route::get('/student_council', function () {
     $gradeLevelLeaders = Page::where('code', 'GRADE_LEVEL_LEADERS')
         ->with([
             // 'images', // Main image code STUDENT_COUNCIL
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
         ])
         // ->with('image') 
-        ->where('status', 'active')
         ->first();
 
 
     $campusRepresentative = Page::where('code', 'CAMPUS_REPRESENTATIVES')
         ->with([
             // 'images', // Main image code STUDENT_COUNCIL
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
         ])
         // ->with('image') 
-        ->where('status', 'active')
         ->first();
 
 
     $studentCouncilInAction = Page::where('code', 'STUDENT_COUNCIL_IN_ACTION')
         ->with([
             // 'images', // Main image code STUDENT_COUNCIL
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
         ])
         // ->with('image') 
-        ->where('status', 'active')
         ->first();
 
     // return $gradeLevelLeaders;
@@ -166,10 +164,9 @@ Route::get('/curriculum', function () {
     $studentCouncilInAction = Page::where('code', 'STUDENT_COUNCIL_IN_ACTION')
         ->with([
             // 'images', // Main image code STUDENT_COUNCIL
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
         ])
         // ->with('image') 
-        ->where('status', 'active')
         ->first();
     $curriculum = Page::where('code', 'CURRICULUM')->with('images')->orderBy('order_index')->where('status', 'active')->first();
     // return $curriculum;
@@ -194,9 +191,8 @@ Route::get('/school_calendar', function () {
 Route::get('/programs', function () {
     $programs = Page::where('code', 'PROGRAMS')
         ->with([
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
         ])
-        ->where('status', 'active')
         ->first();
     // return $programs;
     return Inertia::render('westernUniversityNew/Academics/Programs', [
@@ -264,7 +260,10 @@ Route::get('/news', function (Request $request) {
 });
 
 Route::get('/news/{id}', function ($id) {
-    $showData = Post::where('id', $id)->with('images')->first();
+    $showData = Post::where('id', $id)
+        ->where('status', 'active')
+        ->with('images')
+        ->first();
     $relatedPosts = Post::with('category', 'images')->where('id', '!=', $id)->where('category_code', $showData->category_code)->orderBy('id', 'desc')->limit(6)->get();
     // return ($showData);
     return Inertia::render('westernUniversityNew/news/show', [
@@ -275,9 +274,8 @@ Route::get('/news/{id}', function ($id) {
 Route::get('/activities_and_events', function () {
     $activitiesAndEvents = Page::where('code', 'ACTIVITIES_AND_EVENTS')
         ->with([
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->where('status', 'active')->with('images'),
         ])
-        ->where('status', 'active')
         ->first();
     // return $activitiesAndEvents;
     return Inertia::render('westernUniversityNew/SchoolLife/ActivitiesAndEvents', [
@@ -287,9 +285,8 @@ Route::get('/activities_and_events', function () {
 Route::get('/extracurricular_activities', function () {
     $extracurricularActivities = Page::where('code', 'EXTRACURRICULAR_ACTIVITIES')
         ->with([
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->where('status', 'active')->with('images'),
         ])
-        ->where('status', 'active')
         ->first();
     return Inertia::render('westernUniversityNew/SchoolLife/ExtracurricularActivities', [
         'extracurricularActivities' => $extracurricularActivities,
@@ -299,9 +296,8 @@ Route::get('/extracurricular_activities', function () {
 Route::get('/outreach_programs', function () {
     $outreachPrograms = Page::where('code', 'OUTREACH_PROGRAMS')
         ->with([
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->where('status', 'active')->with('images'),
         ])
-        ->where('status', 'active')
         ->first();
     // return $outreachPrograms;
     return Inertia::render('westernUniversityNew/SchoolLife/OutreachPrograms', [

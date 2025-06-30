@@ -39,7 +39,11 @@ const MyCalendar = () => {
     };
 
     if (groupedEvents.length === 0 || !currentMonth || currentMonth.Children.length === 0) {
-        return <div className='mt-16'><MyNoData/></div>;
+        return (
+            <div className="mt-16">
+                <MyNoData />
+            </div>
+        );
     }
 
     return (
@@ -93,7 +97,6 @@ const MyCalendar = () => {
                                     </a>
                                 </div>
                             </div>
-
                             <div className="flex h-full space-x-3">
                                 <div className="bg-[#2c318a] px-6 py-2 text-white">
                                     <p className="text-base font-bold">{day}</p>

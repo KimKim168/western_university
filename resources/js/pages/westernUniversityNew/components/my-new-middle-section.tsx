@@ -2,6 +2,9 @@ import { Link, usePage } from '@inertiajs/react';
 
 const MyNewMiddleSection = () => {
     const { outreachPrograms } = usePage().props;
+      if(!outreachPrograms || outreachPrograms?.lengt == 0){
+    return <div className="my-10"></div>
+  }
     return (
         <div className="bg-blue-950 dark:bg-gray-900">
             <div className="mx-auto grid max-w-screen-2xl items-center lg:grid-cols-2">
