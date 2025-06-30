@@ -4,6 +4,7 @@ import { UserIconAnimated } from './animated-icons/User';
 import ToggleModeSwitch from './toggle-mode-switch';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Button } from './ui/button';
+import Switch from './news-component/my-switch';
 
 const MyTopSection = () => {
     const { application_info } = usePage().props;
@@ -57,7 +58,7 @@ const MyTopSection = () => {
                                 {/* Login/Register */}Login
                             </a>
                         </div>
-                        <ToggleModeSwitch />
+                        <div className='ml-2'><Switch /></div>
                     </div>
                 </div>
             </div>

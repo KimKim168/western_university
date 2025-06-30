@@ -1,13 +1,14 @@
 import { Link, usePage } from '@inertiajs/react';
+import MyAllView from './news-component/my-all-view';
 
 const MyEvent = () => {
     const { activitiesAndEvents } = usePage().props;
-       if (!activitiesAndEvents || activitiesAndEvents.length === 0) {
-        return <div className='mb-10'></div>; // or a loading/empty state if you want
+    if (!activitiesAndEvents || activitiesAndEvents.length === 0) {
+        return <div className="mb-10"></div>; // or a loading/empty state if you want
     }
     return (
-        <div className="mx-auto max-w-screen-2xl px-6 lg:px-20 py-16 text-center border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900 transition-colors duration-300 sm:px-16">
-            <h2 className="text-primary text-3xl font-bold dark:text-white sm:text-4xl">Events</h2>
+        <div className="mx-auto max-w-screen-2xl border-t border-gray-200 px-6 py-16 text-center transition-colors duration-300 sm:px-16 lg:px-20 dark:border-gray-700 dark:bg-gray-900">
+            <h2 className="text-primary text-3xl font-bold sm:text-4xl dark:text-white">Events</h2>
             <div className="bg-true-primary mx-auto mt-5 h-1 w-16 dark:bg-white"></div>
 
             <div className="container mx-auto py-12">
@@ -15,7 +16,7 @@ const MyEvent = () => {
                     {activitiesAndEvents?.children?.map((item) => (
                         <div
                             key={item.id}
-                            className="group relative overflow-hidden bg-white dark:bg-gray-800 shadow-lg dark:shadow-gray-700 transition-colors duration-300"
+                            className="group relative overflow-hidden bg-white shadow-lg transition-colors duration-300 dark:bg-gray-800 dark:shadow-gray-700"
                         >
                             {/* Image with Hover Effect */}
                             <div className="relative">
@@ -36,7 +37,7 @@ const MyEvent = () => {
 
                             {/* Event Details */}
                             <div className="p-4">
-                                <h2 className="font-noto-san-extra-light mb-2 line-clamp-2 text-start text-base text-red-700 dark:text-primary">
+                                <h2 className="font-noto-san-extra-light dark:text-primary mb-2 line-clamp-2 text-start text-base text-red-700">
                                     {item?.title}
                                 </h2>
                                 <div
@@ -49,25 +50,9 @@ const MyEvent = () => {
                 </div>
             </div>
 
-            <Link
-                href="/activities_and_events"
-                className="mt-6 inline-flex items-center rounded-md bg-[#e31c24] px-6 py-3 font-semibold text-white shadow-md transition hover:bg-blue-950"
-            >
-                View All Events
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="ml-2 h-5 w-5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                >
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-            </Link>
+               {/*Bottun all view  */}
+           <div className='max-w-72 mx-auto'><MyAllView url='activities_and_events' title='All Events'/></div>
+            {/*Bottun all view  */}
         </div>
     );
 };

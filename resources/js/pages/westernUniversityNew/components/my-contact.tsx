@@ -8,6 +8,7 @@ import { CalendarClockIcon, Mail, MapPin, Phone } from 'lucide-react';
 import { MySocial } from './my-social';
 import { usePage } from '@inertiajs/react';
 import { MyCareersCardHoverEffectDemo } from './my-careers';
+import FormMessage from './form-message';
 // import ContactFormSubmit from './contact-form-submit';
 
 
@@ -26,7 +27,7 @@ const { application_info, contact } = usePage().props;
           <div className="text-base sm:text-lg" dangerouslySetInnerHTML={{__html:contact?.long_description}}>
           </div>
           {/* Contact Form */}
-          <Card className="mt-8 border-0 overflow-hidden">
+          {/* <Card className="mt-8 border-0 overflow-hidden">
             <CardContent className="p-0 overflow-hidden">
               <form className='overflow-hidden'>
                 <div className="grid md:grid-cols-2 gap-x-8 gap-y-5">
@@ -82,8 +83,8 @@ const { application_info, contact } = usePage().props;
                 </Button>
               </form>
             </CardContent>
-          </Card>
-          {/* <ContactFormSubmit/> */}
+          </Card> */}
+          <FormMessage/>
         </div>
 
         {/* Right - Contact Info */}

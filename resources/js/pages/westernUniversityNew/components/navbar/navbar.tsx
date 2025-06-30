@@ -15,6 +15,7 @@ import { NavigationSheet } from './navigation-sheet';
 import { usePage } from '@inertiajs/react';
 import MySearch from '../my-search';
 import ToggleModeSwitch from '../toggle-mode-switch';
+import Switch from '../news-component/my-switch';
 
 const NavbarPage = () => {
   const { application_info } = usePage().props;
@@ -57,9 +58,10 @@ const NavbarPage = () => {
           <MyNavMenu className="hidden md:block" />
             {/* <ToggleModeSwitch/> */}
 
+
           {/* Mobile Menu */}
           <div className="xl:hidden flex items-center gap-2 xl:gap-4">
-            <ToggleModeSwitch/>
+            <Switch/>
             <MySearch/>
             <NavigationSheet />
           </div>

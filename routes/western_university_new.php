@@ -40,7 +40,7 @@ Route::get('/', function () {
     $outreachPrograms = Page::where('code', 'OUTREACH_PROGRAMS')
         ->with([
             'images',
-            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->limit(3)->with('images'),
         ])
         ->where('status', 'active')
         ->first();
