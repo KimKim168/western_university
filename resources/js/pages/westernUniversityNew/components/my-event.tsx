@@ -41,7 +41,7 @@ const MyEvent = () => {
                                 </h2>
                                 <div
                                     className="prose prose-p:line-clamp-2 prose-p:text-start text-sm text-gray-600 dark:text-gray-300"
-                                    dangerouslySetInnerHTML={{ __html: item?.long_description }}
+                                    dangerouslySetInnerHTML={{ __html: item?.short_description }}
                                 />
                             </div>
                         </div>
