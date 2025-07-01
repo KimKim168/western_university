@@ -56,6 +56,7 @@ export function MyNavMenu({ className }: { className?: string }) {
                                         active={active}
                                         item="School Life"
                                         subRoutes={[
+                                            '/student_services',
                                             '/activities_and_events',
                                             '/extracurricular_activities',
                                             '/outreach_programs',
@@ -64,6 +65,7 @@ export function MyNavMenu({ className }: { className?: string }) {
                                         ]}
                                     >
                                         <div className="flex flex-col space-y-4 text-sm">
+                                            <HoveredLink href="/student_services">Student Services</HoveredLink>
                                             <HoveredLink href="/activities_and_events">Activities And Events</HoveredLink>
                                             <HoveredLink href="/extracurricular_activities">Extracurricular Activities</HoveredLink>
                                             <HoveredLink href="/outreach_programs">Outreach Programs</HoveredLink>

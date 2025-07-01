@@ -15,7 +15,7 @@ const MyQuickLink = () => {
             <Link href={'/contact'} className="text-muted-foreground hover:text-foreground dark:text-white dark:hover:underline transition-all underline-offset-4">
                 Contact
             </Link>
-            <Link href="/contact#job_opportunities" className="text-muted-foreground hover:text-foreground dark:text-white dark:hover:underline transition-all underline-offset-4">
+            <Link href="/job_opportunities" className="text-muted-foreground hover:text-foreground dark:text-white dark:hover:underline transition-all underline-offset-4">
                 Job Opportunities
             </Link>
         </div>

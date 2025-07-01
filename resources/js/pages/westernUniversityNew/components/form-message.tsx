@@ -99,12 +99,32 @@ const FormMessage = () => {
             {successMessage && <p className="mt-1 text-center text-sm text-primary">We will get back to you as soon as possible.</p>}
 
             <button
-                type="submit"
-                disabled={processing}
-                className="group before:content[''] mt-8 after:content[''] relative h-12 w-60 origin-left overflow-hidden rounded-lg border bg-sky-800 p-3 text-left text-base font-bold text-gray-50 underline underline-offset-2 duration-500 before:absolute before:top-1 before:right-1 before:z-10 before:h-12 before:w-12 before:rounded-full before:bg-sky-400 before:blur-lg before:duration-500 group-hover:before:duration-500 after:absolute after:top-3 after:right-8 after:z-10 after:h-20 after:w-20 after:rounded-full after:bg-cyan-600 after:blur after:duration-500 group-hover:after:duration-1000 hover:border-sky-300 hover:bg-sky-300 hover:text-sky-900 hover:underline hover:decoration-2 hover:underline-offset-4 hover:duration-500 hover:before:top-8 hover:before:right-16 hover:before:-bottom-8 hover:before:blur-none hover:after:-right-2 hover:after:scale-150 hover:after:blur-none"
+            type="submit"
+            disabled={processing}
+            className="group mt-6 cursor-pointer relative bottom-0 z-10 flex items-center justify-center gap-2 overflow-hidden rounded-lg border border-[#000] bg-[#000] px-4 py-2 font-black text-[#FFF] uppercase duration-700 ease-in-out hover:bg-[#FFF] hover:text-[#000] focus:bg-[#FFF] focus:text-[#000] active:scale-95 active:duration-0"
+        >
+            <span className="absolute top-0 left-0 -z-10 h-full w-0 rounded-xl bg-[#FFF] transition-all duration-700 group-hover:w-full"></span>
+            <span className="z-10 truncate duration-300 ease-in-out group-focus:translate-x-96 group-active:-translate-x-96">Send Message</span>
+
+            <div className="absolute z-10 flex -translate-x-96 flex-row items-center justify-center gap-2 duration-300 ease-in-out group-focus:translate-x-0 group-active:translate-x-0">
+                {/* Spinner animation */}
+                <div className="size-4 animate-spin rounded-full border-2 border-[#000] border-t-transparent"></div>
+                Processing...
+            </div>
+
+            <svg
+                className="z-10 fill-[#FFF] duration-700 ease-in-out group-hover:-translate-x-0 group-hover:fill-[#000] group-focus:translate-x-96 group-focus:fill-[#000] group-active:translate-x-96 group-active:duration-0"
+                stroke="currentColor"
+                fill="currentColor"
+                strokeWidth="0"
+                viewBox="0 0 512 512"
+                height="16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
             >
-                Send Message
-            </button>
+                <path d="m476.59 227.05-.16-.07L49.35 49.84A23.56 23.56 0 0 0 27.14 52 24.65 24.65 0 0 0 16 72.59v113.29a24 24 0 0 0 19.52 23.57l232.93 43.07a4 4 0 0 1 0 7.86L35.53 303.45A24 24 0 0 0 16 327v113.31A23.57 23.57 0 0 0 26.59 460a23.94 23.94 0 0 0 13.22 4 24.55 24.55 0 0 0 9.52-1.93L476.4 285.94l.19-.09a32 32 0 0 0 0-58.8z"></path>
+            </svg>
+        </button>
         </form>
     );
 };

@@ -57,6 +57,11 @@ import {
   ];
   export const schoolLife = [
     {
+      title: "Student Services",
+      href:"/student_services",
+      description: "Student Services",
+    },
+    {
       title: "Activities And Events",
       href:"/activities_and_events",
       description: "Discover amazing places to visit.",

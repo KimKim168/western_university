@@ -7,7 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { CalendarClockIcon, Mail, MapPin, Phone } from 'lucide-react';
 import { MySocial } from './my-social';
 import { usePage } from '@inertiajs/react';
-import { MyCareersCardHoverEffectDemo } from './my-careers';
+// import { MyCareersCardHoverEffectDemo } from './my-careers';
 import FormMessage from './form-message';
 // import ContactFormSubmit from './contact-form-submit';
 
@@ -138,7 +138,7 @@ const { application_info, contact } = usePage().props;
           </div>
         </div>
       </div>
-      <MyCareersCardHoverEffectDemo/>
+      {/* <MyCareersCardHoverEffectDemo/> */}
     </div>
   </div>
 )

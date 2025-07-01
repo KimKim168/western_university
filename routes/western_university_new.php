@@ -9,11 +9,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-
-Route::get('/test_component', function () {
-    return Inertia::render('test/TestComponent');
-});
-Route::post('/submit-message', [MessageController::class, 'store']);
+// Route::get('/test_component', function () {
+//     return Inertia::render('test/TestComponent');
+// });
+// Route::post('/submit-message', [MessageController::class, 'store']);
 
 Route::get('/', function () {
     $banners = Banner::where('position_code', 'HOME_SLIDE_TOP')->orderBy('order_index')->where('status', 'active')->get();
@@ -271,6 +270,19 @@ Route::get('/news/{id}', function ($id) {
         'relatedPosts' => $relatedPosts,
     ]);
 });
+
+
+Route::get('/student_services', function () {
+    
+    return Inertia::render('westernUniversityNew/SchoolLife/studentServices');
+});
+
+Route::get('/job_opportunities', function () {
+    
+    return Inertia::render('westernUniversityNew/career/jobOpportunities');
+});
+
+
 Route::get('/activities_and_events', function () {
     $activitiesAndEvents = Page::where('code', 'ACTIVITIES_AND_EVENTS')
         ->with([
