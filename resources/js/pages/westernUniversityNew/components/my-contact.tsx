@@ -86,7 +86,6 @@ const { application_info, contact } = usePage().props;
           </Card> */}
           <FormMessage/>
         </div>
-
         {/* Right - Contact Info */}
         <div className="col-span-2 lg:col-span-3 flex flex-col gap-10">
           {/* Socials */}
