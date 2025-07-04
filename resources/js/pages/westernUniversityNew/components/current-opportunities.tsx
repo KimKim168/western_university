@@ -1,49 +1,53 @@
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Link } from '@inertiajs/react';
 import { PaperclipIcon } from 'lucide-react';
 import HowToApply from './how-to-apply';
+import { usePage } from '@inertiajs/react';
+import JobForm from './my-job-form';
 
-const data = [
-    {
-        id: 1,
-        title: 'HR Recruitment Manager and Trainer',
-        short_description: 'Lead recruitment efforts and deliver training programs to develop team capabilities.',
-    },
-    {
-        id: 2,
-        title: 'GEP Manager',
-        short_description: 'Oversee education programs and coordinate resource distribution for effective learning.',
-    },
-    {
-        id: 3,
-        title: 'Customer Service Supervisor',
-        short_description: 'Supervise support teams to ensure excellent service and strong stakeholder engagement.',
-    },
-    {
-        id: 4,
-        title: 'Teacher Assistants',
-        short_description: 'Support classroom activities and assist lead teachers in delivering quality education.',
-    },
-    {
-        id: 5,
-        title: 'Nurse',
-        short_description: 'Provide healthcare services and promote wellness among students and staff.',
-    },
-];
+// const data = [
+//     {
+//         id: 1,
+//         title: 'HR Recruitment Manager and Trainer',
+//         short_description: 'Lead recruitment efforts and deliver training programs to develop team capabilities.',
+//     },
+//     {
+//         id: 2,
+//         title: 'GEP Manager',
+//         short_description: 'Oversee education programs and coordinate resource distribution for effective learning.',
+//     },
+//     {
+//         id: 3,
+//         title: 'Customer Service Supervisor',
+//         short_description: 'Supervise support teams to ensure excellent service and strong stakeholder engagement.',
+//     },
+//     {
+//         id: 4,
+//         title: 'Teacher Assistants',
+//         short_description: 'Support classroom activities and assist lead teachers in delivering quality education.',
+//     },
+//     {
+//         id: 5,
+//         title: 'Nurse',
+//         short_description: 'Provide healthcare services and promote wellness among students and staff.',
+//     },
+// ];
 
 const CurrentOpportunities = () => {
+    const { jobOpportunities } = usePage().props;
+    const data  = jobOpportunities;
+    // console.log(data);
     return (
-        <div className="mx-auto mt-12 mb-20 flex max-w-screen-2xl flex-col items-start gap-12 px-6 xl:px-16 lg:flex-row">
+        <div className="mx-auto mt-12 mb-20 flex max-w-screen-2xl flex-col items-start gap-12 px-6 lg:flex-row xl:px-16">
             <div>
                 <h2 className="text-3xl font-bold tracking-tight">Job Opportunities</h2>
 
                 <div className="mt-4 space-y-4">
-                    {data.map((item) => (
+                    {data?.map((item) => (
                         <Dialog>
                             <DialogTrigger asChild>
                                 <Card
@@ -56,7 +60,7 @@ const CurrentOpportunities = () => {
 
                                     <CardContent className="flex flex-col justify-center p-0">
                                         <h3 className="text-foreground line-clamp-2 text-lg leading-snug font-semibold tracking-tight lg:text-xl">
-                                            {item.title}
+                                            {item.name}
                                         </h3>
                                         <p className="text-foreground mt-2 line-clamp-3 text-xs lg:text-sm">{item.short_description}</p>
                                     </CardContent>
@@ -74,41 +78,27 @@ const CurrentOpportunities = () => {
                                 <div>
                                     <div>
                                         <h1 className="p-4 pb-0 text-xl font-bold">
-                                            Position: <span className="text-primary">ELV Design Engineer</span>
+                                            <span className="text-primary">{item?.name}</span>
                                         </h1>
                                     </div>
                                     <div className="text-foreground flex flex-col gap-4 p-2 lg:flex-row lg:p-4">
                                         <div className="w-full lg:flex-1">
+                                            {/* <div className="p-2 text-sm">
+                                                <p>
+                                                    Location: <strong>{item?.location}</strong>
+                                                </p>
+                                                <p>
+                                                    Industry: <strong>{item?.industry}</strong>
+                                                </p>
+                                                <p>
+                                                    Budget: <strong>{item?.budget ? '$'+item?.budget : '$000.00'}</strong>
+                                                </p>
+                                            </div> */}
                                             <div className="p-2 text-sm">
-                                                <p>
-                                                    Location: <strong>Phnom Penh, Cambodia</strong>
-                                                </p>
-                                                <p>
-                                                    Industry: <strong>Technology (ELV Systems, Security & AV Solutions)</strong>
-                                                </p>
-                                                <p>
-                                                    Budget: <strong>$0,000.00</strong>
-                                                </p>
+                                                {/* loong_description = qualification */}
+                                                <div  dangerouslySetInnerHTML={{__html:item?.qualification}}/>
                                             </div>
-                                            <div className="p-2 text-sm">
-                                                <p className="text-lg font-bold">QUALIFICATIONS</p>
-                                                <div>
-                                                    <strong>Language Proficiency:</strong>
-                                                    <p>• Preferably a local candidate with experience in Cambodia's ELV industry.</p>
-                                                </div>
-                                                <div>
-                                                    <strong>Education:</strong>
-                                                    <p>
-                                                        • Degree in Electrical Engineering or a related field (Computer Engineering, AV, IT, or Sound
-                                                        System Design).
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <strong>Experience:</strong>
-                                                    <p>• Minimum 5 years experience in designing one or more ELV systems is an asset.</p>
-                                                </div>
-                                            </div>
-                                            <div className="p-2 text-sm">
+                                            {/* <div className="p-2 text-sm">
                                                 <p className="text-lg font-bold">SKILLS:</p>
                                                 <div>
                                                     <strong>Language Proficiency:</strong>
@@ -172,7 +162,7 @@ const CurrentOpportunities = () => {
                                                         </li>
                                                     </ol>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                         </div>
                                         <div className="w-full space-y-4 lg:w-md">
                                             {/* <div className="w-full max-w-full">
@@ -184,14 +174,14 @@ const CurrentOpportunities = () => {
                                                         className="text-foreground w-full max-w-full rounded-none"
                                                     />
                                                 </div> */}
-                                            <div className="w-full max-w-full">
+                                            {/* <div className="w-full max-w-full">
                                                 <Label htmlFor="email">Position</Label>
                                                 <Input
                                                     id="position"
                                                     type="position"
                                                     placeholder="Position"
                                                     disabled
-                                                    value="ELV Design Engineer"
+                                                    value={item?.name}
                                                     className="text-foreground dark:bg-primary/20 w-full max-w-full rounded-none disabled:opacity-80"
                                                 />
                                             </div>
@@ -214,7 +204,7 @@ const CurrentOpportunities = () => {
                                                     className="text-foreground dark:bg-primary/20 w-full max-w-full rounded-none"
                                                 />
                                             </div>
-                                            {/* <div className="w-full max-w-full">
+                                            <div className="w-full max-w-full">
                                                     <Label htmlFor="email">Phone number</Label>
                                                     <Input
                                                         id="phone"
@@ -222,15 +212,22 @@ const CurrentOpportunities = () => {
                                                         placeholder="Phone"
                                                         className="text-foreground w-full max-w-full rounded-none"
                                                     />
-                                                </div> */}
-                                            <div className="flex w-full max-w-full justify-end gap-4">
-                                                <Button variant="secondary" className="rounded-none">
-                                                    <PaperclipIcon /> Attach CV
-                                                </Button>
+                                                </div>
+                                            <div className="flex w-full max-w-full items-center justify-end gap-4">
+                                                <label
+                                                    htmlFor="picture"
+                                                    className="border-input bg-background hover:bg-muted inline-flex cursor-pointer items-center gap-2 rounded-none border px-4 py-2 text-sm"
+                                                >
+                                                    <PaperclipIcon className="h-4 w-4" />
+                                                    Attach CV
+                                                </label>
+                                                <input id="picture" type="file" className="hidden" />
+
                                                 <Button variant="secondary" className="rounded-none">
                                                     Apply
                                                 </Button>
-                                            </div>
+                                            </div> */}
+                                            <JobForm item={item}/>
                                         </div>
                                     </div>
                                 </div>
@@ -256,7 +253,7 @@ const CurrentOpportunities = () => {
                     </CardFooter>
                 </Card> */}
                 <h3 className="mt-10 text-3xl font-bold tracking-tight">How to Apply</h3>
-                <HowToApply />
+                <HowToApply/>
             </aside>
         </div>
     );

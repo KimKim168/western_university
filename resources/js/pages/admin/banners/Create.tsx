@@ -198,7 +198,7 @@ export default function Create() {
                         )}
                     />
                     <div className="grid grid-cols-6 gap-4 lg:grid-cols-12">
-                        <div className="col-span-6 flex space-x-2">
+                        {/* <div className="col-span-6 flex space-x-2">
                             <span>
                                 <FormField
                                     control={form.control}
@@ -255,7 +255,7 @@ export default function Create() {
                                     )}
                                 />
                             </span>
-                        </div>
+                        </div> */}
 
                         <div className="col-span-6">
                             <FormField
@@ -324,9 +324,7 @@ export default function Create() {
                                 )}
                             />
                         </div>
-                    </div>
-                    <div className="grid grid-cols-12 gap-4">
-                        <div className="col-span-6">
+                         <div className="col-span-6">
                             <FormField
                                 control={form.control}
                                 name="order_index"
@@ -342,8 +340,26 @@ export default function Create() {
                                 )}
                             />
                         </div>
+                    </div>
+                    <div className="grid grid-cols-12 gap-4">
+                        {/* <div className="col-span-6">
+                            <FormField
+                                control={form.control}
+                                name="order_index"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>{t('Order Index')}</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder={t('Order Index')} type="number" {...field} />
+                                        </FormControl>
+                                        <FormDescription>{t('Lower number is priority')}</FormDescription>
+                                        <FormMessage>{errors.order_index && <div>{errors.order_index}</div>}</FormMessage>
+                                    </FormItem>
+                                )}
+                            />
+                        </div> */}
 
-                        <div className="col-span-6">
+                        <div className="col-span-12">
                             <FormField
                                 control={form.control}
                                 name="status"
@@ -367,7 +383,7 @@ export default function Create() {
                             />
                         </div>
                     </div>
-                    <div className="grid grid-cols-12 gap-4">
+                    {/* <div className="grid grid-cols-12 gap-4">
                         {types ? (
                             <div className="col-span-6">
                                 <FormField
@@ -386,7 +402,7 @@ export default function Create() {
                                                     {types.map((typeObject) => (
                                                         <SelectItem key={typeObject.id + typeObject.type} value={typeObject.type}>{typeObject.label}</SelectItem>
                                                     ))}
-                                                    {/* <SelectItem value="link">Link</SelectItem> */}
+                                                    <SelectItem value="link">Link</SelectItem>
                                                 </SelectContent>
                                             </Select>
                                             <FormMessage>{errors.type && <div>{errors.type}</div>}</FormMessage>
@@ -395,7 +411,7 @@ export default function Create() {
                                 />
                             </div>
                         ) : null}
-                    </div>
+                    </div> */}
                     <FormField
                         control={form.control}
                         name="images"

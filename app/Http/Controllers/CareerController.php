@@ -22,7 +22,6 @@ class CareerController extends Controller implements HasMiddleware
             new Middleware('permission:team delete', only: ['destroy', 'destroy_image']),
         ];
     }
-
     public function index(Request $request)
     {
         $search = $request->input('search', '');
@@ -73,7 +72,7 @@ class CareerController extends Controller implements HasMiddleware
             'name_kh' => 'nullable|string|max:255',
             'short_description' => 'nullable|string|max:1000',
             'short_description_kh' => 'nullable|string|max:1000',
-            'position_code' => 'required|string|exists:positions,code',
+            'position_code' => 'nullable|string|exists:positions,code',
             'status' => 'nullable|string|in:active,inactive',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg,webp|max:2048',
             'location' => 'nullable|string|max:500',

@@ -11,7 +11,7 @@ const JobOpportunities = () => {
                 <p className="font-noto-san-extra-light text-3xl md:text-6xl">
                     {/* {programs?.title} */} Job Opportunities
                     </p>
-                <div className="mt-10">
+                <div>
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>
@@ -22,7 +22,7 @@ const JobOpportunities = () => {
                             <BreadcrumbSeparator>
                                 <Slash className="text-gray-400" />
                             </BreadcrumbSeparator>
-                            <BreadcrumbItem>
+                            <BreadcrumbItem >
                                 <BreadcrumbLink href="#" className="text-gray-400">
                                     {/* {programs?.title} */}Job Opportunities
                                 </BreadcrumbLink>

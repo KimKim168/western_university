@@ -51,7 +51,7 @@ export default function MySlideCareer() {
                                                     at the best at Westec
                                                 </p>
                                             </div>
-                                            <div className="mt-2">
+                                            <div>
                                                 <Dialog>
                                                     <DialogTrigger>
                                                         <span className="font-proxima-nova-regular bg-primary px-4 py-1 text-xs text-white capitalize transition duration-200 hover:underline 2xl:text-xl">

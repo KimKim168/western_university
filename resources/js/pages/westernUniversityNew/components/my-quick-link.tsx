@@ -2,7 +2,7 @@ import { Link } from '@inertiajs/react';
 
 const MyQuickLink = () => {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-1">
             <Link href={'/'} className="text-muted-foreground hover:text-foreground dark:text-white dark:hover:underline transition-all underline-offset-4">
                 Home
             </Link>

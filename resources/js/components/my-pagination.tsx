@@ -5,7 +5,7 @@ export function MyPagination() {
     const { t } = useTranslation();
     const { tableData } = usePage().props;
     const links = tableData?.links || null;
-    console.log(links);
+    // console.log(links);
     const queryParams = new URLSearchParams(window.location.search);
     queryParams.delete('page');
     const queryString = new URLSearchParams(queryParams)?.toString();

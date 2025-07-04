@@ -21,13 +21,13 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $post_daily_views_data = DB::table('item_daily_views')
+        $post_daily_views_data = DB::table('post_daily_views')
             ->selectRaw('view_date as date, SUM(view_counts) as total')
             ->where('view_date', '>=', now()->subDays(30)->toDateString())
             ->groupBy('view_date')
             ->orderBy('view_date')
             ->get();
-        $totalPostViews = ItemDailyView::query()->sum('view_counts');
+        $totalItemViews = PostDailyView::query()->sum('view_counts');
 
 
         $item_counts = Item::count();
@@ -48,7 +48,7 @@ class DashboardController extends Controller
             'featureDatas' => [
                 'item_counts' => $item_counts,
                 'post_counts' => $post_counts,
-                'totalPostViews' => $totalPostViews,
+                'totalItemViews' => $totalItemViews,
                 'page_counts' => $page_counts,
                 'link_counts' => $link_counts,
                 'banner_counts' => $banner_counts,

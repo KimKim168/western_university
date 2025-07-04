@@ -58,13 +58,14 @@ class CareerSubmitController extends Controller implements HasMiddleware
     public function store(Request $request)
     {
         // Validate request
+        // dd($request->all());
         $validated = $request->validate([
-            'name'          => 'nullable|string|max:255',
+            'name'          => 'required|string|max:255',
             'phone'         => 'required|string|min:8|max:20',
             'email'         => 'nullable|email|max:255',
-            'cv_file'       => 'nullable|file|mimes:pdf|max:12120', // assuming file upload for CV
-            'position_code' => 'required|string|exists:positions,code',
-            'career_id'     => 'required|integer|exists:careers,id',
+            'message'       => 'nullable|string|max:1000',
+            'cv_file'       => 'required|file|mimes:pdf|max:12120', // assuming file upload for CV
+            'career_id'     => 'nullable',
         ]);
 
         $cv_file = $request->file('cv_file');

@@ -14,14 +14,16 @@ import {
     Layers2Icon,
     LayoutDashboardIcon,
     LinkIcon,
-    ListTodoIcon,
+    Tally5Icon,
     MailsIcon,
     ReplaceAllIcon,
     ShapesIcon,
     ShieldCheckIcon,
-    TvMinimalPlayIcon,
+    BriefcaseBusinessIcon,
     UserCogIcon,
+    SquareUserIcon,
     UsersIcon,
+    MailCheckIcon,
 } from 'lucide-react';
 import AppLogo from './app-logo';
 
@@ -173,12 +175,12 @@ export function AppSidebar() {
                     icon: Layers2Icon,
                     url: '/admin/post_categories',
                 },
-                // {
-                //     title: t('View Counts'),
-                //     permission: 'post view',
-                //     icon: Tally5Icon,
-                //     url: '/admin/post_view_counts',
-                // },
+                {
+                    title: t('View Counts'),
+                    permission: 'post view',
+                    icon: Tally5Icon,
+                    url: '/admin/post_view_counts',
+                },
             ],
         },
         {
@@ -227,44 +229,44 @@ export function AppSidebar() {
         //         },
         //     ],
         // },
-        // {
-        //     title: t('Teams and Careers'),
-        //     permission: 'team view',
-        //     url: '/admin/teams',
-        //     icon: SquareUserIcon,
-        //     subItems: [
-        //         {
-        //             title: t('Teams'),
-        //             permission: 'team view',
-        //             url: '/admin/teams',
-        //             icon: SquareUserIcon,
-        //         },
-        //         {
-        //             title: t('Team Categories'),
-        //             permission: 'team view',
-        //             url: '/admin/team_categories',
-        //             icon: Layers2Icon,
-        //         },
-        //         {
-        //             title: t('Position'),
-        //             permission: 'team view',
-        //             url: '/admin/positions',
-        //             icon: ReplaceAllIcon,
-        //         },
-        //         {
-        //             title: t('Careers'),
-        //             permission: 'team view',
-        //             url: '/admin/careers',
-        //             icon: BriefcaseBusinessIcon,
-        //         },
-        //         {
-        //             title: t('Career Submits'),
-        //             permission: 'team view',
-        //             url: '/admin/career_submits',
-        //             icon: MailCheckIcon,
-        //         },
-        //     ],
-        // },
+        {
+            title: t('Careers'),
+            permission: 'team view',
+            url: '/admin/careers',
+            icon: SquareUserIcon,
+            subItems: [
+                // {
+                //     title: t('Teams'),
+                //     permission: 'team view',
+                //     url: '/admin/teams',
+                //     icon: SquareUserIcon,
+                // },
+                // {
+                //     title: t('Team Categories'),
+                //     permission: 'team view',
+                //     url: '/admin/team_categories',
+                //     icon: Layers2Icon,
+                // },
+                // {
+                //     title: t('Position'),
+                //     permission: 'team view',
+                //     url: '/admin/positions',
+                //     icon: ReplaceAllIcon,
+                // },
+                {
+                    title: t('Careers'),
+                    permission: 'team view',
+                    url: '/admin/careers',
+                    icon: BriefcaseBusinessIcon,
+                },
+                {
+                    title: t('Career Submits'),
+                    permission: 'team view',
+                    url: '/admin/career_submits',
+                    icon: MailCheckIcon,
+                },
+            ],
+        },
         // {
         //     title: t('Orders'),
         //     permission: 'order view',

@@ -67,11 +67,11 @@ const MyTableData = () => {
                                     <ArrowUpDown size={16} /> {t('Email')}
                                 </span>
                             </TableHead>
-                            <TableHead onClick={() => handleSort('position_code')}>
+                            {/* <TableHead onClick={() => handleSort('position_code')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Position')}
                                 </span>
-                            </TableHead>
+                            </TableHead> */}
                             <TableHead onClick={() => handleSort('career_id')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Career')}
@@ -93,7 +93,7 @@ const MyTableData = () => {
                                 <TableCell>
                                     <span className="flex h-full items-center justify-start">
                                         <ViewButton item={item} />
-                                        {hasPermission('message delete') && <DeleteButton deletePath="/admin/messages/" id={item.id} />}
+                                        {hasPermission('message delete') && <DeleteButton deletePath="/admin/career_submits/" id={item.id} />}
                                     </span>
                                 </TableCell>
 
@@ -107,7 +107,7 @@ const MyTableData = () => {
                                 <TableCell>{item.name || '---'}</TableCell>
                                 <TableCell>{item.phone || '---'}</TableCell>
                                 <TableCell>{item.email || '---'}</TableCell>
-                                <TableCell>{item.position?.name || '---'}</TableCell>
+                                {/* <TableCell>{item.position?.name || '---'}</TableCell> */}
                                 <TableCell>
                                     <Link className="hover:underline" href={`/admin/careers/${item.career_id}`}>
                                         {item.career?.name || '---'}

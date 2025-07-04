@@ -107,7 +107,10 @@ const Index = () => {
                 </div>
             </div>
             <div className="h-2" />
+            {/* view count table */}
             <MyTableData />
+            {/* view count table */}
+
             <MyPagination />
         </AppLayout>
     );

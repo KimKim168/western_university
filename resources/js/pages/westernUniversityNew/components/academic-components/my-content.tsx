@@ -42,7 +42,7 @@ const MyContent = ({ children }: { children: any[] }) => {
                             </div>
                             <div>
                                 <img
-                                    src={`${activeItem.images[0]?.image}`}
+                                    src={`/assets/images/pages/${activeItem.images[0]?.image}`}
                                     alt={activeItem.title}
                                     className="h-auto w-full rounded-md object-cover"
                                 />

@@ -11,7 +11,7 @@ const SchoolFacilities = () => {
    <MyNewLayout>
          <div className="relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 dark:bg-red-950 text-white md:p-20">
                 <p className="font-noto-san-extra-light text-3xl md:text-6xl">{schoolFacilities?.title}</p>
-                <div className="mt-10">
+                <div>
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>

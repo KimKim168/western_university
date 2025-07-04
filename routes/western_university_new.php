@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\CareerSubmitController;
 use App\Http\Controllers\MessageController;
 use App\Models\Banner;
+use App\Models\Career;
 use App\Models\Page;
 use App\Models\Post;
 use App\Models\PostCategory;
+use App\Models\PostDailyView;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -12,12 +15,15 @@ use Inertia\Inertia;
 // Route::get('/test_component', function () {
 //     return Inertia::render('test/TestComponent');
 // });
-// Route::post('/submit-message', [MessageController::class, 'store']);
+
+
+Route::post('/submit-message', [MessageController::class, 'store']);
+Route::post('/submit_career', [CareerSubmitController::class, 'store']);
 
 Route::get('/', function () {
     $banners = Banner::where('position_code', 'HOME_SLIDE_TOP')->orderBy('order_index')->where('status', 'active')->get();
-    $middleSlide = Banner::where('position_code', 'HOME_MIDDLE_SLIDE')->orderBy('order_index')->where('status', 'active')->get();
-    $slideBottom = Banner::where('position_code', 'HOM_SLIDE_BOTTOM')->orderBy('order_index')->where('status', 'active')->get();
+    $middleSlide = Banner::where('position_code', 'HOME_SLIDE_MIDDLE')->orderBy('order_index')->where('status', 'active')->get();
+    $slideBottom = Banner::where('position_code', 'HOME_SLIDE_BOTTOM')->orderBy('order_index')->where('status', 'active')->get();
     $WelcomeToWestern = Page::where('code', 'WELCOME_TO_WESTERN')->with('images')->where('status', 'active')->first();
 
     $Statistics = Page::where('code', 'STATISTICS')
@@ -264,6 +270,18 @@ Route::get('/news/{id}', function ($id) {
         ->with('images')
         ->first();
     $relatedPosts = Post::with('category', 'images')->where('id', '!=', $id)->where('category_code', $showData->category_code)->orderBy('id', 'desc')->limit(6)->get();
+
+    $date = now()->toDateString();
+        $view = PostDailyView::firstOrCreate(
+            ['post_id' => $id, 'view_date' => $date],
+            ['view_counts' => 0],
+        );
+        
+    $view->increment('view_counts');
+
+    $showData->update([
+            'total_view_counts' => $showData->total_view_counts + 1,
+    ]);
     // return ($showData);
     return Inertia::render('westernUniversityNew/news/show', [
         'showData' => $showData,
@@ -273,13 +291,23 @@ Route::get('/news/{id}', function ($id) {
 
 
 Route::get('/student_services', function () {
+    $studentServices = Page::where('code', 'STUDENT_SERVICES')
+        ->with([
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
+        ])
+        ->first();
     
-    return Inertia::render('westernUniversityNew/SchoolLife/studentServices');
+    return Inertia::render('westernUniversityNew/SchoolLife/studentServices',[
+       'studentServices' => $studentServices
+    ]);
 });
 
 Route::get('/job_opportunities', function () {
-    
-    return Inertia::render('westernUniversityNew/career/jobOpportunities');
+     $jobOpportunities = Career::where('status', 'active')->get();
+    // return $jobOpportunities;
+    return Inertia::render('westernUniversityNew/career/jobOpportunities',[
+        'jobOpportunities' => $jobOpportunities
+    ]);
 });
 
 

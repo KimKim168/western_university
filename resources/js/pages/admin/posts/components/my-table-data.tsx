@@ -17,6 +17,7 @@ const MyTableData = () => {
     const hasPermission = usePermission();
 
     const { tableData } = usePage().props;
+    console.log(tableData?.data);
     const queryParams = new URLSearchParams(window.location.search);
     const currentPath = window.location.pathname; // Get dynamic path
 

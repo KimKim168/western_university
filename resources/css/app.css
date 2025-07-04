@@ -734,3 +734,17 @@ input::-webkit-search-cancel-button {
     }
 }
 
+/*Submit Button  */
+.submit-button {
+  border: 1px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 17px;
+  transition: .4s;
+}
+
+.submit-button:hover {
+  box-shadow: 5px 6px 0px rgb(0, 0, 0);
+}
+
+/* End Sbmit Button */

@@ -51,8 +51,8 @@ const MyTableData = () => {
                             <TableHead className="w-[50px]">{t('No')}</TableHead>
                             <TableHead className="text-left">{t('Action')}</TableHead>
                             <TableHead>{t('Image')}</TableHead>
-                            <TableHead className="text-center">Video</TableHead>
-                            <TableHead className="text-center">Link</TableHead>
+                            {/* <TableHead className="text-center">Video</TableHead> */}
+                            {/* <TableHead className="text-center">Link</TableHead> */}
                             <TableHead onClick={() => handleSort('title')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Title')}
@@ -83,11 +83,11 @@ const MyTableData = () => {
                                     <ArrowUpDown size={16} /> {t('Status')}
                                 </span>
                             </TableHead>
-                            <TableHead onClick={() => handleSort('type')}>
+                            {/* <TableHead onClick={() => handleSort('type')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Type')}
                                 </span>
-                            </TableHead>
+                            </TableHead> */}
                             <TableHead onClick={() => handleSort('position_code')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> Position Code
@@ -184,7 +184,7 @@ const MyTableData = () => {
                                         />
                                     )}
                                 </TableCell>
-                                <TableCell className="text-center">
+                                {/* <TableCell className="text-center">
                                     {item.video ? (
                                         <a href={`/assets/files/banners/videos/${item.video}`} target="_blank">
                                             <MyTooltipButton variant="ghost" title={item.video}>
@@ -194,8 +194,8 @@ const MyTableData = () => {
                                     ) : (
                                         '---'
                                     )}
-                                </TableCell>
-                                <TableCell className="text-center">
+                                </TableCell> */}
+                                {/* <TableCell className="text-center">
                                     {item.link ? (
                                         <a href={`${item.link}`} target="_blank">
                                             <MyTooltipButton variant="ghost" title={item.link} className="p-0 hover:bg-transparent">
@@ -215,8 +215,8 @@ const MyTableData = () => {
                                     ) : (
                                         '---'
                                     )}
-                                </TableCell>
-                                <TableCell>{item.title || '---'}</TableCell>
+                                </TableCell> */}
+                                <TableCell>{item.title || '---'}</TableCell> 
                                 <TableCell>{item.title_kh || '---'}</TableCell>
                                 {/* <TableCell>{item.short_description || '---'}</TableCell>
                                 <TableCell>{item.short_description_kh || '---'}</TableCell> */}
@@ -233,7 +233,7 @@ const MyTableData = () => {
                                         <span className="capitalize">{item.status}</span>
                                     )}
                                 </TableCell>
-                                <TableCell>{item.type || '---'}</TableCell>
+                                {/* <TableCell>{item.type || '---'}</TableCell> */}
                                 <TableCell>{item.position_code || '---'}</TableCell>
                                 <TableCell>
                                     {item.created_at

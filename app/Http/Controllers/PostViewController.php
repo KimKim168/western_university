@@ -67,7 +67,7 @@ class PostViewController extends Controller implements HasMiddleware
 
         $tableData = $query->paginate(perPage: 10)->onEachSide(1);
         $totalViews = $query->sum('view_counts');
-
+        // return $totalViews;
         return Inertia::render('admin/post_view_counts/Index', [
             'tableData' => $tableData,
             'totalViews' => $totalViews,

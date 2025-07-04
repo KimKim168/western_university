@@ -1,15 +1,9 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '../components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
+
 import { Separator } from "@/components/ui/separator";
 import { CalendarClockIcon, Mail, MapPin, Phone } from 'lucide-react';
 import { MySocial } from './my-social';
 import { usePage } from '@inertiajs/react';
-// import { MyCareersCardHoverEffectDemo } from './my-careers';
 import FormMessage from './form-message';
-// import ContactFormSubmit from './contact-form-submit';
 
 
 const MyContact = () => {
@@ -137,7 +131,6 @@ const { application_info, contact } = usePage().props;
           </div>
         </div>
       </div>
-      {/* <MyCareersCardHoverEffectDemo/> */}
     </div>
   </div>
 )

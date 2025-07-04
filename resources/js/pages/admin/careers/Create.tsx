@@ -202,7 +202,7 @@ export default function Create() {
                                 )}
                             />
                         </div>
-                        <div className="col-span-6">
+                        {/* <div className="col-span-6">
                             <FormField
                                 control={form.control}
                                 name="location"
@@ -217,7 +217,7 @@ export default function Create() {
                                 )}
                             />
                         </div>
-                        <div className="col-span-6">
+                         <div className="col-span-6">
                             <FormField
                                 control={form.control}
                                 name="industry"
@@ -246,7 +246,7 @@ export default function Create() {
                                     </FormItem>
                                 )}
                             />
-                        </div>
+                        </div> */}
                     </div>
 
                     <FormField
@@ -278,7 +278,7 @@ export default function Create() {
                     />
 
                     <div className="grid grid-cols-12 gap-4">
-                        <div className="col-span-6">
+                        {/* <div className="col-span-6">
                             <FormField
                                 control={form.control}
                                 name="position_code"
@@ -347,9 +347,9 @@ export default function Create() {
                                     </FormItem>
                                 )}
                             />
-                        </div>
+                        </div> */}
 
-                        <div className="col-span-6">
+                        <div className="col-span-12">
                             <FormField
                                 control={form.control}
                                 name="status"
@@ -454,17 +454,17 @@ export default function Create() {
                             <MyCkeditor5 data={long_description_kh} setData={setLong_description_kh} />
                         </div> */}
                         <div>
-                            <p className="mb-1 text-sm font-medium">{t('Qualifications')}</p>
+                            <p className="mb-1 text-sm font-medium">{t('Long Description')}</p>
                             <MyCkeditor5 data={qualification} setData={setQualification} />
                         </div>
                         <div>
-                            <p className="mb-1 text-sm font-medium">{t('Skills')}</p>
+                            <p className="mb-1 text-sm font-medium">{t('Long Description Khmer')}</p>
                             <MyCkeditor5 data={skill} setData={setSkill} />
                         </div>
-                        <div>
+                        {/* <div>
                             <p className="mb-1 text-sm font-medium">{t('Duties and Responsibility')}</p>
                             <MyCkeditor5 data={responsibility} setData={setResponsibility} />
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* End Long Description */}

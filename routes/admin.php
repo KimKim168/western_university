@@ -73,7 +73,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('admin/item_colors', ItemColorController::class);
     Route::post('admin/item_colors/{item_colors}/update', [ItemColorController::class, 'update']);
 
-
+// Post Route
+    Route::resource('admin/posts', PostController::class);
+    Route::post('admin/posts/{post}/update', [PostController::class, 'update']);
+    Route::post('admin/posts/{post}/update_status', [PostController::class, 'update_status']);
+    Route::delete('admin/posts/images/{image}', [PostController::class, 'destroy_image']);
+    Route::get('admin/post_view_counts', [PostViewController::class, 'index']);
+    Route::get('admin/post_view_counts/export', [PostViewController::class, 'export']);
 
     // Type Route
     Route::resource('admin/types', TypeController::class);
@@ -188,13 +194,7 @@ Route::middleware('auth')->group(function () {
     Route::post('admin/post_categories/{post_category}/update', [PostCategoryController::class, 'update']);
     Route::get('admin/all_page_categories', [PostCategoryController::class, 'all_page_categories']);
     Route::post('admin/post_categories/{post_category}/update_status', [PostCategoryController::class, 'update_status']);
-    // Post Route
-    Route::resource('admin/posts', PostController::class);
-    Route::post('admin/posts/{post}/update', [PostController::class, 'update']);
-    Route::post('admin/posts/{post}/update_status', [PostController::class, 'update_status']);
-    Route::delete('admin/posts/images/{image}', [PostController::class, 'destroy_image']);
-    Route::get('admin/post_view_counts', [PostViewController::class, 'index']);
-    Route::get('admin/post_view_counts/export', [PostViewController::class, 'export']);
+
 
     // Page Position Route
     Route::resource('admin/page_positions', PagePositionController::class);

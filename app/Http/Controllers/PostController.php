@@ -232,6 +232,7 @@ class PostController extends Controller implements HasMiddleware
         return redirect()->back()->with('success', 'post deleted successfully.');
     }
 
+
     public function destroy_image(PostImage $image)
     {
         // Debugging (Check if model is found)

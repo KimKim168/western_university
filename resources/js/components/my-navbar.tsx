@@ -12,7 +12,7 @@ export function MyNavbar({ className }: { className?: string }) {
 
     const { t, currentLocale } = useTranslation();
     const { pages_menus } = usePage().props;
-    console.log(pages_menus);
+    // console.log(pages_menus);
     return (
         <>
             <div className={cn('mx-auto max-w-[2000px]', className)}>
