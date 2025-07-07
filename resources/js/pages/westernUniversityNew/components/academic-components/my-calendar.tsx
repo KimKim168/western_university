@@ -107,6 +107,10 @@ const MyCalendar = () => {
                                     <h2 className="font-noto-san-extra-light dark:text-primary mb-2 line-clamp-2 text-base text-red-700">
                                         {event.title}
                                     </h2>
+                                    <div
+                                    className="prose dark:prose-invert w-full max-w-none"
+                                    dangerouslySetInnerHTML={{ __html: event.short_description }}
+                                />
                                 </div>
                             </div>
                         </div>
