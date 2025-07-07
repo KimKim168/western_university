@@ -99,10 +99,10 @@ class CareerSubmitController extends Controller implements HasMiddleware
             return back()->with('success', 'Submit successfully!');
         } catch (\Exception $e) {
             DB::rollback();
-
-            return back()->withErrors([
-                'general' => 'Failed to submit. ' . $e->getMessage()
-            ]);
+            dd($e->getMessage());
+            // return back()->withErrors([
+            //     'general' => 'Failed to submit. ' . $e->getMessage()
+            // ]);
         }
     }
 }

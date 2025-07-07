@@ -8,6 +8,7 @@ import { PaperclipIcon } from 'lucide-react';
 import HowToApply from './how-to-apply';
 import { usePage } from '@inertiajs/react';
 import JobForm from './my-job-form';
+import MyNoData from '@/components/my-no-data';
 
 // const data = [
 //     {
@@ -37,10 +38,19 @@ import JobForm from './my-job-form';
 //     },
 // ];
 
+
 const CurrentOpportunities = () => {
     const { jobOpportunities } = usePage().props;
     const data  = jobOpportunities;
     // console.log(data);
+     if (!data || data.length === 0) {
+    return (
+      <div className="my-12">
+        <MyNoData />
+      </div>
+    );
+  }
+
     return (
         <div className="mx-auto mt-12 mb-20 flex max-w-screen-2xl flex-col items-start gap-12 px-6 lg:flex-row xl:px-16">
             <div>
@@ -83,150 +93,12 @@ const CurrentOpportunities = () => {
                                     </div>
                                     <div className="text-foreground flex flex-col gap-4 p-2 lg:flex-row lg:p-4">
                                         <div className="w-full lg:flex-1">
-                                            {/* <div className="p-2 text-sm">
-                                                <p>
-                                                    Location: <strong>{item?.location}</strong>
-                                                </p>
-                                                <p>
-                                                    Industry: <strong>{item?.industry}</strong>
-                                                </p>
-                                                <p>
-                                                    Budget: <strong>{item?.budget ? '$'+item?.budget : '$000.00'}</strong>
-                                                </p>
-                                            </div> */}
                                             <div className="p-2 text-sm">
                                                 {/* loong_description = qualification */}
                                                 <div  dangerouslySetInnerHTML={{__html:item?.qualification}}/>
                                             </div>
-                                            {/* <div className="p-2 text-sm">
-                                                <p className="text-lg font-bold">SKILLS:</p>
-                                                <div>
-                                                    <strong>Language Proficiency:</strong>
-                                                    <ul>
-                                                        <li>• Proficiency in AutoCAD for system drawings and design.</li>
-                                                        <li>• Strong knowledge of Microsoft Office Suite.</li>
-                                                        <li>• Ability to speak, read, and write in English and Khmer.</li>
-                                                        <li>• Excellent communication and problem-solving skills.</li>
-                                                        <li>• Quick learner with a strong work ethic and integrity.</li>
-                                                        <li>• Willingness to work overtime or on weekends based on project requirements.</li>
-                                                        <li>• Detail-oriented and able to follow company procedures.</li>
-                                                        <li>• Passion for continuous learning and upgrading technical skills.</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div className="p-2 text-sm">
-                                                <p className="text-lg font-bold">DUTIES & RESPONSIBILITIES:</p>
-                                                <div>
-                                                    <strong>Language Proficiency:</strong>
-                                                    <ol>
-                                                        <li>
-                                                            1. System Design & Documentation
-                                                            <ul>
-                                                                <li>• Design and prepare BOQ and technical drawings for ELV systems.</li>
-                                                                <li>
-                                                                    • Ensure ELV system designs meet industry standards, safety regulations, and
-                                                                    project specifications.
-                                                                </li>
-                                                                <li>
-                                                                    • Maintain accurate documentation and ensure proper filing of all design records.
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            2. Project Coordination & Technical Support
-                                                            <ul>
-                                                                <li>
-                                                                    • Collaborate with the purchasing team to source necessary components for ELV
-                                                                    installations.
-                                                                </li>
-                                                                <li>
-                                                                    • Provide technical guidance to sales, marketing, and installation teams when
-                                                                    needed.
-                                                                </li>
-                                                                <li>
-                                                                    • Conduct site inspections to verify that installations align with design plans.
-                                                                </li>
-                                                                <li>• Assist in troubleshooting and resolving ELV system issues.</li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            3. Knowledge Transfer & Team Training
-                                                            <ul>
-                                                                <li>• Design and prepare BOQ and technical drawings for ELV systems.</li>
-                                                                <li>• Train installation teams on system designs and technical processes.</li>
-                                                                <li>
-                                                                    • Stay updated on the latest ELV technologies and industry trends to enhance
-                                                                    project efficiency.
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ol>
-                                                </div>
-                                            </div> */}
                                         </div>
                                         <div className="w-full space-y-4 lg:w-md">
-                                            {/* <div className="w-full max-w-full">
-                                                    <Label htmlFor="name">Name</Label>
-                                                    <Input
-                                                        id="name"
-                                                        type="name"
-                                                        placeholder="Name"
-                                                        className="text-foreground w-full max-w-full rounded-none"
-                                                    />
-                                                </div> */}
-                                            {/* <div className="w-full max-w-full">
-                                                <Label htmlFor="email">Position</Label>
-                                                <Input
-                                                    id="position"
-                                                    type="position"
-                                                    placeholder="Position"
-                                                    disabled
-                                                    value={item?.name}
-                                                    className="text-foreground dark:bg-primary/20 w-full max-w-full rounded-none disabled:opacity-80"
-                                                />
-                                            </div>
-                                            <div className="w-full max-w-full">
-                                                <Label htmlFor="email">Email</Label>
-                                                <Input
-                                                    id="email"
-                                                    type="email"
-                                                    placeholder="Email"
-                                                    autoFocus={false}
-                                                    className="text-foreground dark:bg-primary/20 w-full max-w-full rounded-none"
-                                                />
-                                            </div>
-                                            <div className="w-full max-w-full">
-                                                <Label htmlFor="message">Message</Label>
-                                                <Textarea
-                                                    id="message"
-                                                    placeholder="message"
-                                                    autoFocus={false}
-                                                    className="text-foreground dark:bg-primary/20 w-full max-w-full rounded-none"
-                                                />
-                                            </div>
-                                            <div className="w-full max-w-full">
-                                                    <Label htmlFor="email">Phone number</Label>
-                                                    <Input
-                                                        id="phone"
-                                                        type="phone"
-                                                        placeholder="Phone"
-                                                        className="text-foreground w-full max-w-full rounded-none"
-                                                    />
-                                                </div>
-                                            <div className="flex w-full max-w-full items-center justify-end gap-4">
-                                                <label
-                                                    htmlFor="picture"
-                                                    className="border-input bg-background hover:bg-muted inline-flex cursor-pointer items-center gap-2 rounded-none border px-4 py-2 text-sm"
-                                                >
-                                                    <PaperclipIcon className="h-4 w-4" />
-                                                    Attach CV
-                                                </label>
-                                                <input id="picture" type="file" className="hidden" />
-
-                                                <Button variant="secondary" className="rounded-none">
-                                                    Apply
-                                                </Button>
-                                            </div> */}
                                             <JobForm item={item}/>
                                         </div>
                                     </div>
@@ -237,21 +109,6 @@ const CurrentOpportunities = () => {
                 </div>
             </div>
             <aside className="w-full shrink-0 lg:max-w-lg">
-                {/* <Card className="bg-primary/10 mt-12 flex flex-col gap-0 overflow-hidden rounded-xl border border-none border-gray-200 px-6 shadow-none transition sm:flex-col">
-                    <CardContent className="flex flex-col justify-center p-0">
-                        <h3 className="text-foreground line-clamp-2 text-lg leading-snug font-semibold tracking-tight lg:text-xl">
-                            Internships & Volunteering
-                        </h3>
-                        <p className="text-foreground mt-2 text-sm lg:text-base">
-                            We offer hands-on opportunities for students and professionals to gain experience while contributing to meaningful work.
-                        </p>
-                    </CardContent>
-                    <CardFooter className="mt-4 gap-4 px-0">
-                        <Link href={`#`} prefetch>
-                            <Button>Partner With Us</Button>
-                        </Link>
-                    </CardFooter>
-                </Card> */}
                 <h3 className="mt-10 text-3xl font-bold tracking-tight">How to Apply</h3>
                 <HowToApply/>
             </aside>

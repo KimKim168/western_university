@@ -3,6 +3,7 @@ import { Slash } from 'lucide-react';
 import MyContent from '../components/academic-components/my-content';
 import MyNewLayout from '../layout/MyLayout';
 import { usePage } from '@inertiajs/react';
+import MyNoData from '@/components/my-no-data';
 
 const StudentServices = () => {
 //    const fakeContentData = [
@@ -60,6 +61,7 @@ const StudentServices = () => {
 // ];
 
     const { studentServices } = usePage().props;
+    
     return (
         <MyNewLayout>
             <div className="relative flex h-full w-full flex-col items-center justify-center bg-red-900 dark:bg-red-950 p-10 text-white md:p-20">
@@ -86,7 +88,13 @@ const StudentServices = () => {
                     </Breadcrumb>
                 </div>
             </div>
-            <MyContent children={studentServices?.children} />
+            {studentServices?.children?.length === 0 ? (
+                <div className='my-12'><MyNoData/></div>
+            ) :
+            (
+             <MyContent children={studentServices?.children} />
+            )
+            }
         </MyNewLayout>
     );
 };
