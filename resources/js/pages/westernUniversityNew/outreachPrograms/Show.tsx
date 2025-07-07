@@ -55,9 +55,8 @@ export default function show() {
                                 decoding="async"
                             />
                         )}
-                        <section className="prose prose-sm sm:prose lg:prose-lg dark:prose-invert ck-content max-w-none">
-                            <div dangerouslySetInnerHTML={{ __html: showData?.long_description }} />
-                        </section>
+                        
+                            <div className="prose prose-sm dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: showData?.long_description }} />
                     </article>
 
                 </div>

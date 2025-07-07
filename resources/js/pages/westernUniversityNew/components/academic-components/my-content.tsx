@@ -36,7 +36,7 @@ const MyContent = ({ children }: { children: any[] }) => {
                                 <h1 className="text-primary w-full text-3xl leading-tight font-bold md:text-4xl">{activeItem.title}</h1>
                                 <div className="border-primary mt-4 w-16 border-b-2" />
                                 <div
-                                    className="prose-h1:dark:text-primary prose-h2:dark:text-primary prose-h3:dark:text-primary prose-h4:dark:text-primary prose-h5:dark:text-primary prose-h6:dark:text-primary prose-headings:dark:text-primary prose-strong:dark:text-primary prose-em:dark:text-primary prose-blockquote:dark:text-primary prose-li:dark:text-primary prose-a:dark:text-primary prose-p:dark:text-white mt-6 w-full max-w-none"
+                                    className="prose dark:prose-invert mt-6 w-full max-w-none"
                                     dangerouslySetInnerHTML={{ __html: activeItem.long_description }}
                                 />
                             </div>
