@@ -4,27 +4,30 @@ import { MyCampuseGridLayout } from '../components/about-components/my-campuse-g
 import MyNewLayout from '../layout/MyLayout';
 import MyGoogleMap from '../components/my-google-map';
 import { usePage } from '@inertiajs/react';
+import useTranslation from '@/hooks/use-translation';
 
 const Campuses = () => {
-    const { campuses } = usePage().props;
+    const { campuses, locale } = usePage().props;
+    const { t } = useTranslation();
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
     return (
         <MyNewLayout>
-            <div className="relative flex h-full w-full flex-col items-center justify-center bg-red-900 dark:bg-red-950 p-10 text-white md:p-20">
-                <p className="font-noto-san-extra-light text-3xl md:text-6xl">{campuses?.title}</p>
+             <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-10 dark:bg-red-950 ${fontClass}`}>
+                <p className="text-3xl text-white md:text-4xl">{locale === 'kh' ? (campuses?.title_kh ?? campuses?.title) : campuses?.title}</p>
                 <div>
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="/" className="text-white">
-                                    Home
+                                    {t('Home')}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator>
                                 <Slash className="text-gray-400" />
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="#/history_and_values" className="text-gray-400">
-                                {campuses?.title}
+                                <BreadcrumbLink href="#" className="text-gray-400">
+                                    {locale === 'kh' ? (campuses?.title_kh ?? campuses?.title) : campuses?.title}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                         </BreadcrumbList>

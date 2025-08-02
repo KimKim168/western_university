@@ -2,7 +2,7 @@
 import { usePage } from '@inertiajs/react';
 import { useState } from 'react';
 const MyHeroBottomHistory = () => {
-  const { vision } = usePage().props;
+  const { vision, locale } = usePage().props;
   // console.log(vision)
   //  const images = [
   //   "/assets/demo-images/Homepage/03_welcome_to_western_1.jpg",
@@ -92,11 +92,11 @@ const MyHeroBottomHistory = () => {
     <div className="mb-12 flex items-center justify-center">
       <div className="max-w-screen-xl w-full mx-auto flex gap-12 px-6 xl:px-0 py-12">
         <div>
-          <h1 className="max-w-[17ch] text-primary prose text-3xl md:text-5xl lg:text-[2.75rem] xl:text-5xl font-bold !leading-[1.2]">
-          {vision?.title}
+          <h1 className="max-w-[17ch] text-primary prose text-3xl md:text-4xl font-bold !leading-[1.2]">
+          {locale === 'kh' ? (vision?.title_kh ?? vision?.title) : vision?.title}
           </h1>
-          <div className="my-5 border-[1.5px] border-primary w-15 "/>
-          <div className="mt-6 max-w-[70ch] text-base prose-p:dark:text-white prose whitespace-pre-line" dangerouslySetInnerHTML={{__html:vision?.short_description}}/>
+          <div className="my-4 border-[1.5px] border-primary w-15 "/>
+          <div className=" max-w-[70ch] text-base prose-p:dark:text-white prose whitespace-pre-line" dangerouslySetInnerHTML={{__html: locale === 'kh' ? (vision?.short_description_kh ?? vision?.short_description) : vision?.short_description}}/>
         </div>
       </div>
     </div>

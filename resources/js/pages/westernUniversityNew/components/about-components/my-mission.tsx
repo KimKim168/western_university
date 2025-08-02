@@ -2,8 +2,8 @@
 import { usePage } from '@inertiajs/react';
 import { useState } from 'react';
 const MyMission = () => {
-  const { mission } = usePage().props;
-  console.log(mission)
+  const { mission, locale } = usePage().props;
+  // console.log(mission)
   //  const images = [
   //   "/assets/demo-images/Homepage/03_welcome_to_western_1.jpg",
   //   "/assets/demo-images/Homepage/03_welcome_to_western_3.jpg",
@@ -90,13 +90,13 @@ const MyMission = () => {
       )}
     </div>
     <div className="mb-12 flex items-center justify-center">
-      <div className="max-w-screen-xl w-full mx-auto flex gap-12 px-6 py-12">
+      <div className="max-w-screen-xl w-full mx-auto flex gap-12 px-6 xl:px-0 py-12">
         <div>
-          <h1 className="max-w-[17ch] text-primary prose text-3xl md:text-5xl lg:text-[2.75rem] xl:text-5xl font-bold !leading-[1.2]">
-          {mission?.title}
+          <h1 className="max-w-[17ch] text-primary prose text-3xl md:text-4xl font-bold !leading-[1.2]">
+          {locale === 'kh' ? (mission?.title_kh ?? mission?.title) : mission?.title}
           </h1>
-          <div className="my-5 border-[1.5px] border-primary w-15 "/>
-          <div className="mt-6 prose prose-p:dark:text-white text-base leading-relaxed whitespace-pre-line dark:text-white" dangerouslySetInnerHTML={{__html:mission?.long_description}}/>
+          <div className="my-4 border-[1.5px] border-primary w-15 "/>
+          <div className=" max-w-[70ch] text-base prose-p:dark:text-white prose whitespace-pre-line" dangerouslySetInnerHTML={{__html: locale === 'kh' ? (mission?.short_description_kh ?? mission?.short_description) : mission?.short_description}}/>
         </div>
       </div>
     </div>

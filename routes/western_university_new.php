@@ -97,6 +97,18 @@ Route::get('/history_and_values', function () {
     ]);
 });
 
+Route::get('/school_facilities', function () {
+    $schoolFacilities = Page::where('code', 'SCHOOL_FACILITIES')
+        ->with([
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index', 'desc')->with('images'),
+        ])
+        ->first();
+    // return $schoolFacilities;
+    return Inertia::render('westernUniversityNew/About/SchoolFacilities', [
+        'schoolFacilities' => $schoolFacilities,
+    ]);
+});
+
 Route::get('/campuses', function () {
     $campuses = Page::where('code', 'CAMPUSES')
         ->with([
@@ -109,17 +121,6 @@ Route::get('/campuses', function () {
     ]);
 });
 
-Route::get('/school_facilities', function () {
-    $schoolFacilities = Page::where('code', 'SCHOOL_FACILITIES')
-        ->with([
-            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
-        ])
-        ->first();
-    // return $schoolFacilities;
-    return Inertia::render('westernUniversityNew/About/SchoolFacilities', [
-        'schoolFacilities' => $schoolFacilities,
-    ]);
-});
 
 Route::get('/student_council', function () {
     $studentCouncil = Page::where('code', 'STUDENT_COUNCIL')
@@ -138,7 +139,6 @@ Route::get('/student_council', function () {
         // ->with('image') 
         ->first();
 
-
     $campusRepresentative = Page::where('code', 'CAMPUS_REPRESENTATIVES')
         ->with([
             // 'images', // Main image code STUDENT_COUNCIL
@@ -146,7 +146,6 @@ Route::get('/student_council', function () {
         ])
         // ->with('image') 
         ->first();
-
 
     $studentCouncilInAction = Page::where('code', 'STUDENT_COUNCIL_IN_ACTION')
         ->with([
@@ -178,7 +177,6 @@ Route::get('/curriculum', function () {
     return Inertia::render('westernUniversityNew/Academics/Curriculum', [
         'studentCouncilInAction' => $studentCouncilInAction,
         'curriculum' => $curriculum,
-
     ]);
 });
 
@@ -272,15 +270,15 @@ Route::get('/news/{id}', function ($id) {
     $relatedPosts = Post::with('category', 'images')->where('id', '!=', $id)->where('category_code', $showData->category_code)->orderBy('id', 'desc')->limit(6)->get();
 
     $date = now()->toDateString();
-        $view = PostDailyView::firstOrCreate(
-            ['post_id' => $id, 'view_date' => $date],
-            ['view_counts' => 0],
-        );
-        
+    $view = PostDailyView::firstOrCreate(
+        ['post_id' => $id, 'view_date' => $date],
+        ['view_counts' => 0],
+    );
+
     $view->increment('view_counts');
 
     $showData->update([
-            'total_view_counts' => $showData->total_view_counts + 1,
+        'total_view_counts' => $showData->total_view_counts + 1,
     ]);
     // return ($showData);
     return Inertia::render('westernUniversityNew/news/show', [
@@ -296,16 +294,16 @@ Route::get('/student_services', function () {
             'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
         ])
         ->first();
-    
-    return Inertia::render('westernUniversityNew/SchoolLife/studentServices',[
-       'studentServices' => $studentServices
+
+    return Inertia::render('westernUniversityNew/SchoolLife/studentServices', [
+        'studentServices' => $studentServices
     ]);
 });
 
 Route::get('/job_opportunities', function () {
-     $jobOpportunities = Career::where('status', 'active')->get();
+    $jobOpportunities = Career::where('status', 'active')->get();
     // return $jobOpportunities;
-    return Inertia::render('westernUniversityNew/career/jobOpportunities',[
+    return Inertia::render('westernUniversityNew/career/jobOpportunities', [
         'jobOpportunities' => $jobOpportunities
     ]);
 });

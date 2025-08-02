@@ -52,13 +52,11 @@ const NavbarPage = () => {
           bg-white dark:bg-black border-b border-gray-200 dark:border-gray-700`}
       >
       <div ref={sentinelRef} />
-        <div className="mx-auto flex xl:h-28 max-w-screen-2xl items-center justify-between px-6 xl:px-16">
+        <div className="mx-auto flex xl:h-28 max-w-screen-2xl items-center justify-between px-4 xl:px-16">
           <Logo application_info={application_info} />
           {/* Desktop Menu */}
           <MyNavMenu className="hidden md:block" />
             {/* <ToggleModeSwitch/> */}
-
-
           {/* Mobile Menu */}
           <div className="xl:hidden flex items-center gap-2 xl:gap-4">
             <Switch/>

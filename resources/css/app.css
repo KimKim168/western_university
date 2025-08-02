@@ -199,6 +199,16 @@ html {
     src: url('/public/assets/fonts/NotoSansFonts/noto-sans-khmer-thin.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: KantumruyItalic;
+    src: url('/public/assets/fonts/Kantumruy/KantumruyPro-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Kantumruy;
+    src: url('/public/assets/fonts/Kantumruy/KantumruyPro-VariableFont_wght.ttf') format('truetype');
+}
+
 /* End Kh */
 
 /* En */
@@ -271,6 +281,8 @@ html {
         'NovaRegular', 'PoppinsRegular', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
     --font-moul-regular: MoulRegular;
+    --font-kantumruy-italic: KantumruyItalic;
+    --font-kantumruy: Kantumruy;
     --font-now-black: NowBlack, 'Poppins';
     --font-now-bold: NowBold, 'Poppins';
     --font-now-light: NowLight, 'Poppins';

@@ -108,7 +108,7 @@ const MyCalendar = () => {
                                         {event.title}
                                     </h2>
                                     <div
-                                    className="prose dark:prose-invert w-full max-w-none"
+                                    className="prose line-clamp-2 dark:prose-invert w-full max-w-none"
                                     dangerouslySetInnerHTML={{ __html: event.short_description }}
                                 />
                                 </div>

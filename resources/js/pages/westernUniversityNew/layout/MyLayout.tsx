@@ -14,7 +14,7 @@ const MyNewLayout = ({ children }: LayoutProps) => {
             <MyTopSection />
             <NavbarPage />
             {/* End Header */}
-            <main className="font-poppins-regular mx-auto min-h-screen">{children}</main>
+            <main className="font-kantumruy mx-auto min-h-screen">{children}</main>
             {/* Footer */}
             <MyNewFooter />
             {/* Scroll to Top Button */}

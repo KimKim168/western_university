@@ -6,33 +6,33 @@ import MyHeroHistory from '../components/about-components/my-hero-history';
 import MyMission from '../components/about-components/my-mission';
 import MyNewLayout from '../layout/MyLayout';
 import MyValuesWiscare from './my_values_wiscare';
+import useTranslation from '@/hooks/use-translation';
 
 const HistoryAndValues = () => {
-    const { hestoryTitle } = usePage().props;
+    const { hestoryTitle, locale } = usePage().props;
+    const { t } = useTranslation();
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
     return (
         <MyNewLayout>
-            <div className="relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20 dark:bg-red-950">
-                <p className="font-noto-san-extra-light text-3xl text-white md:text-6xl">{hestoryTitle?.title}</p>
-
+            <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-10 dark:bg-red-950 ${fontClass}`}>
+                <p className="text-3xl text-white md:text-4xl">{locale === 'kh' ? (hestoryTitle?.title_kh ?? hestoryTitle?.title) : hestoryTitle?.title}</p>
                 <div>
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="/" className="text-white hover:text-gray-200 dark:hover:text-gray-300">
-                                    Home
+                                    {t('Home')}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
-
                             <BreadcrumbSeparator>
                                 <Slash className="text-gray-200 dark:text-gray-400" />
                             </BreadcrumbSeparator>
-
                             <BreadcrumbItem>
                                 <BreadcrumbLink
                                     href="#"
-                                    className="text-gray-200 hover:text-white dark:text-gray-400 dark:hover:text-gray-100"
+                                    className="text-gray-400"
                                 >
-                                    {hestoryTitle?.title}
+                                    {locale === 'kh' ? (hestoryTitle?.title_kh ?? hestoryTitle?.title) : hestoryTitle?.title}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                         </BreadcrumbList>

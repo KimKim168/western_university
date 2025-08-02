@@ -24,7 +24,6 @@ export function MySearchTableData({ className }: { className?: string }) {
         }, 500),
         [currentPath], // Dependency ensures it updates if the path changes
     );
-
     return (
         <div className={cn('flex w-full max-w-xl items-center space-x-2 rounded-xl border p-1', className)}>
             <Input

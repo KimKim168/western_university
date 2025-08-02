@@ -3,9 +3,13 @@ import { Link, usePage } from '@inertiajs/react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { MySocial } from './my-social';
 import MyQuickLink from './my-quick-link';
+import useTranslation from '@/hooks/use-translation';
 
 const MyNewFooter = () => {
     const { application_info } = usePage().props;
+    const { t } = useTranslation();
+    const { locale } = usePage().props;
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : '';
     return (
         <div className="flex flex-col border-t border-gray-200">
             <div className="bg-muted grow" />
@@ -17,7 +21,7 @@ const MyNewFooter = () => {
                             <img src={`/assets/images/application_info/${application_info?.image}`} />
                         </Link>
                         <div>
-                            <h6 className="font-noto-san-extra-light text-xl font-semibold">Contact</h6>
+                            <h6 className={` text-xl font-semibold ${fontClass}`}>{t('Contact')}</h6>
                             <div className="relative mt-2 mb-4 h-[1px] w-full bg-gray-200">
                                 <div className="absolute top-0 left-0 h-full bg-red-700" style={{ width: '20%' }} />
                             </div>
@@ -38,8 +42,8 @@ const MyNewFooter = () => {
                                         <MapPin className="mr-2 inline-block h-5 w-5 text-icon-primary" />
                                     </div>
                                     <div>
-                                        <a href={application_info?.google_map} className="text-muted-foreground hover:text-foreground dark:text-white">
-                                            {application_info?.address}
+                                        <a href={application_info?.google_map} className={`text-muted-foreground hover:text-foreground dark:text-white ${fontClass}`}>
+                                            {locale === 'kh' ? (application_info?.address_kh ?? application_info?.address) : application_info?.address} 
                                         </a>
                                     </div>
                                 </li>
@@ -54,7 +58,7 @@ const MyNewFooter = () => {
                             </ul>
                         </div>
                         <div>
-                            <h6 className="font-noto-san-extra-light text-xl font-semibold">Quick Links</h6>
+                            <h6 className={` text-xl font-semibold ${fontClass}`}>{t('Quick Links')}</h6>
                             <div className="relative mt-2 mb-4 h-[1px] w-full bg-gray-200">
                                 <div className="absolute top-0 left-0 h-full bg-red-700" style={{ width: '20%' }} />
                             </div>
@@ -68,7 +72,7 @@ const MyNewFooter = () => {
                         </div>
                         {/* Subscribe Newsletter */}
                         <div>
-                            <h6 className="font-noto-san-extra-light text-xl font-semibold">Social Media</h6>
+                            <h6 className={` text-xl font-semibold ${fontClass}`}>{t('Social Media')}</h6>
                             <div className="relative mt-2 mb-4 h-[1px] w-full bg-gray-200">
                                 <div className="absolute top-0 left-0 h-full bg-red-700" style={{ width: '20%' }} />
                             </div>
@@ -87,7 +91,7 @@ const MyNewFooter = () => {
             <div className="mx-auto max-w-screen-2xl"></div>
             <div className="flex flex-col-reverse items-center justify-between bg-blue-950 px-6 py-2 sm:flex-row lg:px-16">
                 {/* Copyright */}
-                <span className="text-white">{application_info?.copyright}</span>
+                <span className="text-white">{locale === 'kh' ? (application_info?.copyright_kh ?? application_info?.copyright) : application_info?.copyright}</span>
             </div>
         </div>
     );

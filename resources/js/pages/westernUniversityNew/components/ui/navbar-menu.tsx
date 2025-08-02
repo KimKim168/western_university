@@ -19,12 +19,14 @@ export const MenuItem = ({
   item,
   children,
   subRoutes = [],
+  className = '',
 }: {
   setActive: (item: string) => void;
   active: string | null;
   item: string;
   children?: React.ReactNode;
   subRoutes?: string[];
+  className?: string;
 }) => {
   const { url } = usePage();
   const hasSubMenu = children !== undefined && subRoutes.length > 0;
@@ -37,9 +39,9 @@ export const MenuItem = ({
     >
       <motion.div
         transition={{ duration: 0.3 }}
-        className={`text-base px-2 py-11 cursor-pointer font-noto-san-extra-light font-bold hover:text-red-800 ${
+        className={`text-base px-2 py-11 cursor-pointer font-noto-san-extra-light font-bold hover:text-red-800  ${
           isActive ? "text-red-700" : "text-primary"
-        } hover:opacity-90 flex gap-0.5 items-center`}
+        } hover:opacity-90 flex gap-0.5 items-center ${className}`}
       >
         {item}
         {hasSubMenu && (

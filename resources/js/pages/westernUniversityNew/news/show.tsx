@@ -59,7 +59,7 @@ export default function show() {
                                         {/* Description */}
                                         <div className="flex flex-col gap-2 p-4 lg:px-0 lg:py-4">
                                             <h3 className="line-clamp-2 text-base font-bold font-noto-san-extra-light text-red-700 dark:text-white">{item?.title}</h3>
-                                            <p className="line-clamp-2 text-xs text-gray-700 dark:text-gray-300">{item?.short_description}</p>
+                                            <div className="line-clamp-2 prose max-w-none dark:prose-invert text-gray-700 dark:text-gray-300">{item?.short_description}</div>
                                         </div>
                                     </div>
                                 </Link>
