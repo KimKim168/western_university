@@ -1,3 +1,4 @@
+import MySlide from "./my-slide";
 
 const ActivityItem = ({ title, description, imageUrl, reverse = false }) => {
     return (
@@ -17,13 +18,24 @@ const ActivityItem = ({ title, description, imageUrl, reverse = false }) => {
 
                 {/* Image Content */}
                 <div className="w-full lg:w-1/2">
-                    <div className="group h-64 sm:h-80 md:h-96 lg:h-[28rem] w-full overflow-hidden">
+                {/* {imageUrl?.map((item)=>(
+                    <div className="group h-64 w-full overflow-hidden sm:h-80 md:h-96 lg:h-[28rem]">
                         <img
-                            src={imageUrl}
+                            src={`/assets/images/pages/${imageUrl?.image}`}
                             alt={title || 'Activity image'}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                     </div>
+                ))} */}
+                    <MySlide
+                        className="h-64 sm:h-80 md:h-96 lg:h-[28rem] w-full overflow-hidden"
+                        images={imageUrl?.map((item) => ({
+                            id: item?.id,
+                            image: item?.image,
+                            name: title,
+                            link: item?.link || null,
+                        }))}
+                    />
                 </div>
             </div>
         </div>
@@ -31,41 +43,6 @@ const ActivityItem = ({ title, description, imageUrl, reverse = false }) => {
 };
 
 const MyHeroEvent = ({children}:{children?:any}) => {
-    // console.log(children);
-    
-    // const activities = [
-    //     {
-    //         id: 1,
-    //         title: "Extracurricular Activities",
-    //         description: "Our students also participate in other activities that help them build teamwork, communication, and relationship. It helps students explore their interests and create a broader perspective of the worldview.",
-    //         imageUrl: "https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=600",
-    //     },
-    //     {
-    //         id: 2,
-    //         title: "Cultural Exchange Programs",
-    //         description: "Our cultural exchange programs allow students to immerse themselves in diverse cultures, fostering global understanding and personal growth. These experiences broaden horizons and build lifelong connections.",
-    //         imageUrl: "https://images.pexels.com/photos/3184307/pexels-photo-3184307.jpeg?auto=compress&cs=tinysrgb&w=600",
-    //     },
-    //     {
-    //         id: 3,
-    //         title: "Community Service Projects",
-    //         description: "Students regularly engage in community service, applying their skills to real-world problems and making a positive impact. This fosters empathy, responsibility, and a sense of civic duty.",
-    //         imageUrl: "https://images.pexels.com/photos/3205777/pexels-photo-3205777.jpeg?auto=compress&cs=tinysrgb&w=600",
-    //     },
-    //     {
-    //         id: 4,
-    //         title: "Innovation & Robotics Club",
-    //         description: "The Innovation & Robotics Club inspires students to explore STEM fields through hands-on projects. They design, build, and program robots, developing critical thinking and problem-solving skills.",
-    //         imageUrl: "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=600",
-    //     },
-    //     {
-    //         id: 5,
-    //         title: "Debate and Public Speaking",
-    //         description: "Our debate club hones critical thinking and public speaking skills. Students learn to construct compelling arguments and articulate their ideas effectively, boosting confidence and intellectual prowess.",
-    //         imageUrl: "https://images.pexels.com/photos/1181408/pexels-photo-1181408.jpeg?auto=compress&cs=tinysrgb&w=600",
-    //     },
-    // ];
-
     return (
         <section id="about">
             {children?.map((activity, index) => (
@@ -73,7 +50,7 @@ const MyHeroEvent = ({children}:{children?:any}) => {
                     key={activity?.id}
                     title={activity?.title}
                     description={activity?.long_description}
-                    imageUrl={`/assets/images/pages/${activity?.images[0]?.image}`}
+                    imageUrl={activity?.images}
                     reverse={index % 2 === 1} // Alternates layout
                 />
             ))}

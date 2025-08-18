@@ -4,6 +4,7 @@ import MyContent from '../components/academic-components/my-content';
 import MyNewLayout from '../layout/MyLayout';
 import { usePage } from '@inertiajs/react';
 import MyNoData from '@/components/my-no-data';
+import useTranslation from '@/hooks/use-translation';
 
 const StudentServices = () => {
 //    const fakeContentData = [
@@ -60,12 +61,13 @@ const StudentServices = () => {
 //   },
 // ];
 
-    const { studentServices } = usePage().props;
-    
+    const { studentServices, locale } = usePage().props;
+    const { t } = useTranslation();
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
     return (
         <MyNewLayout>
-            <div className="relative flex h-full w-full flex-col items-center justify-center bg-red-900 dark:bg-red-950 p-10 text-white md:p-20">
-                <p className="font-noto-san-extra-light text-3xl md:text-6xl">
+            <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20 dark:bg-red-950 ${fontClass}`}>
+                <p className="text-3xl text-white md:text-5xl">
                     {studentServices?.title} 
                     </p>
                 <div>

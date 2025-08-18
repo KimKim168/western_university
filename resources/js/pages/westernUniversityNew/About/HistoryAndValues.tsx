@@ -14,8 +14,8 @@ const HistoryAndValues = () => {
     const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
     return (
         <MyNewLayout>
-            <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-10 dark:bg-red-950 ${fontClass}`}>
-                <p className="text-3xl text-white md:text-4xl">{locale === 'kh' ? (hestoryTitle?.title_kh ?? hestoryTitle?.title) : hestoryTitle?.title}</p>
+            <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20 dark:bg-red-950 ${fontClass}`}>
+                <p className="text-3xl text-white md:text-5xl">{locale === 'kh' ? (hestoryTitle?.title_kh ?? hestoryTitle?.title) : hestoryTitle?.title}</p>
                 <div>
                     <Breadcrumb>
                         <BreadcrumbList>

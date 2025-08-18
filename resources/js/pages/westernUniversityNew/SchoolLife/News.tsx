@@ -3,12 +3,17 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 import { Slash } from 'lucide-react';
 import MyNewPost from '../components/news-components/my-news-post';
 import MyNewLayout from '../layout/MyLayout';
+import { usePage } from '@inertiajs/react';
+import useTranslation from '@/hooks/use-translation';
 
 const News = () => {
+    const { locale } = usePage().props;
+    const { t } = useTranslation();
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
     return (
         <MyNewLayout>
-            <div className="relative flex h-full w-full flex-col items-center justify-center bg-red-900 dark:bg-red-950 p-10 text-white md:p-20">
-                <p className="font-noto-san-extra-light text-3xl md:text-6xl">News & Blogs</p>
+            <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20 dark:bg-red-950 ${fontClass}`}>
+                <p className="text-3xl text-white md:text-5xl">News & Blogs</p>
                 <div>
                     <Breadcrumb>
                         <BreadcrumbList>

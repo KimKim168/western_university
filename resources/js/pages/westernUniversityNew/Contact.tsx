@@ -4,14 +4,17 @@ import MyNewLayout from './layout/MyLayout';
 import MyContact from './components/my-contact';
 import MyGoogleMap from './components/my-google-map';
 import { usePage } from '@inertiajs/react';
+import useTranslation from '@/hooks/use-translation';
 
 const Contact = () => {
-    const { contact } = usePage().props;
+    const { contact, locale } = usePage().props;
+    const { t } = useTranslation();
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
     return (
         <MyNewLayout>
-            <div className='relative text-white bg-red-900 flex flex-col items-center justify-center w-full h-full  p-10 md:p-20'>
-                <p className='text-3xl md:text-6xl font-noto-san-extra-light'>{contact?.title}</p>
-                <div className='mt-10'>
+            <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20 dark:bg-red-950 ${fontClass}`}>
+                <p className="text-3xl text-white md:text-5xl">{contact?.title}</p>
+                <div>
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>
