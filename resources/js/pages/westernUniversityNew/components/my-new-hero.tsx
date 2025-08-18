@@ -27,7 +27,7 @@ const MyNewHero = () => {
 
         <div className="w-full h-full rounded-xl overflow-hidden">
           <img
-            src={`/assets/images/pages/${WelcomeToWestern?.images[0].image}`}
+            src={`/assets/images/pages/${WelcomeToWestern?.images?.[0]?.image}`}
             className="h-full w-full object-cover rounded-xl"
             alt="Welcome"
           />
