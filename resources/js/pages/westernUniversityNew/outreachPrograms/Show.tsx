@@ -48,7 +48,7 @@ export default function show() {
 
                         {showData?.images?.[0]?.image && (
                             <img
-                                src={`/assets/images/pages/${showData.images[0].image}`}
+                                src={`/assets/images/pages/${showData.images?.[0]?.image}`}
                                 alt={showData.name}
                                 className="mb-8 h-auto w-full rounded-xl object-cover"
                                 loading="lazy"

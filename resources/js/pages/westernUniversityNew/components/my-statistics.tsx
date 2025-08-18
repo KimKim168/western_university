@@ -22,7 +22,7 @@ const MyStatistics = () => {
               >
                 <div className="flex h-32 w-32 items-center justify-center rounded-full border-2 border-gray-300  dark:border-gray-600">
                   <img
-                    src={`/assets/images/pages/${values?.images[0].image}`}
+                    src={`/assets/images/pages/${values?.images?.[0]?.image}`}
                     alt="Icon"
                     className="w-20 transition-all duration-500 hover:scale-110"
                   />

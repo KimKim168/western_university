@@ -22,7 +22,7 @@ type ParallaxScrollProps = {
 
 export const ParallaxScroll = ({ images, className }: ParallaxScrollProps) => {
     const renderImageCard = (item: ImageItem, idx: number) => {
-        const imgSrc = item.images[0]?.image ? `/assets/images/pages/${item.images[0].image}` : '/assets/images/placeholder.jpg'; // Optional placeholder
+        const imgSrc = item.images[0]?.image ? `/assets/images/pages/${item.images?.[0]?.image}` : '/assets/images/placeholder.jpg'; // Optional placeholder
         const href = item.type && item.link ? item.link : (item.content ?? '#');
         const { locale } = usePage().props;
 

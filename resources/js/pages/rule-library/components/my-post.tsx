@@ -51,7 +51,7 @@ const MyPost = () => {
                         className="overflow-hidden rounded-lg bg-white transition-all duration-300 hover:scale-95 hover:cursor-pointer"
                     >
                             <img
-                                src={`/assets/images/items/${item?.images[0].image}`}
+                                src={`/assets/images/items/${item?.images?.[0]?.image}`}
                                 alt="image"
                                 width={200}
                                 height={300}

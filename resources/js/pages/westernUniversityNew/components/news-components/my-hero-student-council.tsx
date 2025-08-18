@@ -16,7 +16,7 @@ const MyHeroStudentCouncil = ({ studentCouncil }: { studentCouncil: any }) => {
         <img
           src={
             studentCouncil?.images?.[0]?.image
-              ? `/assets/images/pages/${studentCouncil.images[0].image}`
+              ? `/assets/images/pages/${studentCouncil.images?.[0]?.image}`
               : "/fallback.jpg"
           }
           className="w-full object-cover aspect-[21/9]"

@@ -50,7 +50,7 @@ const MyResearchPaper = () => {
         {researchPaper?.map((item) => (
           <a href={`${item.link}`} key={item.id} className="bg-white hover:cursor-pointer rounded-lg overflow-hidden hover:scale-95 transition-all duration-300">
             <img 
-              src={`/assets/images/items/${item?.images[0].image}`}
+              src={`/assets/images/items/${item?.images?.[0]?.image}`}
               alt="image" 
               width={200}   
               height={300} 

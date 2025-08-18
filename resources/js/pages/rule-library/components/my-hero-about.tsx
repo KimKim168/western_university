@@ -12,12 +12,12 @@ const MyHeroAbout = () => {
                         {' '}
                         {/* Increased height */}
                         <img
-                            src={`/assets/images/pages/${item?.images[0].image}`}
+                            src={`/assets/images/pages/${item?.images?.[0]?.image}`}
                             alt="Library Interior"
                             className="absolute top-0 -left-1 h-[85%] w-2/4 object-cover"
                         />
                         <img
-                            src={`/assets/images/pages/${item?.images[1].image}`}
+                            src={`/assets/images/pages/${item?.images?.[1]?.image}`}
                             alt="Bookshelves"
                             className="absolute -right-1 bottom-0 h-[85%] w-2/4 object-cover"
                         />

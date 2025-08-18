@@ -17,7 +17,7 @@ export default function ResourceDetail() {
 
                         {showData?.images?.[0]?.image && (
                             <img
-                                src={`/assets/images/posts/${showData.images[0].image}`}
+                                src={`/assets/images/posts/${showData.images?.[0]?.image}`}
                                 alt={showData.name}
                                 className="mb-8 h-auto w-full rounded-xl object-cover"
                                 loading="lazy"

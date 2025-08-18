@@ -16,7 +16,7 @@ const About = () => {
             {abouts_detail?.title && (
                 <section className="relative" id={`${abouts_detail?.code}`}>
                     <img
-                        src={`/assets/images/pages/${abouts_detail.images[0].image}`}
+                        src={`/assets/images/pages/${abouts_detail.images?.[0]?.image}`}
                         className="max-h-[800px] min-h-[300px] w-full object-cover"
                         alt=""
                     />

@@ -22,7 +22,7 @@ const MyHero = ({ ourVision, ourMission, images, route }: { images?: any; route?
 
                     <img
                         className="aspect-[21/9] h-full w-full object-cover"
-                        src={`/assets/images/pages/thumb/${ourVision.images[0].image}`}
+                        src={`/assets/images/pages/thumb/${ourVision.images?.[0]?.image}`}
                         alt="Our Vision"
                     />
                 </div>

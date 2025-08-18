@@ -44,7 +44,7 @@ const MyOurValues = () => {
                         <a href={values.type ? values.link : values.content} key={values.id} className="text-center">
                                 <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gray-200 text-white">
                                     <img
-                                        src={`/assets/images/pages/${values.images[0].image}`}
+                                        src={`/assets/images/pages/${values.images?.[0]?.image}`}
                                         alt="image"
                                         className="bg-secondary mx-auto h-16 w-16 rounded-full object-cover"
                                     />
