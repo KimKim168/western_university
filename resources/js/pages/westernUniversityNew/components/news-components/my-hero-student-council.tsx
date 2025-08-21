@@ -12,16 +12,16 @@ const MyHeroStudentCouncil = ({ studentCouncil }: { studentCouncil: any }) => {
     <div className="flex flex-col max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-0 my-12 lg:my-16">
       
       {/* Hero Image */}
-      <div className="w-full">
-        <img
-          src={
-            studentCouncil?.images?.[0]?.image
-              ? `/assets/images/pages/${studentCouncil.images?.[0]?.image}`
-              : "/fallback.jpg"
-          }
-          className="w-full object-cover aspect-[21/9]"
-          alt={studentCouncil?.title || "Student Council Main Officer"}
-        />
+       <div className="w-full">
+        {studentCouncil?.images?.[0]?.image ? (
+          <img
+            src={`/assets/images/pages/${studentCouncil.images[0].image}`}
+            className="w-full object-cover aspect-[21/9]"
+            alt={studentCouncil?.title || "Student Council Main Officer"}
+          />
+        ) : (
+          <div className="w-full sm:h-20"></div>
+        )}
       </div>
 
       {/* Description Card */}

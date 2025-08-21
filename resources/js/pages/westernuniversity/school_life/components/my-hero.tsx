@@ -5,17 +5,17 @@ import { ArrowRight, ArrowUpRight, CirclePlay } from "lucide-react";
 import React from "react";
 
 const MyHero = () => {
-  const features = [
-    {
-      category: "Marketing and Sales",
-      title: "Collect and enrich leads your way",
-      details:
-        "Take control over how and when to follow up with your leads. Store and reference leads in multiple tables and, from there, automatically send them personalized emails.",
-      tutorialLink: "#",
-    },
+  // const features = [
+  //   {
+  //     category: "Marketing and Sales",
+  //     title: "Collect and enrich leads your way",
+  //     details:
+  //       "Take control over how and when to follow up with your leads. Store and reference leads in multiple tables and, from there, automatically send them personalized emails.",
+  //     tutorialLink: "#",
+  //   },
    
   
-  ];
+  // ];
   
   return (
     <>
