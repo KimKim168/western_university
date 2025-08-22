@@ -1,54 +1,10 @@
-import MyNoData from '@/components/my-no-data';
 import { Button } from '@/components/ui/button';
 import { Link } from '@inertiajs/react';
 import { ArrowUpRight } from 'lucide-react';
 
-// const teamMembers = [
-//     {
-//         name: 'Grade 9 Outreach',
-//         bio: 'loream ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
-//         imageUrl: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=600',
-//     },
-//     {
-//         name: 'Grade 10 Outreach',
-//         bio: 'loream ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
-//         imageUrl: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=600',
-//     },
-//     {
-//         name: 'Grade 11 Outreach',
-//         bio: 'loream ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
-//         imageUrl: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=600',
-//     },
-//     {
-//         name: 'Grade 9 Outreach',
-//         bio: 'loream ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
-//         imageUrl: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=600',
-//     },
-//     {
-//         name: '  Connecting Communities Through Education',
-//         bio: 'loream ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
-//         imageUrl: 'https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=600',
-//     },
-//     {
-//         name: '  Expanding Horizons: Our Outreach Initiatives',
-//         bio: 'loream ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
-//         imageUrl: 'https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=600',
-//     },
-//     {
-//         name: '  Building Bridges Through Outreach',
-//         bio: 'loream ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
-//         imageUrl: 'https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=600',
-//     },
-//     {
-//         name: '  Empowering Communities Through Outreach',
-//         bio: 'loream ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
-//         imageUrl: 'https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=600',
-//     },
-// ];
-
 const MyOutreachProgram = ({ outreachPrograms }: { outreachPrograms: any }) => {
     return (
-        <div className="mx-auto flex max-w-screen-xl flex-col justify-center gap-16 px-6 py-8 sm:py-12 lg:px-8">
+        <div className="mx-auto flex max-w-screen-xl flex-col justify-center px-6 xl:px-0 py-8 sm:pt-12 ">
             <div>
                 <h2 className="mt-3 text-center text-4xl font-bold tracking-tight sm:text-5xl">{outreachPrograms?.title}</h2>
                 <div
@@ -58,7 +14,7 @@ const MyOutreachProgram = ({ outreachPrograms }: { outreachPrograms: any }) => {
             </div>
             {
                 outreachPrograms?.children?.length > 0 ? (
-                     <div className="grid w-full grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-4">
+                     <div className="grid w-full grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-4 my-8">
                 {outreachPrograms?.children?.map((item) => (
                     <div key={item.id} className="transition-all duration-500 hover:scale-105">
                         <img
@@ -81,7 +37,7 @@ const MyOutreachProgram = ({ outreachPrograms }: { outreachPrograms: any }) => {
                 ))}
             </div>
                 ) : (
-                    <MyNoData/>
+                    <div></div>
                 )
             }
            

@@ -1,6 +1,7 @@
 import { Link, usePage } from '@inertiajs/react';
 import MyAllView from './news-component/my-all-view';
 import useTranslation from '@/hooks/use-translation';
+import { ImageSwiperHome } from './image-swiper-home';
 
 const MyNewMiddleSection = () => {
     const { outreachPrograms, locale } = usePage().props;
@@ -12,10 +13,10 @@ const MyNewMiddleSection = () => {
         <div className="bg-blue-950 dark:bg-gray-900">
             <div className="mx-auto grid max-w-screen-2xl items-center lg:grid-cols-2">
                 <div className="h-full w-full">
-                    <img src={`/assets/images/pages/${outreachPrograms?.images?.[0]?.image}`} className="h-full w-full object-cover" />
+                    <ImageSwiperHome className='w-full h-full' imageSrc={`/assets/images/pages`} images={outreachPrograms?.images}/>
                 </div>
 
-                <div className="h-full w-full px-6 py-12 text-white sm:px-10 md:p-24">
+                <div className="h-full w-full px-6 py-12 text-white sm:px-10 md:pr-24">
                     <h2 className="text-4xl font-bold">{locale === 'kh' ? (outreachPrograms?.title_kh ?? outreachPrograms?.title) : outreachPrograms?.title}</h2>
                     <div className="my-5 h-1 w-16 bg-white"></div>
                     <div className="prose line-clamp-2 text-gray-300" dangerouslySetInnerHTML={{ __html: locale === 'kh' ? (outreachPrograms?.long_description_kh ?? outreachPrograms?.long_description) : outreachPrograms?.long_description }}></div>

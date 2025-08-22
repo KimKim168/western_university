@@ -12,10 +12,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-// Route::get('/test_component', function () {
-//     return Inertia::render('test/TestComponent');
-// });
-
 
 Route::post('/submit-message', [MessageController::class, 'store']);
 Route::post('/submit_career', [CareerSubmitController::class, 'store']);
@@ -85,7 +81,7 @@ Route::get('/history_and_values', function () {
     $valuesWiscare = Page::where('code', 'VALUES_WISCARE')->with([
         'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
     ])
-        ->first();
+    ->first();
     //use get() result is it catch data to array [], use first() 
     // return $valuesWiscare;
     return Inertia::render('westernUniversityNew/About/HistoryAndValues', [
@@ -334,7 +330,9 @@ Route::get('/extracurricular_activities', function () {
 Route::get('/outreach_programs', function () {
     $outreachPrograms = Page::where('code', 'OUTREACH_PROGRAMS')
         ->with([
+            'images',
             'children' => fn($sub_query) => $sub_query->orderBy('order_index')->where('status', 'active')->with('images'),
+            
         ])
         ->first();
     // return $outreachPrograms;

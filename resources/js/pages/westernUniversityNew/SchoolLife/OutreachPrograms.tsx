@@ -4,6 +4,7 @@ import MyNewLayout from '../layout/MyLayout';
 import MyOutreachProgram from '../components/news-components/my-outreach-program';
 import { usePage } from '@inertiajs/react';
 import useTranslation from '@/hooks/use-translation';
+import { DemoImage } from '../components/demo-image';
 
 const OutreachPrograms = () => {
     const { outreachPrograms, locale } = usePage().props;
@@ -34,6 +35,7 @@ const OutreachPrograms = () => {
                 </div>
             </div>
             <MyOutreachProgram outreachPrograms={outreachPrograms}/>
+            <div className='mb-12'><DemoImage imageSrc={`/assets/images/pages`} images={outreachPrograms?.images}/></div>
         </MyNewLayout>
     );
 };
