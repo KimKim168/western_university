@@ -87,7 +87,7 @@ export function ImageSwiper({imageSrc, images, className, ...props }: ImageSwipe
           return (
             <motion.div
               key={i}
-              className="h-full w-full shrink-0 overflow-hidden bg-neutral-800 object-cover first:rounded-l-[inherit] last:rounded-r-[inherit]">
+              className="w-full shrink-0 overflow-hidden bg-neutral-800 object-cover first:rounded-l-[inherit] last:rounded-r-[inherit]">
               <img src={`${imageSrc}/${item?.image}`} className="pointer-events-none aspect-[16/6] w-full object-cover" />
             </motion.div>
           )
