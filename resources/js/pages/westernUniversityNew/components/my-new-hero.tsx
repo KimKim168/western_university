@@ -2,6 +2,7 @@ import { usePage } from "@inertiajs/react";
 
 const MyNewHero = () => {
   const { WelcomeToWestern, locale } = usePage().props;
+  const fontClass = locale == 'kh' ? 'font-kantumruy' : '';
    if(!WelcomeToWestern || WelcomeToWestern?.lengt == 0){
     return <div className="my-10"></div>
   }
@@ -10,7 +11,7 @@ const MyNewHero = () => {
       <div className="max-w-screen-xl w-full mx-auto grid lg:grid-cols-2 gap-12 px-4 py-12 items-stretch">
         <div>
 
-          <h1 className="max-w-[17ch] text-primary text-3xl md:text-5xl lg:text-[2.75rem] xl:text-4xl font-bold !leading-[1.2]">
+          <h1 className={`max-w-[17ch] text-primary text-3xl md:text-5xl lg:text-[2.75rem] xl:text-4xl font-bold !leading-[1.2] ${fontClass}`}>
             {locale === 'kh' ? (WelcomeToWestern?.title_kh ?? WelcomeToWestern?.title) : WelcomeToWestern?.title}
           </h1>
           <div className="my-8 border-[1.5px] border-primary w-15" />
@@ -19,7 +20,7 @@ const MyNewHero = () => {
             dangerouslySetInnerHTML={{ __html: WelcomeToWestern?.short_description }}
           />} */}
           {WelcomeToWestern?.long_description && <div
-            className={`mt-6 max-w-[60ch] text-base text-primary whitespace-pre-line prose dark:prose-invert`}
+            className={`mt-6 max-w-[60ch] text-base text-primary whitespace-pre-line prose dark:prose-invert ${fontClass}`}
             dangerouslySetInnerHTML={{ __html: locale === 'kh' ? (WelcomeToWestern?.long_description_kh ?? WelcomeToWestern?.long_description) : WelcomeToWestern?.long_description }}
           />}
           

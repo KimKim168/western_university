@@ -6,13 +6,13 @@ import { usePage } from '@inertiajs/react';
 import useTranslation from '@/hooks/use-translation';
 
 const Programs = () => {
-    const { programs, locale } = usePage().props;
+    const { programs, locale } = usePage<any>().props;
     const { t } = useTranslation();
     const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
     return (
         <MyNewLayout>
             <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20 dark:bg-red-950 ${fontClass}`}>
-                <p className="text-3xl text-white md:text-5xl">{programs?.title}</p>
+                <p className={`text-3xl text-white md:text-5xl mb-2 ${fontClass}`}>{locale === 'kh' ? (programs?.title_kh ?? programs?.title) : programs?.title}</p>
                 <div>
                     <Breadcrumb>
                         <BreadcrumbList>
@@ -26,7 +26,7 @@ const Programs = () => {
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="#/history_and_values" className="text-gray-400">
-                                    {programs?.title}
+                                    {locale === 'kh' ? (programs?.title_kh ?? programs?.title) : programs?.title}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                         </BreadcrumbList>

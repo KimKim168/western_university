@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 import EnrollNow from './enroll-now';
 
 export function MyNewSlide() {
-    const { banners } = usePage().props;
-
+    const { banners, locale } = usePage().props;
+    const fontClass = locale == 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [emblaRef, emblaApi] = useEmblaCarousel(
         { loop: true },
@@ -36,8 +36,8 @@ export function MyNewSlide() {
                                 <div className="absolute inset-0 bg-black opacity-50"></div>
                                 <div className="absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-4 text-white sm:px-10 md:px-16 lg:px-20">
                                     <div className="max-w-full p-5 px-1 text-center sm:max-w-screen-xl sm:text-left md:max-w-[50%]">
-                                        <h3 className="text-base font-bold sm:text-lg md:text-2xl lg:text-4xl xl:text-5xl font-noto-san-extra-light">
-                                            {item.title}
+                                        <h3 className={`text-base font-bold sm:text-lg md:text-2xl lg:text-4xl xl:text-5xl ${fontClass}`}>
+                                            {locale == 'kh' ? (item?.title_kh ?? item?.title) : item.title}
                                         </h3>
                                         <div className="mt-4 flex flex-col items-center gap-2 sm:flex-row sm:items-start sm:gap-4">
                                             <EnrollNow/>
@@ -55,7 +55,7 @@ export function MyNewSlide() {
                 {banners?.map((_, index) => (
                     <button
                         key={index}
-                        className={`h-2 w-2 rounded-full transition sm:h-3 sm:w-3 ${
+                        className={`h-2 w-2 rounded-full transition cursor-pointer sm:h-3 sm:w-3 ${
                             index === selectedIndex ? 'bg-[#ffff]' : 'border-white border'
                         }`}
                         onClick={() => emblaApi && emblaApi.scrollTo(index)}

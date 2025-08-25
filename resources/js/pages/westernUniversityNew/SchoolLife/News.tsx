@@ -13,13 +13,13 @@ const News = () => {
     return (
         <MyNewLayout>
             <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20 dark:bg-red-950 ${fontClass}`}>
-                <p className="text-3xl text-white md:text-5xl">News & Blogs</p>
+                <p className="text-3xl text-white md:text-5xl">{t('News And Blogs')}</p>
                 <div>
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="/" className="text-white">
-                                    Home
+                                    {t('Home')}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator>
@@ -27,7 +27,7 @@ const News = () => {
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="#/news" className="text-gray-400">
-                                    News & Blogs
+                                    {t('News And Blogs')}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                         </BreadcrumbList>

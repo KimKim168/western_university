@@ -11,7 +11,7 @@ const Curriculum = () => {
     return (
         <MyNewLayout>
              <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20 dark:bg-red-950 ${fontClass}`}>
-                <p className="text-3xl text-white md:text-5xl">{locale === 'kh' ? (curriculum?.title_kh ?? curriculum?.title) : curriculum?.title}</p>
+                <p className={`text-3xl text-white md:text-5xl mb-2 ${fontClass}`}>{locale === 'kh' ? (curriculum?.title_kh ?? curriculum?.title) : curriculum?.title}</p>
                 <div>
                     <Breadcrumb>
                         <BreadcrumbList>

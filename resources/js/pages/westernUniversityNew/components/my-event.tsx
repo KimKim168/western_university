@@ -4,9 +4,10 @@ import useTranslation from '@/hooks/use-translation';
 
 const MyEvent = () => {
     const { activitiesAndEvents, locale } = usePage().props;
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
     const { t } = useTranslation();
     if (!activitiesAndEvents || activitiesAndEvents.length === 0) {
-        return <div className="mb-10"></div>; // or a loading/empty state if you want
+        return <div className="mb-10"></div>; 
     }
     return (
         <div className="mx-auto max-w-screen-2xl border-t border-gray-200 px-6 py-16 text-center transition-colors duration-300 sm:px-16 lg:px-20 dark:border-gray-700 dark:bg-gray-900">
@@ -33,13 +34,12 @@ const MyEvent = () => {
                                         className="rounded-lg border border-white px-4 py-2 font-semibold text-white"
                                     >
                                         {t('Learn More')}
-                                    </Link>
+                                    </Link> 
                                 </div>
                             </div>
-
                             {/* Event Details */}
                             <div className="p-4">
-                                <h2 className="dark:text-primary line-clamp-2 font-medium text-start text-base text-red-700">
+                                <h2 className={`dark:text-primary line-clamp-2 font-medium text-start text-base text-red-700 ${fontClass}`}>
                                     {locale === 'kh' ? (item?.title_kh ?? item?.title) : item?.title}
                                 </h2>
                                 <div
@@ -51,7 +51,6 @@ const MyEvent = () => {
                     ))}
                 </div>
             </div>
-
                {/*Bottun all view  */}
            <div className='max-w-72 mx-auto'><MyAllView url='activities_and_events' title={t('All Events')}/></div>
             {/*Bottun all view  */}

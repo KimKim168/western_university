@@ -93,6 +93,7 @@ const MyNewFooter = () => {
                 {/* Copyright */}
                 <span className="text-white">{locale === 'kh' ? (application_info?.copyright_kh ?? application_info?.copyright) : application_info?.copyright}</span>
             </div>
+            
         </div>
     );
 };

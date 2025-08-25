@@ -1,9 +1,12 @@
+import { usePage } from '@inertiajs/react';
 import { useState } from 'react';
 
 const MyContent = ({ children }: { children: any[] }) => {
-    const [activeTitle, setActiveTitle] = useState(children[0]?.title); // default to first
+    const [activeTitle, setActiveTitle] = useState(children[0]?.title); 
 
     const activeItem = children.find((item) => item.title === activeTitle);
+    const { locale } = usePage().props;
+    // const fontClass = locale === 'kh' ? 'font-kantumruy' : '';
 
     return (
         <div className="px-6 py-16  lg:px-20">
@@ -21,7 +24,7 @@ const MyContent = ({ children }: { children: any[] }) => {
                                         isActive ? 'bg-red-700 text-white' : 'text-primary hover:bg-red-700 hover:text-white'
                                     }`}
                                 >
-                                    {item.title}
+                                    {locale === 'kh' ? (item.title_kh ?? item.title) : item.title}
                                 </button>
                             );
                         })}
@@ -33,11 +36,11 @@ const MyContent = ({ children }: { children: any[] }) => {
                     {activeItem && (
                         <>
                             <div className="w-full">
-                                <h1 className="text-primary w-full text-3xl leading-tight font-bold md:text-4xl">{activeItem.title}</h1>
+                                <h1 className="text-primary w-full text-3xl leading-tight font-bold md:text-4xl">{locale === 'kh' ? (activeItem.title_kh ?? activeItem.title) : activeItem.title}</h1>
                                 <div className="border-primary mt-4 w-16 border-b-2" />
                                 <div
                                     className="prose dark:prose-invert mt-6 w-full max-w-none"
-                                    dangerouslySetInnerHTML={{ __html: activeItem.long_description }}
+                                    dangerouslySetInnerHTML={{ __html: locale === 'kh' ? (activeItem.long_description_kh ?? activeItem.long_description) : activeItem.long_description }}
                                 />
                             </div>
                             <div>

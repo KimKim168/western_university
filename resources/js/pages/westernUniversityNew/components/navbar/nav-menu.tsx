@@ -9,7 +9,7 @@ export function MyNavMenu({ className }: { className?: string }) {
     const [active, setActive] = useState<string | null>(null);
     const { t } = useTranslation();
     const { locale } = usePage().props;
-    const fontClass = locale === 'kh' ? 'font-kantumruy' : '';
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
 
     return (
         <div className={cn('mx-auto w-full', className)}>

@@ -31,18 +31,16 @@ const MySlide = ({ className, images = [] }: { className?: string; images?: any 
                     ]}
                     opts={{ align: 'start', loop: false }}
                     setApi={setApi}
-                    className='bg-true-primary m-0'
+                    className="bg-true-primary m-0"
                 >
                     <CarouselContent>
-                        {images.map((image) => (
-                            <CarouselItem key={image.id} className='pl-0 rounded-none'>
+                        {images.map((image:any) => (
+                            <CarouselItem key={image.id} className="rounded-none pl-0">
                                 <Link href={image.link || '#'}>
                                     <img
-                                        className={`w-full aspect-[16/9] object-cover transition-all duration-500 ${
+                                        className={`aspect-[16/9] w-full object-cover transition-all duration-500 ${
                                             image.link ? 'border-primary hover:scale-95 hover:border-2' : ''
                                         }`}
-                                        // width={1050}
-                                        // height={300}
                                         src={`/assets/images/pages/${image.image}`}
                                         alt={image.name}
                                     />
@@ -52,12 +50,13 @@ const MySlide = ({ className, images = [] }: { className?: string; images?: any 
                     </CarouselContent>
                     <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center justify-center gap-2 py-2">
                         {Array.from({ length: count }).map((_, index) => (
-                            <div key={index} className={`size-3 rounded-full ${current === index + 1 ? ' bg-white' : 'border border-white'}`}></div>
+                            <button
+                                key={index}
+                                onClick={() => api?.scrollTo(index)} 
+                                className={`size-3 rounded-full transition-colors ${current === index + 1 ? 'bg-white' : 'border border-white'}`}
+                            />
                         ))}
                     </div>
-
-                    {/* <CarouselPrevious className="rounded-none max-md:hidden" />
-          <CarouselNext className="rounded-none max-md:hidden" /> */}
                 </Carousel>
             )}
         </div>

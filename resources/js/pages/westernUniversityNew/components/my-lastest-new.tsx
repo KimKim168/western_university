@@ -1,51 +1,11 @@
 import useTranslation from '@/hooks/use-translation';
 import { Link, usePage } from '@inertiajs/react';
 import MyAllView from './news-component/my-all-view';
-// import { CalendarClock } from 'lucide-react';
-
-// const newsItems = [
-//     {
-//         id: 1,
-//         title: 'Liberal Arts Colleges Rankings',
-//         description: 'Liberal Arts Colleges emphasize undergraduate education and award at least half of their degrees in the liberal arts fields of study.',
-//         image: 'assets/demo-images/banner5.jpg',
-//     },
-//     {
-//         id: 2,
-//         title: 'Ways Parents and Counselors Can Help Students Earn Scholarships',
-//         description: 'Liberal Arts Colleges emphasize undergraduate education and award at least half of their degrees in the liberal arts fields of study.',
-//         image: 'assets/demo-images/banner3.jpg',
-//     },
-//     {
-//         id: 3,
-//         title: 'Ways Parents and Counselors Can Help Students Earn Scholarships',
-//         description: 'Liberal Arts Colleges emphasize undergraduate education and award at least half of their degrees in the liberal arts fields of study.',
-//         image: 'assets/demo-images/banner3.jpg',
-//     },
-//     {
-//         id: 4,
-//         title: 'Ways Parents and Counselors Can Help Students Earn Scholarships',
-//         description: 'Liberal Arts Colleges emphasize undergraduate education and award at least half of their degrees in the liberal arts fields of study.',
-//         image: 'assets/demo-images/banner4.jpg',
-//     },
-//     {
-//         id: 5,
-//         title: 'Liberal Arts Colleges Rankings',
-//         description: 'Liberal Arts Colleges emphasize undergraduate education and award at least half of their degrees in the liberal arts fields of study.',
-//         image: 'assets/demo-images/banner3.jpg',
-//     },
-//     {
-//         id: 6,
-//         title: 'Liberal Arts Colleges Rankings',
-//         description: 'Liberal Arts Colleges emphasize undergraduate education and award at least half of their degrees in the liberal arts fields of study.',
-//         image: 'assets/demo-images/banner3.jpg',
-//     },
-// ];
 
 const MyLastestNew = () => {
     const { tableData, locale } = usePage().props;
     const { t } = useTranslation();
-    const fontClass = locale === 'kh' ? 'font-kantumruy' : '';
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
       if (!tableData || tableData.length === 0) {
         return <div className='mb-10'></div>; // or a loading/empty state if you want
     }

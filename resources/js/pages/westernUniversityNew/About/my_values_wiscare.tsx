@@ -1,44 +1,5 @@
 import { usePage } from "@inertiajs/react";
 
-// const faq = [
-//   {
-//     image: "/images/return.png",
-//     question: "What is your return policy?",
-//     answer:
-//       "You can return unused items in their original packaging within 30 days for a refund or exchange. Contact support for assistance.",
-//   },
-//   {
-//     image: "/images/track.png",
-//     question: "How do I track my order?",
-//     answer:
-//       "Track your order using the link provided in your confirmation email, or log into your account to view tracking details.",
-//   },
-//   {
-//     image: "/images/shipping.png",
-//     question: "Do you ship internationally?",
-//     answer:
-//       "Yes, we ship worldwide. Shipping fees and delivery times vary by location, and customs duties may apply for some countries.",
-//   },
-//   {
-//     image: "/images/payment.png",
-//     question: "What payment methods do you accept?",
-//     answer:
-//       "We accept Visa, MasterCard, American Express, PayPal, Apple Pay, and Google Pay, ensuring secure payment options for all customers.",
-//   },
-//   {
-//     image: "/images/damaged.png",
-//     question: "What if I receive a damaged item?",
-//     answer:
-//       "Please contact our support team within 48 hours of delivery with photos of the damaged item. We’ll arrange a replacement or refund.",
-//   },
-//   {
-//     image: "/images/support.png",
-//     question: "How can I contact customer support?",
-//     answer:
-//       "Reach out via email at support@example.com or call us at 1-800-123-4567 for assistance with any inquiries.",
-//   },
-// ];
-
 const MyValuesWiscare = () => {
     const { valuesWiscare, locale } = usePage().props;
     // console.log(valuesWiscare);

@@ -39,7 +39,7 @@ export const MenuItem = ({
     >
       <motion.div
         transition={{ duration: 0.3 }}
-        className={`text-base px-2 py-11 cursor-pointer font-noto-san-extra-light font-bold hover:text-red-800  ${
+        className={`text-base px-2 py-11 cursor-pointer font-bold hover:text-red-800  ${
           isActive ? "text-red-700" : "text-primary"
         } hover:opacity-90 flex gap-0.5 items-center ${className}`}
       >

@@ -1,5 +1,4 @@
 'use client';
-
 import { cn } from '@/lib/utils';
 import { usePage } from '@inertiajs/react';
 
@@ -22,10 +21,10 @@ type ParallaxScrollProps = {
 
 export const ParallaxScroll = ({ images, className }: ParallaxScrollProps) => {
     const renderImageCard = (item: ImageItem, idx: number) => {
-        const imgSrc = item.images[0]?.image ? `/assets/images/pages/${item.images?.[0]?.image}` : '/assets/images/placeholder.jpg'; // Optional placeholder
+        const imgSrc = item.images[0]?.image ? `/assets/images/pages/${item.images?.[0]?.image}` : '/assets/images/placeholder.jpg';
         const href = item.type && item.link ? item.link : (item.content ?? '#');
         const { locale } = usePage().props;
-
+        const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
         return (
             <div key={idx} className="group w-full">
                 <a href={href} className="block h-full">
@@ -38,7 +37,7 @@ export const ParallaxScroll = ({ images, className }: ParallaxScrollProps) => {
                             />
                         </div>
                         <div className="flex flex-1 flex-col p-5 text-gray-800 dark:text-white">
-                            <h3 className="mb-2 text-lg font-bold">{locale === 'kh' ? (item.title_kh ?? item.title) : item.title}</h3>
+                            <h3 className={`mb-2 text-lg font-bold ${fontClass}`}>{locale === 'kh' ? (item.title_kh ?? item.title) : item.title}</h3>
                             <p
                                 className="prose prose-base line-clamp-[10] text-base whitespace-pre-line text-gray-600 dark:text-gray-300"
                                 dangerouslySetInnerHTML={{

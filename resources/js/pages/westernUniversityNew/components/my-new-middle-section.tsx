@@ -4,7 +4,7 @@ import useTranslation from '@/hooks/use-translation';
 import { ImageSwiperHome } from './image-swiper-home';
 
 const MyNewMiddleSection = () => {
-    const { outreachPrograms, locale } = usePage().props;
+    const { outreachPrograms, locale } = usePage<any>().props;
     const { t } = useTranslation();
     if (!outreachPrograms || outreachPrograms?.lengt == 0) {
         return <div className="my-10"></div>;
@@ -20,7 +20,7 @@ const MyNewMiddleSection = () => {
                     <h2 className="text-4xl font-bold">{locale === 'kh' ? (outreachPrograms?.title_kh ?? outreachPrograms?.title) : outreachPrograms?.title}</h2>
                     <div className="my-5 h-1 w-16 bg-white"></div>
                     <div className="prose line-clamp-2 text-gray-300" dangerouslySetInnerHTML={{ __html: locale === 'kh' ? (outreachPrograms?.long_description_kh ?? outreachPrograms?.long_description) : outreachPrograms?.long_description }}></div>
-                    {outreachPrograms?.children?.map((item) => (
+                    {outreachPrograms?.children?.map((item:any) => (
                         <Link href={`/outreach_programs/${item.id}`}>
                             <div className="mt-6 flex overflow-hidden bg-white text-gray-800 shadow-md">
                                 <img src={`/assets/images/pages/${item?.images?.[0]?.image}`} alt="Course Image" className="w-1/4 object-cover" />
@@ -32,7 +32,7 @@ const MyNewMiddleSection = () => {
                         </Link>
                     ))}
                     {outreachPrograms?.children?.length >= 3 && (
-                        <div className='mt-6 mx-auto '><MyAllView url='outreach_programs' title={t('All Outreach Programs')}/></div>
+                        <div className='mt-6 mx-auto'><MyAllView url='outreach_programs' title={t('All Outreach Programs')}/></div>
                     )}
                 </div>
             </div>
