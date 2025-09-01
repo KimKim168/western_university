@@ -4,13 +4,15 @@ import { Label } from '@/components/ui/label';
 import { ProgressWithValue } from '@/components/ui/progress-with-value';
 import { Textarea } from '@/components/ui/textarea';
 import useTranslation from '@/hooks/use-translation';
-import { useForm } from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import { PaperclipIcon } from 'lucide-react';
 import { ChangeEvent, useState } from 'react';
 import { toast } from 'sonner';
 
 const CareerForm = ({ item }: { item: any }) => {
-    const { t, currentLocale } = useTranslation();
+    const { t} = useTranslation();
+    const {locale} = usePage().props;
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : '';
     const [fileKey, setFileKey] = useState(Date.now());
     const [successMessage, setSuccessMessage] = useState('');
 
@@ -82,17 +84,17 @@ const CareerForm = ({ item }: { item: any }) => {
                     type="tel"
                     value={data.phone}
                     onChange={(e) => setData('phone', e.target.value)}
-                    placeholder={t('Phone')}
+                    placeholder={t('Phone number')}
                     className="w-full max-w-full rounded-none"
                 />
                 {errors.phone && <p className="text-red-500">{errors.phone}</p>}
             </div>
 
             <div className="col-span-2">
-                <Label htmlFor="message">Message</Label>
+                <Label htmlFor="message">{t('Message')}</Label>
                 <Textarea
                     id="message"
-                    placeholder="Write your message here"
+                    placeholder={locale === 'kh' ? 'សរសេរសាររបស់អ្នកនៅទីនេះ' : 'Write your message here'}
                     value={data.message}
                     onChange={(e) => setData('message', e.target.value)}
                     className="mt-1.5"

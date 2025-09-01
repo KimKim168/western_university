@@ -49,7 +49,7 @@ const FormMessage = () => {
                 <div className="col-span-2">
                     <Label htmlFor="name" className={`${fontClass}`}>{locale === 'kh' ? 'ឈ្មោះ' : 'Name'}</Label>
                     <Input
-                        placeholder="Your full name"
+                        placeholder={locale === 'kh' ? "ឈ្មោះពេញរបស់អ្នក" : "Your full name"}
                         id="name"
                         value={data.name}
                         onChange={(e) => setData('name', e.target.value)}
@@ -62,7 +62,7 @@ const FormMessage = () => {
                     <Label htmlFor="phone" className={`${fontClass}`}>{locale === 'kh' ? 'លេខទូរស័ព្ទ' : 'Phone number'}</Label>
                     <Input
                         type="tel"
-                        placeholder="Phone number"
+                        placeholder={locale === 'kh' ? "លេខទូរស័ព្ទ" : "Phone number"}
                         id="phone"
                         value={data.phone}
                         onChange={(e) => setData('phone', e.target.value)}
@@ -75,7 +75,7 @@ const FormMessage = () => {
                     <Label htmlFor="email" className={`${fontClass}`}>{locale === 'kh' ? 'អ៊ីមែល' : 'Email'}</Label>
                     <Input
                         type="email"
-                        placeholder="Email"
+                        placeholder={locale === 'kh' ? 'អ៊ីមែល' : 'Email'}
                         id="email"
                         value={data.email}
                         onChange={(e) => setData('email', e.target.value)}
@@ -88,7 +88,7 @@ const FormMessage = () => {
                     <Label htmlFor="message" className={`${fontClass}`}> {locale === 'kh' ? 'សារ' : 'Message'}</Label>
                     <Textarea
                         id="message"
-                        placeholder="Write your message here"
+                        placeholder={locale === 'kh' ? "សរសេរសាររបស់អ្នកនៅទីនេះ" : "Write your message here"}
                         value={data.message}
                         onChange={(e) => setData('message', e.target.value)}
                         className="mt-1.5"
@@ -106,7 +106,7 @@ const FormMessage = () => {
             className="group mt-6 cursor-pointer relative bottom-0 z-10 flex items-center justify-center gap-2 overflow-hidden rounded-lg border border-[#000] bg-[#000] px-4 py-2 font-black text-[#FFF] uppercase duration-700 ease-in-out hover:bg-[#FFF] hover:text-[#000] focus:bg-[#FFF] focus:text-[#000] active:scale-95 active:duration-0"
         >
             <span className="absolute top-0 left-0 -z-10 h-full w-0 rounded-xl bg-[#FFF] transition-all duration-700 group-hover:w-full"></span>
-            <span className="z-10 truncate duration-300 ease-in-out group-focus:translate-x-96 group-active:-translate-x-96">{locale === 'kh' ? 'ផ្ញើសារ' : 'Send Message'} </span>
+            <span className="z-10 truncate duration-300 ease-in-out group-focus:translate-x-96 group-active:-translate-x-96">{locale === 'kh' ? 'ផ្ញើសារ' : 'Send Message'}</span>
 
             <div className="absolute z-10 flex -translate-x-96 flex-row items-center justify-center gap-2 duration-300 ease-in-out group-focus:translate-x-0 group-active:translate-x-0">
                 {/* Spinner animation */}

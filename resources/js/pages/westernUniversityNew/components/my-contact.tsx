@@ -29,7 +29,6 @@ const MyContact = () => {
                                 __html: locale === 'kh' ? (contact?.long_description_kh ?? contact?.long_description) : contact?.long_description,
                             }}
                         ></div>
-
                         <FormMessage />
                     </div>
 
@@ -67,17 +66,16 @@ const MyContact = () => {
                             <Separator className="mt-2 mb-4" />
                             <div className="text-primary flex items-center gap-2 text-base">
                                 <MapPin className="w-12" />
-                                <span>{application_info?.address}</span>
+                                <span>{locale === 'kh' ? (application_info?.address_kh ?? application_info?.address) : application_info?.address}</span>
                             </div>
                         </div>
-
                         {/* Opening Hours */}
                         <div>
                             <h3 className={`text-xl font-bold tracking-tight ${fontClass}`}>{locale === 'kh' ? 'ម៉ោងបើក' : 'Opening Hours'}</h3>
                             <Separator className="mt-2 mb-4" />
                             <div className="text-primary flex items-center gap-2 text-base">
                                 <CalendarClockIcon className="w-5" />
-                                <span>{application_info?.working_hours}</span>
+                                <span>{locale === 'kh' ? (application_info?.working_hours_kh ?? application_info?.working_hours) : application_info?.working_hours}</span>
                             </div>
                         </div>
                     </div>

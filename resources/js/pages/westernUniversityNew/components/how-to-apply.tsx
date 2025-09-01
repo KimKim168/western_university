@@ -1,11 +1,10 @@
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { useForm } from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import { PaperclipIcon } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
-import { Button } from './ui/moving-border';
 
 const HowToApply = () => {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -17,7 +16,8 @@ const HowToApply = () => {
     });
 
     const [successMessage, setSuccessMessage] = useState('');
-
+    const { locale } = usePage().props;
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : '';
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -50,11 +50,11 @@ const HowToApply = () => {
         <form className="mt-10" onSubmit={handleSubmit}>
             <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
                 <div className="col-span-2">
-                    <Label htmlFor="name">Name</Label>
+                    <Label htmlFor="name">{locale === 'kh' ? 'ឈ្មោះ' : 'Name'}</Label>
                     <Input
                         type="name"
                         id="name"
-                        placeholder="Name"
+                        placeholder={locale === 'kh' ? 'ឈ្មោះពេញរបស់អ្នក' : 'Your full name'}
                         value={data.name}
                         onChange={(e) => setData('name', e.target.value)}
                         className="mt-1.5 h-11"
@@ -62,11 +62,11 @@ const HowToApply = () => {
                     {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
                 </div>
                 <div className="col-span-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email">{locale === 'kh' ? 'អ៊ីមែល' : 'Email'}</Label>
                     <Input
                         type="email"
                         id="email"
-                        placeholder="Email"
+                        placeholder={locale === 'kh' ? 'អ៊ីមែល' : 'Email'}
                         value={data.email}
                         onChange={(e) => setData('email', e.target.value)}
                         className="mt-1.5 h-11"
@@ -74,11 +74,11 @@ const HowToApply = () => {
                     {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
                 </div>
                 <div className="col-span-2">
-                    <Label htmlFor="phone">Phone</Label>
+                    <Label htmlFor="phone">{locale === 'kh' ? 'លេខទូរស័ព្ទ' : 'Phone number'}</Label>
                     <Input
                         type="phone"
                         id="phone"
-                        placeholder="Phone"
+                        placeholder={locale === 'kh' ? 'លេខទូរស័ព្ទ' : 'Phone number'}
                         value={data.phone}
                         onChange={(e) => setData('phone', e.target.value)}
                         className="mt-1.5 h-11"
@@ -87,10 +87,10 @@ const HowToApply = () => {
                 </div>
 
                 <div className="col-span-2">
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message">{locale === 'kh' ? 'សារ' : 'Message'}</Label>
                     <Textarea
                         id="message"
-                        placeholder="Write your message here"
+                        placeholder={locale === 'kh' ? 'សរសេរសាររបស់អ្នកនៅទីនេះ' : 'Write your message here'}
                         value={data.message}
                         onChange={(e) => setData('message', e.target.value)}
                         className="mt-1.5"
@@ -119,10 +119,9 @@ const HowToApply = () => {
                     {successMessage && <p className="text-sm text-green-400">{successMessage}</p>}
                 </div>
             </div>
-            <button type="submit" disabled={processing} className="submit-button bg-primary text-primary-foreground  w-full h-11 mt-6">
-                {processing ? 'Submitting...' : 'Submit'}
+            <button type="submit" disabled={processing} className="submit-button bg-primary text-primary-foreground mt-6 h-11 w-full">
+                {processing ? (locale === 'kh' ? 'កំពុងដាក់ស្នើ...' : 'Submitting...') : locale === 'kh' ? 'ដាក់ស្នើ' : 'Submit'}
             </button>
-            
         </form>
     );
 };

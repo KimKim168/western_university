@@ -16,7 +16,7 @@ const Contact = () => {
   const { contact, locale } = usePage().props;
   const { t } = useTranslation();
   const fontClass =
-    locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
+  locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
 
   return (
     <MyNewLayout>
