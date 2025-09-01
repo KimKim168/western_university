@@ -1,6 +1,5 @@
 import { ArrowUpCircle } from 'lucide-react';
 import { ReactNode } from 'react';
-import { MyLanguage } from '../components/my-language';
 import MyNewFooter from '../components/my-new-footer';
 import MyTopSection from '../components/my-top-section';
 import NavbarPage from '../components/navbar/navbar';

@@ -18,7 +18,7 @@ const PostCard = ({ item, locale, fontClass }) => (
             <div className="p-4 text-start">
                 <h2 className={`line-clamp-2 text-xl font-bold text-red-700 dark:text-red-400 ${fontClass}`}>{locale === 'kh' ? (item?.title_kh ?? item?.title) : item?.title}</h2>
                 <p
-                    className="my-4 line-clamp-2 text-sm text-gray-500 dark:text-gray-300"
+                    className="mb-4 mt-1 line-clamp-2 text-sm text-gray-500 dark:text-gray-300"
                     dangerouslySetInnerHTML={{ __html:locale === 'kh' ? (item?.short_description_kh ?? item?.short_description) : item?.short_description}}
                 />
             </div>

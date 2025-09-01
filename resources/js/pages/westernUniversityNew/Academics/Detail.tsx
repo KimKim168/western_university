@@ -1,8 +1,11 @@
+import useTranslation from '@/hooks/use-translation';
 import { Link, usePage } from '@inertiajs/react';
 import MyNewLayout from '../layout/MyLayout';
 
 export default function ResourceDetail() {
-    const { showData, relatedPosts } = usePage().props;
+    const { showData, relatedPosts, locale } = usePage().props;
+    const { t } = useTranslation();
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
 
     return (
         <MyNewLayout>
@@ -11,11 +14,9 @@ export default function ResourceDetail() {
                 <div className="flex flex-col gap-12 lg:flex-row">
                     {/* Content Area */}
                     <div className="w-full">
-                        <h1 className="mb-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
-                            {showData?.title}
-                        </h1>
+                        <h1 className={`mb-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white ${fontClass}`}>{locale === 'kh' ? (showData?.title_kh ?? showData?.title) : showData?.title}</h1>
 
-                        {showData?.images?.[0]?.image && (
+                        {/* {showData?.images?.[0]?.image && (
                             <img
                                 src={`/assets/images/posts/${showData.images?.[0]?.image}`}
                                 alt={showData.name}
@@ -23,11 +24,11 @@ export default function ResourceDetail() {
                                 loading="lazy"
                                 decoding="async"
                             />
-                        )}
+                        )} */}
 
                         <div
                             className="prose dark:prose-invert ck-content w-full max-w-none"
-                            dangerouslySetInnerHTML={{ __html: showData?.long_description }}
+                            dangerouslySetInnerHTML={{ __html:locale === 'kh' ? (showData?.long_description_kh) : showData?.long_description }}
                         />
                     </div>
 
@@ -37,7 +38,7 @@ export default function ResourceDetail() {
                             Related
                         </h2>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-6">
+                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 lg:grid-cols-1">
                             {relatedPosts?.map((item) => {
                                 const date = new Date(item.post_date || item.created_at);
                                 const day = date.toLocaleDateString('en-US', { day: '2-digit' });
@@ -67,7 +68,7 @@ export default function ResourceDetail() {
 
                                         <div className="flex h-full space-x-3">
                                             {/* Date Block */}
-                                            <div className=" bg-[#2c318a] px-3 py-2 text-center text-white">
+                                            <div className="bg-[#2c318a] px-3 py-2 text-center text-white">
                                                 <p className="text-sm font-bold">{day}</p>
                                                 <p className="text-sm uppercase">{month}</p>
                                                 <p className="text-sm font-bold">{year}</p>
@@ -75,12 +76,10 @@ export default function ResourceDetail() {
 
                                             {/* Text Content */}
                                             <div className="flex flex-col py-2">
-                                                <h3 className="mb-1 line-clamp-2 text-sm font-semibold text-red-700 dark:text-primary">
+                                                <h3 className="dark:text-primary mb-1 line-clamp-2 text-sm font-semibold text-red-700">
                                                     {item.title}
                                                 </h3>
-                                                <p className="line-clamp-2 text-xs text-gray-700 dark:text-gray-300">
-                                                    {item.short_description}
-                                                </p>
+                                                <p className="line-clamp-2 text-xs text-gray-700 dark:text-gray-300">{item.short_description}</p>
                                             </div>
                                         </div>
                                     </Link>

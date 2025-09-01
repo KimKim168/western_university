@@ -13,13 +13,13 @@ const OutreachPrograms = () => {
     return (
         <MyNewLayout>
             <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20 dark:bg-red-950 ${fontClass}`}>
-                <p className="text-3xl text-white md:text-5xl">{outreachPrograms?.title}</p>
+                <p className="text-3xl text-white md:text-5xl mb-2">{locale === 'kh' ? (outreachPrograms?.title_kh ?? outreachPrograms?.title) : outreachPrograms?.title}</p>
                 <div>
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="/" className="text-white">
-                                    Home
+                                    {t('Home')}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator>
@@ -27,7 +27,7 @@ const OutreachPrograms = () => {
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="#/outreach_programs" className="text-gray-400">
-                                    {outreachPrograms?.title}
+                                    {locale === 'kh' ? (outreachPrograms?.title_kh ?? outreachPrograms?.title) : outreachPrograms?.title}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                         </BreadcrumbList>

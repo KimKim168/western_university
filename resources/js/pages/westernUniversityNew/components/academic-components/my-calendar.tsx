@@ -1,9 +1,12 @@
 import MyNoData from '@/components/my-no-data';
+import useTranslation from '@/hooks/use-translation';
 import { usePage } from '@inertiajs/react';
 import { useMemo, useState } from 'react';
 
 const MyCalendar = () => {
-    const { schoolCalendar } = usePage().props;
+    const { schoolCalendar, locale } = usePage().props;
+    const { t } = useTranslation();
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
 
     const groupedEvents = useMemo(() => {
         if (!Array.isArray(schoolCalendar)) return [];
@@ -93,7 +96,7 @@ const MyCalendar = () => {
                                 />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-blue-950/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                     <a href={`/detail/${event?.id}`} className="rounded-lg border border-white px-4 py-2 font-semibold text-white">
-                                        Learn More
+                                        {t('Learn More')}
                                     </a>
                                 </div>
                             </div>
@@ -104,13 +107,13 @@ const MyCalendar = () => {
                                     <p className="text-base font-bold">{year}</p>
                                 </div>
                                 <div className="my-2 text-left">
-                                    <h2 className="font-noto-san-extra-light dark:text-primary mb-2 line-clamp-2 text-base text-red-700">
-                                        {event.title}
+                                    <h2 className={`dark:text-primary mb-2 line-clamp-2 text-base text-red-700 ${fontClass}`}>
+                                        {locale === 'kh' ? (event.title_kh ?? event.title) : event.title}
                                     </h2>
                                     <div
-                                    className="prose line-clamp-2 dark:prose-invert w-full max-w-none"
-                                    dangerouslySetInnerHTML={{ __html: event.short_description }}
-                                />
+                                    className="line-clamp-2 "
+                                   
+                                >{locale === 'kh' ? (event?.short_description_kh ?? event?.short_description) : event?.short_description}</div>
                                 </div>
                             </div>
                         </div>

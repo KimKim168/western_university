@@ -1,14 +1,20 @@
 import { usePage } from '@inertiajs/react';
 
 const MyCouncilAction = () => {
-  const { studentCouncilInAction } = usePage().props;
+  const { studentCouncilInAction, locale } = usePage().props;
+  const fontClass = locale === 'kh' ? 'font-kantumruy' : '';
 
   return (
     <div className="flex items-center justify-center">
       <div className="mx-auto w-full max-w-screen-xl px-6 py-12 lg:px-0">
-        <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tighter border-l-4 border-red-700 pl-2">
-          {studentCouncilInAction?.title}
+        <h2
+          className={`mt-3 text-3xl md:text-4xl font-bold tracking-tighter border-l-4 border-red-700 pl-2 ${fontClass}`}
+        >
+          {locale === 'kh'
+            ? (studentCouncilInAction?.title_kh ?? studentCouncilInAction?.title)
+            : studentCouncilInAction?.title}
         </h2>
+
         {studentCouncilInAction?.children?.map((item, index) => {
           const isEven = index % 2 === 0;
 
@@ -29,16 +35,22 @@ const MyCouncilAction = () => {
                       />
                     </div>
 
-                    <span className="text-2xl font-semibold tracking-tight">
-                      {item?.title}
+                    <span className={`text-2xl font-semibold tracking-tight ${fontClass}`}>
+                      {locale === 'kh' ? (item?.title_kh ?? item?.title) : item?.title}
                     </span>
 
                     <ul className="mt-6 space-y-4 flex-grow">
                       <li>
                         <div className="flex items-start gap-3">
-                          <p className="-mt-0.5" dangerouslySetInnerHTML={{__html: item?.long_description}}>
-                           
-                          </p>
+                          <p
+                            className="-mt-0.5"
+                            dangerouslySetInnerHTML={{
+                              __html:
+                                locale === 'kh'
+                                  ? (item?.long_description_kh ?? item?.long_description)
+                                  : item?.long_description,
+                            }}
+                          ></p>
                         </div>
                       </li>
                     </ul>
@@ -68,16 +80,22 @@ const MyCouncilAction = () => {
                       />
                     </div>
 
-                    <span className="text-2xl font-semibold tracking-tight">
-                      {item?.title}
+                    <span className={`text-2xl font-semibold tracking-tight ${fontClass}`}>
+                      {locale === 'kh' ? (item?.title_kh ?? item?.title) : item?.title}
                     </span>
 
                     <ul className="mt-6 space-y-4 flex-grow">
                       <li>
                         <div className="flex items-start gap-3">
-                          <p className="-mt-0.5" dangerouslySetInnerHTML={{__html: item?.long_description}}>
-                           
-                          </p>
+                          <p
+                            className="-mt-0.5"
+                            dangerouslySetInnerHTML={{
+                              __html:
+                                locale === 'kh'
+                                  ? (item?.long_description_kh ?? item?.long_description)
+                                  : item?.long_description,
+                            }}
+                          ></p>
                         </div>
                       </li>
                     </ul>

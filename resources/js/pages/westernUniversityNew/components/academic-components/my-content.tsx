@@ -6,7 +6,6 @@ const MyContent = ({ children }: { children: any[] }) => {
 
     const activeItem = children.find((item) => item.title === activeTitle);
     const { locale } = usePage().props;
-    // const fontClass = locale === 'kh' ? 'font-kantumruy' : '';
 
     return (
         <div className="px-6 py-16  lg:px-20">

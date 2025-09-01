@@ -177,13 +177,15 @@ Route::get('/curriculum', function () {
 });
 
 Route::get('/school_calendar', function () {
+    $header = PostCategory::where('status', 'active')->first();
     $schoolCalendar = Post::where('category_code', 'SCHOOL_CALENDAR')
         ->with(['images'])
         ->where('status', 'active')
         ->get();
-    // return $schoolCalendar;
+    // return $header;
     return Inertia::render('westernUniversityNew/Academics/SchoolCalendars', [
         'schoolCalendar' => $schoolCalendar,
+        'header' => $header,
     ]);
 });
 

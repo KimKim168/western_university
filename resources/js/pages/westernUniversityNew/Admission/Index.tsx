@@ -8,17 +8,17 @@ import useTranslation from '@/hooks/use-translation';
 const Index = () => {
     const { admissions, locale } = usePage().props;
     const { t } = useTranslation();
-    const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
+    const fontClass = locale === 'kh' ? 'font-kantumruy mb-2' : 'font-noto-san-extra-light';
     return (
         <MyNewLayout>
             <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20 dark:bg-red-950 ${fontClass}`}>
-                <p className="text-3xl text-white md:text-5xl">{admissions?.title}</p>
+                <p className={`text-3xl text-white md:text-5xl ${fontClass}`}>{locale === 'kh' ? (admissions?.title_kh ?? admissions?.title) : admissions?.title}</p>
                 <div>
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="/" className="text-white">
-                                    Home
+                                     {t('Home')}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator>
@@ -26,14 +26,14 @@ const Index = () => {
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="#/history_and_values" className="text-gray-400">
-                                    {admissions?.title}
+                                    {locale === 'kh' ? (admissions?.title_kh ?? admissions?.title) : admissions?.title}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                         </BreadcrumbList>
                     </Breadcrumb>
                 </div>
             </div>
-            <MyHeroAdmissions admissions={admissions} />
+            <MyHeroAdmissions locale={locale} admissions={admissions} />
         </MyNewLayout>
     );
 };

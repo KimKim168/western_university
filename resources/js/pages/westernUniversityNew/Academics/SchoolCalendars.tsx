@@ -7,19 +7,19 @@ import useTranslation from '@/hooks/use-translation';
 import { usePage } from '@inertiajs/react';
 
 const SchoolCalendars = () => {
-    const { locale } = usePage().props;
+    const { locale, header } = usePage().props;
     const { t } = useTranslation();
     const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
     return (
         <MyNewLayout>
             <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20 dark:bg-red-950 ${fontClass}`}>
-                <p className="text-3xl text-white md:text-5xl">School Calendar</p>
+                <p className="text-3xl text-white md:text-5xl mb-2">{locale === 'kh' ? (header?.name_kh ?? header?.name) : header?.name}</p>
                 <div>
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="/" className="text-white">
-                                    Home
+                                    {t('Home')}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator>
@@ -27,7 +27,7 @@ const SchoolCalendars = () => {
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="#/school_calendar" className="text-gray-400">
-                                School Calendar
+                                {locale === 'kh' ? (header?.name_kh ?? header?.name) : header?.name}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                         </BreadcrumbList>

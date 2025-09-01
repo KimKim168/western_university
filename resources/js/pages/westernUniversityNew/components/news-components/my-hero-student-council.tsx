@@ -1,3 +1,5 @@
+import { usePage } from "@inertiajs/react";
+
 interface StudentCouncil {
   title: string;
   long_description: string;
@@ -8,6 +10,8 @@ const MyHeroStudentCouncil = ({ studentCouncil }: { studentCouncil: any }) => {
   if(!studentCouncil || studentCouncil?.lengt == 0){
     return <div className="my-10"></div>
   }
+  const { locale } = usePage().props;
+  // const fontClass = locale === 'kh' ? 'font-kantumruy' : 'font-noto-san-extra-light';
   return (
     <div className="flex flex-col max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-0 my-12 lg:my-16">
       
@@ -23,7 +27,6 @@ const MyHeroStudentCouncil = ({ studentCouncil }: { studentCouncil: any }) => {
           <div className="w-full sm:h-20"></div>
         )}
       </div>
-
       {/* Description Card */}
       <div className="relative z-10  lg:px-8 mt-10 lg:-mt-28">
         <div className="bg-background shadow-lg dark:shadow-foreground/10 rounded-xl 
@@ -31,11 +34,11 @@ const MyHeroStudentCouncil = ({ studentCouncil }: { studentCouncil: any }) => {
                         flex flex-col lg:flex-row items-start lg:items-center gap-6">
           <div className="flex-1 w-full break-words ">
             <h3 className="text-2xl text-primary sm:text-3xl font-bold tracking-tight mb-4">
-              {studentCouncil?.title}
+              {locale === 'kh' ? (studentCouncil?.title_kh ?? studentCouncil?.title) : studentCouncil?.title}
             </h3>
             <div
               className="prose max-w-none dark:prose-invert ck-content leading-relaxed text-muted-foreground"
-              dangerouslySetInnerHTML={{ __html: studentCouncil?.long_description }}
+              dangerouslySetInnerHTML={{ __html:locale === 'kh' ? (studentCouncil?.long_description_kh ?? studentCouncil?.long_description) : studentCouncil?.long_description }}
             />
           </div>
         </div>

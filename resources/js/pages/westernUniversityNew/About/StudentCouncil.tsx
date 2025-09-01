@@ -15,21 +15,21 @@ const StudentCouncil = () => {
     return (
         <MyNewLayout>
             <div className={`relative flex h-full w-full flex-col items-center justify-center bg-red-900 p-10 text-white md:p-20 dark:bg-red-950 ${fontClass}`}>
-                <p className="text-3xl text-white md:text-5xl">{studentCouncil?.title}</p>
+                <p className="text-3xl text-white md:text-5xl mb-2">{locale === 'kh' ? (studentCouncil?.title_kh ?? studentCouncil?.title) : studentCouncil?.title}</p>
                 <div>
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>
                                 <BreadcrumbLink href="/" className="text-white">
-                                    Home
+                                    {t("Home")}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator>
                                 <Slash className="text-gray-400" />
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="#/history_and_values" className="text-gray-400">
-                                {studentCouncil?.title}
+                                <BreadcrumbLink href="#/student_council" className="text-gray-400">
+                                {locale === 'kh' ? (studentCouncil?.title_kh ?? studentCouncil?.title) : studentCouncil?.title}
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                         </BreadcrumbList>

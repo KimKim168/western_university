@@ -1,7 +1,7 @@
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { useForm } from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
@@ -12,6 +12,8 @@ const FormMessage = () => {
         email: '',
         message: '',
     });
+    const { locale } = usePage().props;
+    const fontClass = locale === 'kh' ? 'font-kantumruy' : '';
     const [successMessage, setSuccessMessage] = useState('');
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -45,7 +47,7 @@ const FormMessage = () => {
         <form className="mt-10" onSubmit={handleSubmit}>
             <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
                 <div className="col-span-2">
-                    <Label htmlFor="name">Name</Label>
+                    <Label htmlFor="name" className={`${fontClass}`}>{locale === 'kh' ? 'ឈ្មោះ' : 'Name'}</Label>
                     <Input
                         placeholder="Your full name"
                         id="name"
@@ -57,7 +59,7 @@ const FormMessage = () => {
                 </div>
 
                 <div className="col-span-2">
-                    <Label htmlFor="phone">Phone</Label>
+                    <Label htmlFor="phone" className={`${fontClass}`}>{locale === 'kh' ? 'លេខទូរស័ព្ទ' : 'Phone number'}</Label>
                     <Input
                         type="tel"
                         placeholder="Phone number"
@@ -70,7 +72,7 @@ const FormMessage = () => {
                 </div>
 
                 <div className="col-span-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email" className={`${fontClass}`}>{locale === 'kh' ? 'អ៊ីមែល' : 'Email'}</Label>
                     <Input
                         type="email"
                         placeholder="Email"
@@ -83,7 +85,7 @@ const FormMessage = () => {
                 </div>
 
                 <div className="col-span-2">
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message" className={`${fontClass}`}> {locale === 'kh' ? 'សារ' : 'Message'}</Label>
                     <Textarea
                         id="message"
                         placeholder="Write your message here"
@@ -104,7 +106,7 @@ const FormMessage = () => {
             className="group mt-6 cursor-pointer relative bottom-0 z-10 flex items-center justify-center gap-2 overflow-hidden rounded-lg border border-[#000] bg-[#000] px-4 py-2 font-black text-[#FFF] uppercase duration-700 ease-in-out hover:bg-[#FFF] hover:text-[#000] focus:bg-[#FFF] focus:text-[#000] active:scale-95 active:duration-0"
         >
             <span className="absolute top-0 left-0 -z-10 h-full w-0 rounded-xl bg-[#FFF] transition-all duration-700 group-hover:w-full"></span>
-            <span className="z-10 truncate duration-300 ease-in-out group-focus:translate-x-96 group-active:-translate-x-96">Send Message</span>
+            <span className="z-10 truncate duration-300 ease-in-out group-focus:translate-x-96 group-active:-translate-x-96">{locale === 'kh' ? 'ផ្ញើសារ' : 'Send Message'} </span>
 
             <div className="absolute z-10 flex -translate-x-96 flex-row items-center justify-center gap-2 duration-300 ease-in-out group-focus:translate-x-0 group-active:translate-x-0">
                 {/* Spinner animation */}
