@@ -13,7 +13,7 @@ const HestoryAndValues = () => {
     const { ourMission } = usePage().props;
     const { valuesWiscare } = usePage().props;
     const { ourHistoryBanner } = usePage().props;
-    // console.log(ourHistoryBanner);
+    console.log(ourVision);
 
     return (
         <MyLayoutWestern>

@@ -85,10 +85,20 @@ const MyMission = () => {
                             {locale === 'kh' ? (mission?.title_kh ?? mission?.title) : mission?.title}
                         </h1>
                         <div className="border-primary my-4 w-15 border-[1.5px]" />
+                        {/* {mission?.short_description ? (
+                            <div
+                                className="prose-p:dark:text-white prose max-w-[70ch] text-base whitespace-pre-line"
+                                dangerouslySetInnerHTML={{
+                                    __html:
+                                        locale === 'kh' ? (mission?.short_description_kh ?? mission?.short_description) : mission?.short_description,
+                                }}
+                            />
+                        ): null} */}
+
                         <div
                             className="prose-p:dark:text-white prose max-w-[70ch] text-base whitespace-pre-line"
                             dangerouslySetInnerHTML={{
-                                __html: locale === 'kh' ? (mission?.short_description_kh ?? mission?.short_description) : mission?.short_description,
+                                __html: locale === 'kh' ? (mission?.long_description_kh ?? mission?.long_description) : mission?.long_description,
                             }}
                         />
                     </div>
