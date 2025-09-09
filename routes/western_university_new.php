@@ -96,7 +96,7 @@ Route::get('/history_and_values', function () {
 Route::get('/school_facilities', function () {
     $schoolFacilities = Page::where('code', 'SCHOOL_FACILITIES')
         ->with([
-            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index', 'desc')->with('images'),
+            'children' => fn($sub_query) => $sub_query->where('status', 'active')->orderBy('order_index')->with('images'),
         ])
         ->first();
     // return $schoolFacilities;
