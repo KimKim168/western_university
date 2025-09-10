@@ -62,7 +62,7 @@ const MyContact = () => {
 
                         {/* Address */}
                         <div>
-                            <h3 className={`text-xl font-bold tracking-tight ${fontClass}`}>{locale === 'kh' ? 'អាសយដ្ឋាន' : 'Address'}</h3>
+                            <h3 className={`text-xl font-bold tracking-tight ${fontClass}`}>{locale === 'kh' ? 'អាស័យដ្ឋាន' : 'Address'}</h3>
                             <Separator className="mt-2 mb-4" />
                             <div className="text-primary flex items-center gap-2 text-base">
                                 <MapPin className="w-12" />
